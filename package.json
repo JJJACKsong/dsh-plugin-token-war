@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-token-war",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "private": false,
   "description": "Token War：DSH 侧栏里的自动经营小游戏。循环任务、模型军团、厂商事件、蒸馏与离线成长；固定单屏、纯本地、不打扰。",
   "type": "module",

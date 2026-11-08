@@ -245,6 +245,18 @@
 .tw-app[data-compact=true] .tw-metric-coins .tw-metric-value{font-size:28px}
 .tw-app[data-compact=true] .tw-metric-stage .tw-metric-value{font-size:16px}
 .tw-app[data-compact=true] .tw-status-actions button{height:23px;padding:0 7px;font-size:9px}
+.tw-app[data-compact=true] .tw-statusbar{min-height:56px}
+.tw-app[data-compact=true] .tw-status-actions button{height:30px;padding:0 9px;font-size:10px}
+.tw-app[data-compact=true] .tw-run{height:28px;font-size:10px}
+.tw-app[data-compact=true] .tw-notice-rail{height:30px}
+.tw-app[data-compact=true] .tw-ws-tabs button{height:34px;font-size:11px;padding:0 12px}
+.tw-app[data-compact=true] .tw-panel-head{height:34px}
+.tw-app[data-compact=true] .tw-task-row{grid-template-columns:18px minmax(0,1fr) 70px 94px;height:40px;gap:7px;padding:0 4px}
+.tw-app[data-compact=true] .tw-task-name{font-size:12px}
+.tw-app[data-compact=true] .tw-task-reward{font-size:10.5px}
+.tw-app[data-compact=true] .tw-task-reward small{font-size:8.5px}
+.tw-app[data-compact=true] .tw-up{height:28px;font-size:9px;padding:0 5px}
+.tw-app[data-compact=true] .tw-panel-title{font-size:12px}
 .tw-app[data-compact=true] .tw-task-lv{display:none}
 .tw-app[data-compact=true] .tw-task-row{grid-template-columns:20px minmax(0,1fr) 60px 80px}
 

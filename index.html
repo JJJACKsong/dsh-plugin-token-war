@@ -245,6 +245,18 @@
 .tw-app[data-compact=true] .tw-metric-coins .tw-metric-value{font-size:28px}
 .tw-app[data-compact=true] .tw-metric-stage .tw-metric-value{font-size:16px}
 .tw-app[data-compact=true] .tw-status-actions button{height:23px;padding:0 7px;font-size:9px}
+.tw-app[data-compact=true] .tw-statusbar{min-height:56px}
+.tw-app[data-compact=true] .tw-status-actions button{height:30px;padding:0 9px;font-size:10px}
+.tw-app[data-compact=true] .tw-run{height:28px;font-size:10px}
+.tw-app[data-compact=true] .tw-notice-rail{height:30px}
+.tw-app[data-compact=true] .tw-ws-tabs button{height:34px;font-size:11px;padding:0 12px}
+.tw-app[data-compact=true] .tw-panel-head{height:34px}
+.tw-app[data-compact=true] .tw-task-row{grid-template-columns:18px minmax(0,1fr) 70px 94px;height:40px;gap:7px;padding:0 4px}
+.tw-app[data-compact=true] .tw-task-name{font-size:12px}
+.tw-app[data-compact=true] .tw-task-reward{font-size:10.5px}
+.tw-app[data-compact=true] .tw-task-reward small{font-size:8.5px}
+.tw-app[data-compact=true] .tw-up{height:28px;font-size:9px;padding:0 5px}
+.tw-app[data-compact=true] .tw-panel-title{font-size:12px}
 .tw-app[data-compact=true] .tw-task-lv{display:none}
 .tw-app[data-compact=true] .tw-task-row{grid-template-columns:20px minmax(0,1fr) 60px 80px}
 
@@ -357,7 +369,7 @@ const {amount,fromLog,log,add,subtract,multiply,scale,divide,power,numeric,ratio
 const {TASKS,ROSTER,EVENTS} = __twmods["config"];
 
 const SAVE_VERSION = 1;
-const GAME_VERSION = '0.4.1';
+const GAME_VERSION = '0.4.2';
 const MAX_OFFLINE_MS = 30 * 86400000;
 const HP_GROWTH = 1.085;
 const TRAIN_GROWTH = 1.15;
@@ -945,14 +957,16 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
     for(let x=-100;x<W+200;x+=90){ctx.beginPath();ctx.moveTo(W*.5+(x-W*.5)*.75,groundY+1);ctx.lineTo(x,H);ctx.stroke();}
     const ev=currentEvent(s);
     ctx.textAlign='left';ctx.textBaseline='alphabetic';
-    // 左侧 70%：最多 5 个角色，尺寸随战场高度
+    // 左侧：手机/窄屏最多 3 个角色，避免和敌人卡互相遮挡
     const owned=ROSTER.enabledVendors.filter(v=>ROSTER.models.some(m=>m.vendor===v&&s.models.includes(m.id)));
-    const leftW=W*0.70;
+    const compactCanvas=W<520;
+    const visibleOwned=compactCanvas?owned.slice(0,3):owned;
+    const leftW=W*(compactCanvas?0.66:0.70);
     const charH=Math.max(40,Math.min(H*0.64,groundY-14));
     const scaleC=charH/192;
     const slot=Math.max(56,Math.min(150,leftW/Math.max(1,owned.length)));
-    const x0=(leftW-slot*owned.length)/2+slot/2;
-    owned.forEach((id,i)=>{
+    const x0=(leftW-slot*visibleOwned.length)/2+slot/2;
+    visibleOwned.forEach((id,i)=>{
       loadCharacter(id);
       const character=CATALOG.characters.find(c=>c.id===id),image=images.get(id),x=x0+i*slot;
       const t=(animationTime+i*550)%2800;
@@ -964,11 +978,11 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
       if(image)drawFrame(ctx,image,CATALOG,frame,x,groundY+1,scaleC);
       else{ctx.fillStyle=VENDOR_COLORS[id];ctx.fillRect(x-charH*.18,groundY-charH*.7,charH*.36,charH*.7);}
       ctx.save();ctx.shadowColor='#000000';ctx.shadowBlur=3;ctx.shadowOffsetY=1;
-      ctx.textAlign='center';ctx.font="700 11px 'PingFang SC','Heiti SC',system-ui,sans-serif";ctx.fillStyle=VENDOR_TEXT[id]||VENDOR_COLORS[id];
+      ctx.textAlign='center';ctx.font=`700 ${compactCanvas?10:11}px 'PingFang SC','Heiti SC',system-ui,sans-serif`;ctx.fillStyle=VENDOR_TEXT[id]||VENDOR_COLORS[id];
       ctx.fillText(fitText(VENDOR_LABELS[id],slot-4),x,groundY+14);
       if(H>=112){
         const latest=ROSTER.models.filter(m=>m.vendor===id&&s.models.includes(m.id)).at(-1);
-        ctx.globalAlpha=.86;ctx.font="10px 'PingFang SC','Heiti SC',system-ui,sans-serif";ctx.fillStyle=VENDOR_TEXT[id]||VENDOR_COLORS[id];
+        ctx.globalAlpha=.86;ctx.font=`${compactCanvas?9:10}px 'PingFang SC','Heiti SC',system-ui,sans-serif`;ctx.fillStyle=VENDOR_TEXT[id]||VENDOR_COLORS[id];
         ctx.fillText(fitText(latest?latest.name:'',slot-4),x,groundY+26);
         ctx.globalAlpha=1;
       }
@@ -980,7 +994,7 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
       }
     });
     // 右侧 26%：敌人 / TODO 任务卡
-    const cardW=Math.max(132,Math.round(W*0.26)),cardX=Math.round(W-cardW-12);
+    const cardW=Math.max(compactCanvas?96:132,Math.round(W*(compactCanvas?0.27:0.26))),cardX=Math.round(W-cardW-(compactCanvas?8:12));
     const cardTop=Math.max(26,Math.round(H*0.16)),cardH=Math.max(38,groundY-cardTop-26);
     const boss=s.stage%10===0;
     ctx.save();ctx.shadowColor='#000000';ctx.shadowBlur=3;ctx.shadowOffsetY=1;
@@ -1008,8 +1022,8 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
     const labelY=barY+barH+4,labelH=17;
     ctx.fillStyle='#17181D';ctx.fillRect(cardX,labelY,cardW,labelH);
     ctx.strokeStyle='#E9E3D6';ctx.lineWidth=1;ctx.strokeRect(cardX+.5,labelY+.5,cardW-1,labelH-1);
-    ctx.textAlign='center';ctx.font="600 10px 'PingFang SC','Heiti SC',system-ui,sans-serif";ctx.fillStyle='#E9E3D6';
-    ctx.fillText(`剩余工作量 ${Math.round(hp*100)}% · STAGE ${s.stage}`,cardX+cardW/2,labelY+12);
+    ctx.textAlign='center';ctx.font=`600 ${compactCanvas?8:10}px 'PingFang SC','Heiti SC',system-ui,sans-serif`;ctx.fillStyle='#E9E3D6';
+    ctx.fillText(compactCanvas?`剩余 ${Math.round(hp*100)}% · ST ${s.stage}`:`剩余工作量 ${Math.round(hp*100)}% · STAGE ${s.stage}`,cardX+cardW/2,labelY+(compactCanvas?11:12));
     lastRenderedStage=s.stage;
     if(s.paused||!held){
       ctx.fillStyle='#0E0F12E6';ctx.fillRect(0,0,W,H);
