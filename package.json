@@ -1,0 +1,77 @@
+{
+  "name": "dsh-plugin-token-war",
+  "version": "0.4.1",
+  "private": false,
+  "description": "Token War：DSH 侧栏里的自动经营小游戏。循环任务、模型军团、厂商事件、蒸馏与离线成长；固定单屏、纯本地、不打扰。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "data",
+    "locale",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "CHANGELOG.md",
+    "index.html"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "test:assets": "node tools/check-assets.mjs",
+    "preview": "node tools/serve.mjs",
+    "test:assets:full": "node tools/check-assets.mjs --sources",
+    "test:assets:visual": "python3 tools/validate_assets.py",
+    "verify": "npm run build && npm test && npm run test:assets:full",
+    "build": "node tools/build.mjs",
+    "start": "node tools/serve.mjs",
+    "simulate": "node tools/simulate.mjs",
+    "simulate:long": "node tools/simulate.mjs --long",
+    "test:browser": "python3 tools/test-game-browser.py"
+  },
+  "license": "MIT",
+  "engines": {
+    "dsh": ">=0.2.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "author": "JJJACKsong",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JJJACKsong/dsh-plugin-token-war.git"
+  },
+  "homepage": "https://github.com/JJJACKsong/dsh-plugin-token-war#readme",
+  "bugs": {
+    "url": "https://github.com/JJJACKsong/dsh-plugin-token-war/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "game",
+    "idle-game",
+    "incremental",
+    "token-war"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

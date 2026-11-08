@@ -1,0 +1,125 @@
+{
+  "characters": [
+    {
+      "id": "deepseek",
+      "sourceSha256": "a97e775b93292de4d90a1319b1c6c5588c33a870f195e297936d41d73cea1298",
+      "uniqueSourcePoses": 9,
+      "normalizationScale": 0.4131455399061033,
+      "atlasSize": [
+        576,
+        576
+      ],
+      "transparent": true,
+      "sourceEffectTouchesEdge": false
+    },
+    {
+      "id": "chatgpt",
+      "sourceSha256": "3dad0f903f8e0ebc481d7ae15288f7f34d608b597b383a7c9ddd6a3c2d9e4eeb",
+      "uniqueSourcePoses": 9,
+      "normalizationScale": 0.37130801687763715,
+      "atlasSize": [
+        576,
+        576
+      ],
+      "transparent": true,
+      "sourceEffectTouchesEdge": false
+    },
+    {
+      "id": "claude",
+      "sourceSha256": "3b51dbda50de92cb2c0ca3be4a30b2f79f45f55ac6b35d4075e8b743db0ab56e",
+      "uniqueSourcePoses": 9,
+      "normalizationScale": 0.35918367346938773,
+      "atlasSize": [
+        576,
+        576
+      ],
+      "transparent": true,
+      "sourceEffectTouchesEdge": false
+    },
+    {
+      "id": "glm",
+      "sourceSha256": "01f831c2c8c1961e5463dee1f53d00d139a9ab483efcb3814d855950ea328904",
+      "uniqueSourcePoses": 9,
+      "normalizationScale": 0.3793103448275862,
+      "atlasSize": [
+        576,
+        576
+      ],
+      "transparent": true,
+      "sourceEffectTouchesEdge": true
+    },
+    {
+      "id": "grok",
+      "sourceSha256": "5acb2ae40935bafdbc5daec9d55d4c3431ff3eecc416e856bc018efb49307b80",
+      "uniqueSourcePoses": 9,
+      "normalizationScale": 0.36213991769547327,
+      "atlasSize": [
+        576,
+        576
+      ],
+      "transparent": true,
+      "sourceEffectTouchesEdge": false
+    },
+    {
+      "id": "gemini",
+      "sourceSha256": "5aba082692632d7d430a4b55e25b1d056e1ae8d1e274fa80c3539357bcffbb01",
+      "uniqueSourcePoses": 9,
+      "normalizationScale": 0.35772357723577236,
+      "atlasSize": [
+        576,
+        576
+      ],
+      "transparent": true,
+      "sourceEffectTouchesEdge": true
+    },
+    {
+      "id": "kimi",
+      "sourceSha256": "9ecdeeb34f9d99a0b959b2ea016ffe35cc8e6da75d4859247b9b37509f2ab620",
+      "uniqueSourcePoses": 9,
+      "normalizationScale": 0.34108527131782945,
+      "atlasSize": [
+        576,
+        576
+      ],
+      "transparent": true,
+      "sourceEffectTouchesEdge": true
+    },
+    {
+      "id": "qwen",
+      "sourceSha256": "3ebee97b62016f501b45f2e5fac46ada2ac71b26e05d38fcd0ef226cc8a4216d",
+      "uniqueSourcePoses": 9,
+      "normalizationScale": 0.3876651982378855,
+      "atlasSize": [
+        576,
+        576
+      ],
+      "transparent": true,
+      "sourceEffectTouchesEdge": true
+    },
+    {
+      "id": "doubao",
+      "sourceSha256": "5d0b3506ece6539adbe8185c23fb3f268988f40342240969378b0b83d0724cbb",
+      "uniqueSourcePoses": 9,
+      "normalizationScale": 0.33976833976833976,
+      "atlasSize": [
+        576,
+        576
+      ],
+      "transparent": true,
+      "sourceEffectTouchesEdge": true
+    },
+    {
+      "id": "minimax",
+      "sourceSha256": "c9ada3df6f5974401547095a4534f28c2ff06e60e9c8c911e3580fc4e3916a81",
+      "uniqueSourcePoses": 9,
+      "normalizationScale": 0.41904761904761906,
+      "atlasSize": [
+        576,
+        576
+      ],
+      "transparent": true,
+      "sourceEffectTouchesEdge": false
+    }
+  ],
+  "newPosesGenerated": false
+}

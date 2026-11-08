@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Token War · 动画资产检查</title>
+<style>
+:root{color-scheme:dark;font:16px system-ui,sans-serif}body{margin:0;background:#10141c;color:#e7ebf4}main{max-width:1000px;margin:36px auto;padding:0 24px}header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #303747;padding-bottom:22px}h1{margin:8px 0;font-size:30px;letter-spacing:-1px}.eyebrow{color:#80b8ff;font-size:12px;letter-spacing:2px}p,small{color:#aab5c7;line-height:1.7}.tag{border:1px solid #475571;border-radius:20px;padding:7px 12px;font-size:12px}.controls{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0}label{display:flex;align-items:center;gap:7px;font-size:14px}select,button{font:inherit;background:#222b3a;color:inherit;padding:9px 12px;border:1px solid #4a5870;border-radius:8px}button{cursor:pointer}button:disabled{opacity:.5}.stage{min-height:420px;border:1px solid #394359;border-radius:16px;display:grid;place-items:center;background:repeating-conic-gradient(#1c2432 0% 25%,#232d3d 0% 50%) 50%/24px 24px}.stage.light{background:repeating-conic-gradient(#e1e4e8 0% 25%,#f7f8fa 0% 50%) 50%/24px 24px}canvas{width:384px;max-width:100%;height:auto;image-rendering:pixelated}#status{padding:16px 0;font:13px ui-monospace,monospace;color:#bad4fb;min-height:18px}.note{border-left:3px solid #526b94;padding-left:15px;font-size:14px}.links{display:flex;gap:12px;flex-wrap:wrap}.links a{color:#9dc8ff;font-size:14px}input[type=checkbox]{accent-color:#80b8ff}footer{border-top:1px solid #303747;padding-top:18px;margin-top:24px;font-size:13px;color:#98a7bd}
+</style>
+<main><header><div><div class="eyebrow">TOKEN WAR / ASSET LAB</div><h1>角色动画检查</h1></div><span class="tag">现有素材 · 非首发名单</span></header>
+<p>不再新增角色。这里检查已有的待机、移动和攻击动画，不运行游戏经济或调用模型 API。</p>
+<div class="controls"><label>角色 <select id="character" aria-label="角色"></select></label><label>状态 <select id="state" aria-label="状态"><option value="idle">待机</option><option value="move">移动</option><option value="attack">攻击</option></select></label><label>速度 <select id="speed" aria-label="速度"><option value="1">正常</option><option value="0.5">半速</option></select></label><button id="pause">暂停</button><button id="replay">重播</button><button id="step">下一帧</button><button id="background">浅色背景</button><label><input id="loop" type="checkbox">循环预览攻击</label></div>
+<div class="stage" id="stage"><canvas id="canvas" width="192" height="192"></canvas></div><div id="status" aria-live="off"></div>
+<div class="links" id="links"></div><p class="note">每种状态有 3 个不同源姿势。移动的重复帧、攻击后的回位属于播放编排，不是额外生成的动作帧。个别源攻击特效边缘仍需美术复查。</p><footer>仅加载当前角色图集；按姿势变化绘制。暂停或切到后台后取消定时器，回来不会跳过暂停时间。该页面不是已完成的可玩游戏。</footer></main>
+<script id="asset-data" type="application/json">null</script>
+<script type="module">
+import {selectFrame,drawFrame} from '../lib/animation.js';
+import {createPlaybackClock,resolveClip,nextPoseDelay} from '../lib/playback.js';
+const $=s=>document.querySelector(s),status=$('#status'),canvas=$('#canvas'),ctx=canvas.getContext('2d');
+const characters=$('#character'),states=$('#state'),pause=$('#pause'),loop=$('#loop'),speed=$('#speed');
+const clock=createPlaybackClock();
+const embedded=JSON.parse($('#asset-data').textContent);
+let catalog,image,current,timer=null,paused=false,ticket=0,draws=0;
+function clip(){return resolveClip(catalog,current,states.value,loop.checked&&states.value==='attack');}
+function cancel(){if(timer!==null)clearTimeout(timer);timer=null;clock.pause();}
+function render(){if(!image)return;const sample=selectFrame(clip(),clock.read()*Number(speed.value));ctx.clearRect(0,0,192,192);drawFrame(ctx,image,catalog,sample.frame,96,176);draws++;canvas.dataset.frame=String(sample.frame);canvas.dataset.draws=String(draws);status.textContent=`${current.displayName} · ${states.options[states.selectedIndex].text} · 帧 ${sample.frame} · ${paused?'已暂停':sample.done?'单次播放完成':'播放中'} · 192×192`;}
+function tick(){timer=null;if(paused||document.hidden||!image){clock.pause();return;}render();const delay=nextPoseDelay(clip(),clock.read()*Number(speed.value));if(delay===null){clock.pause();return;}timer=setTimeout(tick,Math.ceil(delay/Number(speed.value)));}
+function resume(){cancel();if(!image||paused||document.hidden){if(!document.hidden)render();return;}clock.resume();tick();}
+function reset(){cancel();clock.seek(0);resume();}
+async function load(){const t=++ticket;cancel();image=null;current=catalog.characters.find(c=>c.id===characters.value);ctx.clearRect(0,0,192,192);status.textContent='加载图集……';const next=new Image();next.src=embedded?.images[current.id]||'../'+current.atlas;try{await next.decode();if(t!==ticket)return;image=next;clock.seek(0);$('#links').replaceChildren();if(!embedded){for(const state of ['idle','move','attack']){const a=document.createElement('a');a.href=`../assets/characters/${current.id}/${state}.gif`;a.textContent=state+' GIF';a.target='_blank';a.rel='noopener';$('#links').append(a);}}resume();}catch(e){if(t===ticket)status.textContent='图集缺失或损坏：请导入完整素材并运行 npm run verify。';}}
+try{if(embedded)catalog=embedded.catalog;else{const response=await fetch('../assets/catalog.json');if(!response.ok)throw new Error('索引不可读');catalog=await response.json();}for(const c of catalog.characters){const option=document.createElement('option');option.value=c.id;option.textContent=c.displayName;characters.append(option);}await load();}catch(e){status.textContent=String(e);}
+characters.onchange=load;states.onchange=reset;speed.onchange=reset;loop.onchange=reset;
+pause.onclick=()=>{paused=!paused;pause.textContent=paused?'继续':'暂停';resume();};$('#replay').onclick=reset;
+$('#background').onclick=()=>{const light=$('#stage').classList.toggle('light');$('#background').textContent=light?'深色背景':'浅色背景';};
+$('#step').onclick=()=>{if(!image)return;paused=true;pause.textContent='继续';cancel();const c=clip(),total=c.durationsMs.reduce((a,b)=>a+b,0);let t=(clock.read()*Number(speed.value))%total,position=0;for(const d of c.durationsMs){position+=d;if(position>t+0.001)break;}clock.seek((position>=total?0:position)/Number(speed.value));render();};
+document.addEventListener('visibilitychange',resume);window.addEventListener('pagehide',cancel);window.addEventListener('pageshow',resume);
+</script></html>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 64 64" role="img" aria-label="Token War">
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="#0E0F12"/>
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#E9E3D6" stroke-width="2.5"/>
+  <g stroke="#F1EDE2" stroke-width="5" stroke-linecap="square">
+    <line x1="14" y1="50" x2="48" y2="16"/>
+    <line x1="50" y1="50" x2="16" y2="16"/>
+  </g>
+  <path d="M48 16 L55 9 L50 20 Z" fill="#F1EDE2"/>
+  <path d="M16 16 L9 9 L14 20 Z" fill="#F1EDE2"/>
+  <circle cx="14" cy="50" r="3.6" fill="#4D6BFE" stroke="#0E0F12" stroke-width="1.2"/>
+  <circle cx="50" cy="50" r="3.6" fill="#4D6BFE" stroke="#0E0F12" stroke-width="1.2"/>
+  <circle cx="32" cy="32" r="12.5" fill="#E9C17A" stroke="#0E0F12" stroke-width="3"/>
+  <circle cx="32" cy="32" r="7" fill="none" stroke="#0E0F12" stroke-width="1.4" opacity=".65"/>
+  <path d="M32 25 L36 32 L32 39 L28 32 Z" fill="#4D6BFE" stroke="#0E0F12" stroke-width="1.2"/>
+</svg>

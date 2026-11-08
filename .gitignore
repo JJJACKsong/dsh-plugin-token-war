@@ -1,0 +1,14 @@
+node_modules/
+.DS_Store
+__pycache__/
+*.pyc
+*.log
+.env
+.env.*
+!.env.example
+
+# user-provided community reference pack: kept locally, not versioned
+art/references/*.zip
+
+dist/
+*.tgz

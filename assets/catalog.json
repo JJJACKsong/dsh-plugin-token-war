@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "status": "prototype-assets; launch roster not selected",
+  "frameSize": [
+    192,
+    192
+  ],
+  "anchorPx": [
+    96,
+    176
+  ],
+  "columns": 3,
+  "rows": 3,
+  "facing": "right",
+  "animations": {
+    "idle": {
+      "frames": [
+        0,
+        1,
+        2
+      ],
+      "durationsMs": [
+        850,
+        110,
+        350
+      ],
+      "loop": true
+    },
+    "move": {
+      "frames": [
+        3,
+        4,
+        5,
+        4
+      ],
+      "durationsMs": [
+        110,
+        100,
+        110,
+        100
+      ],
+      "loop": true
+    },
+    "attack": {
+      "frames": [
+        6,
+        7,
+        8,
+        0
+      ],
+      "durationsMs": [
+        120,
+        100,
+        150,
+        230
+      ],
+      "loop": false,
+      "hitAtMs": 220,
+      "next": "idle"
+    }
+  },
+  "characters": [
+    {
+      "id": "deepseek",
+      "displayName": "DeepSeek",
+      "source": "art/generated/deepseek.gif",
+      "atlas": "assets/characters/deepseek/atlas.png",
+      "states": [
+        "idle",
+        "move",
+        "attack"
+      ],
+      "releaseRoster": "unselected",
+      "idleDurationsMs": [
+        800,
+        200,
+        110
+      ]
+    },
+    {
+      "id": "chatgpt",
+      "displayName": "ChatGPT",
+      "source": "art/generated/chatgpt.gif",
+      "atlas": "assets/characters/chatgpt/atlas.png",
+      "states": [
+        "idle",
+        "move",
+        "attack"
+      ],
+      "releaseRoster": "unselected",
+      "idleDurationsMs": [
+        800,
+        200,
+        110
+      ]
+    },
+    {
+      "id": "claude",
+      "displayName": "Claude",
+      "source": "art/generated/claude.gif",
+      "atlas": "assets/characters/claude/atlas.png",
+      "states": [
+        "idle",
+        "move",
+        "attack"
+      ],
+      "releaseRoster": "unselected"
+    },
+    {
+      "id": "glm",
+      "displayName": "GLM",
+      "source": "art/generated/glm.gif",
+      "atlas": "assets/characters/glm/atlas.png",
+      "states": [
+        "idle",
+        "move",
+        "attack"
+      ],
+      "releaseRoster": "unselected",
+      "idleDurationsMs": [
+        800,
+        200,
+        110
+      ]
+    },
+    {
+      "id": "grok",
+      "displayName": "Grok",
+      "source": "art/generated/grok.gif",
+      "atlas": "assets/characters/grok/atlas.png",
+      "states": [
+        "idle",
+        "move",
+        "attack"
+      ],
+      "releaseRoster": "unselected"
+    },
+    {
+      "id": "gemini",
+      "displayName": "Gemini",
+      "source": "art/generated/gemini.gif",
+      "atlas": "assets/characters/gemini/atlas.png",
+      "states": [
+        "idle",
+        "move",
+        "attack"
+      ],
+      "releaseRoster": "unselected"
+    },
+    {
+      "id": "kimi",
+      "displayName": "Kimi",
+      "source": "art/generated/kimi.gif",
+      "atlas": "assets/characters/kimi/atlas.png",
+      "states": [
+        "idle",
+        "move",
+        "attack"
+      ],
+      "releaseRoster": "unselected"
+    },
+    {
+      "id": "qwen",
+      "displayName": "千问",
+      "source": "art/generated/qwen.gif",
+      "atlas": "assets/characters/qwen/atlas.png",
+      "states": [
+        "idle",
+        "move",
+        "attack"
+      ],
+      "releaseRoster": "unselected"
+    },
+    {
+      "id": "doubao",
+      "displayName": "豆包 / Seed",
+      "source": "art/generated/doubao.gif",
+      "atlas": "assets/characters/doubao/atlas.png",
+      "states": [
+        "idle",
+        "move",
+        "attack"
+      ],
+      "releaseRoster": "unselected"
+    },
+    {
+      "id": "minimax",
+      "displayName": "MiniMax",
+      "source": "art/generated/minimax.gif",
+      "atlas": "assets/characters/minimax/atlas.png",
+      "states": [
+        "idle",
+        "move",
+        "attack"
+      ],
+      "releaseRoster": "unselected"
+    }
+  ]
+}

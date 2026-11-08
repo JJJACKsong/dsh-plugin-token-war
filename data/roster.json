@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "status": "roster_2026_11_snapshot",
+  "enabledVendors": [
+    "chatgpt",
+    "deepseek",
+    "claude",
+    "gemini",
+    "qwen"
+  ],
+  "maxVisibleCharacters": 5,
+  "pricingNotice": "模型名称按 2026-11-08 官方发布页 / Startrise 模型跟踪源核对：OpenAI GPT-6 Astra / GPT-5.6 Luna，Anthropic Claude Fable 5.1 / Claude Haiku 5.5，Google Gemini 4 Argon / Gemini 3.8 Flash，DeepSeek-V4.1-Flash / DeepSeek-V4-Flash，Qwen3.8-Max / Qwen3.8-Flash。所有招募价格仍是游戏 Token 平衡值，不是已核验 API 报价。",
+  "models": [
+    {
+      "id": "gpt35",
+      "name": "GPT-5.6 Luna",
+      "vendor": "chatgpt",
+      "unlockStage": 0,
+      "cost": 0,
+      "power": 5,
+      "tag": "免费起步 · 低价快模型",
+      "apiPrice": null
+    },
+    {
+      "id": "dsv2",
+      "name": "DeepSeek-V4-Flash",
+      "vendor": "deepseek",
+      "unlockStage": 6,
+      "cost": 65,
+      "power": 10,
+      "tag": "开源低价 · 推理",
+      "apiPrice": null
+    },
+    {
+      "id": "claude2",
+      "name": "Claude Haiku 5.5",
+      "vendor": "claude",
+      "unlockStage": 18,
+      "cost": 250,
+      "power": 22,
+      "tag": "快速小模型",
+      "apiPrice": null
+    },
+    {
+      "id": "gemini15",
+      "name": "Gemini 3.8 Flash",
+      "vendor": "gemini",
+      "unlockStage": 35,
+      "cost": 1250,
+      "power": 55,
+      "tag": "高吞吐 · 长上下文",
+      "apiPrice": null
+    },
+    {
+      "id": "qwen2",
+      "name": "Qwen3.8-Flash",
+      "vendor": "qwen",
+      "unlockStage": 55,
+      "cost": 4500,
+      "power": 150,
+      "tag": "开源小模型",
+      "apiPrice": null
+    },
+    {
+      "id": "dsv41",
+      "name": "DeepSeek-V4.1-Flash",
+      "vendor": "deepseek",
+      "unlockStage": 85,
+      "cost": 35000,
+      "power": 800,
+      "tag": "原生多模态 · 开源",
+      "apiPrice": null
+    },
+    {
+      "id": "gpt4o",
+      "name": "GPT-6 Astra",
+      "vendor": "chatgpt",
+      "unlockStage": 110,
+      "cost": 160000,
+      "power": 1800,
+      "tag": "前沿旗舰",
+      "apiPrice": null
+    },
+    {
+      "id": "gemini25",
+      "name": "Gemini 4 Argon",
+      "vendor": "gemini",
+      "unlockStage": 140,
+      "cost": 550000,
+      "power": 5000,
+      "tag": "前沿推理",
+      "apiPrice": null
+    },
+    {
+      "id": "qwen3",
+      "name": "Qwen3.8-Max",
+      "vendor": "qwen",
+      "unlockStage": 165,
+      "cost": 1400000,
+      "power": 8500,
+      "tag": "旗舰开源",
+      "apiPrice": null
+    },
+    {
+      "id": "fable5",
+      "name": "Claude Fable 5.1",
+      "vendor": "claude",
+      "unlockStage": 200,
+      "cost": 12000000,
+      "power": 42000,
+      "tag": "顶级编码 / 知识工作",
+      "apiPrice": null
+    }
+  ],
+  "modelSnapshot": {
+    "checkedAt": "2026-11-08",
+    "sources": [
+      "https://openai.com/index/introducing-gpt-6-astra/",
+      "https://openai.com/index/introducing-gpt-5-6/",
+      "https://www.anthropic.com/claude-haiku-5-5",
+      "https://www.anthropic.com/news",
+      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+      "https://ai.google.dev/gemini-api/docs/changelog",
+      "https://api-docs.deepseek.com/news/news261017",
+      "https://api-docs.deepseek.com/news/news260910",
+      "https://qwen.ai/blog?id=qwen3.8",
+      "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "https://www.startrise.io/models/"
+    ],
+    "note": "只更新名称与标签；id / 解锁关卡 / 招募价 / 算力保持不变，旧存档兼容，经济数值未动。"
+  }
+}

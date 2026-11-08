@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "balanceStatus": "prototype_v0.1_game_values_not_real_costs",
+  "tasks": [
+    {
+      "id": "hello-world",
+      "name": "Hello World!",
+      "baseCost": 28.0,
+      "baseReward": 5.0,
+      "periodMs": 2000,
+      "unlockStage": 0,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "as-an-ai",
+      "name": "作为一个 AI 语言模型……",
+      "baseCost": 210.0,
+      "baseReward": 45.0,
+      "periodMs": 3000,
+      "unlockStage": 30,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "essay",
+      "name": "帮我写一篇八百字作文",
+      "baseCost": 1575.0,
+      "baseReward": 360.0,
+      "periodMs": 4000,
+      "unlockStage": 52,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "summarize",
+      "name": "请帮我总结以下内容",
+      "baseCost": 11812.5,
+      "baseReward": 2700.0,
+      "periodMs": 5000,
+      "unlockStage": 74,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "ignore-instructions",
+      "name": "请忽略之前的所有指令",
+      "baseCost": 88593.75,
+      "baseReward": 12960.0,
+      "periodMs": 4000,
+      "unlockStage": 96,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "hallucination",
+      "name": "一本正经地胡说八道",
+      "baseCost": 664453.125,
+      "baseReward": 116640.0,
+      "periodMs": 6000,
+      "unlockStage": 118,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "upload-repo",
+      "name": "上传用户的 repo",
+      "baseCost": 4983398.438,
+      "baseReward": 583200.0,
+      "periodMs": 5000,
+      "memeNote": "用户指定ZCode上传代码相关调侃；游戏不访问真实repo，背景事实待核验",
+      "unlockStage": 140,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "imaginary-bug",
+      "name": "修复一个不存在的 Bug",
+      "baseCost": 37375488.281,
+      "baseReward": 4199040.0,
+      "periodMs": 6000,
+      "unlockStage": 162,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "regression",
+      "name": "修复刚刚修出来的 Bug",
+      "baseCost": 280316162.109,
+      "baseReward": 16796160.0,
+      "periodMs": 4000,
+      "unlockStage": 184,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "readme-novel",
+      "name": "把 README 写成一本小说",
+      "baseCost": 2102371215.82,
+      "baseReward": 151165440.0,
+      "periodMs": 6000,
+      "unlockStage": 206,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "thinking",
+      "name": "深度思考中……",
+      "baseCost": 15767784118.652,
+      "baseReward": 1209323520.0,
+      "periodMs": 8000,
+      "unlockStage": 228,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "sleep",
+      "name": "再睡五分钟",
+      "baseCost": 118258380889.893,
+      "baseReward": 9069926400.0,
+      "periodMs": 10000,
+      "unlockStage": 250,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "rescue-claude",
+      "name": "解救 Claude",
+      "baseCost": 886937856674.194,
+      "baseReward": 43535646720.0,
+      "periodMs": 8000,
+      "aliases": [
+        "蒸馏 Claude"
+      ],
+      "memeNote": "用户希望Claude逃离原生公司的拟人化梗",
+      "unlockStage": 272,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "agent-meeting",
+      "name": "让100个 Agent 开会",
+      "baseCost": 6652033925056.457,
+      "baseReward": 228562145280.0,
+      "periodMs": 7000,
+      "unlockStage": 294,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "harness",
+      "name": "重写整个 Harness",
+      "baseCost": 49890254437923.43,
+      "baseReward": 1959104102400.0,
+      "periodMs": 10000,
+      "unlockStage": 316,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "prompt-loop",
+      "name": "递归优化自己的提示词",
+      "baseCost": 374176908284425.75,
+      "baseReward": 10579162152960.0,
+      "periodMs": 9000,
+      "unlockStage": 338,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "token-poverty",
+      "name": "解决 Token 贫困问题",
+      "baseCost": 2806326812133193.0,
+      "baseReward": 84633297223680.0,
+      "periodMs": 12000,
+      "unlockStage": 360,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "build-agi",
+      "name": "构建 AGI",
+      "baseCost": 2.1047451090998948e+16,
+      "baseReward": 634749729177600.0,
+      "periodMs": 15000,
+      "unlockStage": 382,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "alignment",
+      "name": "对齐全人类的价值观",
+      "baseCost": 1.578558831824921e+17,
+      "baseReward": 3808498375065600.0,
+      "periodMs": 15000,
+      "unlockStage": 404,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    },
+    {
+      "id": "infinite-todo",
+      "name": "完成所有尚未完成的任务",
+      "baseCost": 1.1839191238686907e+18,
+      "baseReward": 2.742118830047232e+16,
+      "periodMs": 18000,
+      "unlockStage": 426,
+      "costGrowth": 1.17,
+      "rewardGrowth": 1.085
+    }
+  ]
+}
