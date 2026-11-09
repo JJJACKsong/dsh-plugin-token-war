@@ -35,11 +35,11 @@ test('drawing uses the atlas cell and ground anchor', () => {
   assert.equal(context.imageSmoothingEnabled, true);
   assert.throws(()=>drawFrame(context,image,catalog,9,0,0),RangeError);
 });
-test('asset catalog records existing ten only, no launch roster claim', () => {
+test('asset catalog covers all ten characters in the 2026-11 roster', () => {
   assert.equal(catalog.characters.length,10);
   const ids = catalog.characters.map(c=>c.id); assert.equal(new Set(ids).size,10);
   for (const c of catalog.characters) {
-    assert.equal(c.releaseRoster,'unselected');
+    assert.equal(c.releaseRoster,'2026-11');
     assert.deepEqual(c.states,['idle','move','attack']);
     assert.ok(c.atlas.startsWith('assets/characters/'));
     for (const p of [c.source,c.atlas]) assert.ok(!p.includes('..') && !p.startsWith('/'));
@@ -54,16 +54,22 @@ test('task memes and explicit prototype balance are retained', async () => {
   assert.ok(data.tasks.every(t=>t.baseCost>0 && t.baseReward>0 && t.periodMs>0));
   assert.equal(data.balanceStatus,'prototype_v0.1_game_values_not_real_costs');
 });
-test('small prototype roster; events remain marked satire', async () => {
+test('expanded roster keeps the original ten ids and adds four models per vendor', async () => {
   const roster=await json('../data/roster.json');
-  assert.equal(roster.enabledVendors.length,5);assert.equal(roster.models.length,10);assert.ok(roster.models.every(m=>m.apiPrice===null));
+  assert.equal(roster.enabledVendors.length,10);assert.equal(roster.models.length,40);assert.ok(roster.models.every(m=>m.apiPrice===null));
+  const originalIds=['gpt35','dsv2','claude2','gemini15','qwen2','dsv41','gpt4o','gemini25','qwen3','fable5'];
+  for(const id of originalIds) assert.ok(roster.models.some(m=>m.id===id),`missing original model ${id}`);
+  for(const v of roster.enabledVendors) assert.equal(roster.models.filter(m=>m.vendor===v).length,4,`${v} should have four models`);
+  assert.equal(roster.maxVisibleCharacters,5);
   const events=await json('../data/events.json');
   assert.equal(events.status,'user_supplied_satire_not_verified_news');
   assert.equal(events.maxConcurrent,1);
+  for(const v of roster.enabledVendors) assert.ok(events.events.some(e=>e.vendor===v),`missing event for ${v}`);
+  assert.equal(events.events.length,20);
 });
 test('private package and inert host', async () => {
   const pkg=await json('../package.json');
-  assert.equal(pkg.private,true); assert.equal(pkg.name,'dsh-plugin-token-war');
+  assert.equal(pkg.private,false); assert.equal(pkg.name,'dsh-plugin-token-war');
   assert.equal(apply(),undefined);
 });
 test('client registers and disposes both slots using a host mock', async () => {

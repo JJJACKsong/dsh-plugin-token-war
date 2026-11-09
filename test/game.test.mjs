@@ -34,7 +34,7 @@ test('ten minutes of no-click play progresses economy and roster',()=>{
  const s=run(createGame(),600000);validateState(s);assert.ok(s.maxStage>40);assert.ok(s.models.length>=3);assert.ok(s.tasks.filter(t=>t.level>0).length>=2);assert.ok(s.training>0);
 });
 test('one-hour no-click run has autonomous distillation and continued growth',()=>{
- const s=run(createGame(),3600000);validateState(s);assert.ok(s.generation>1);assert.ok(s.maxStage>200);assert.ok(s.weights[0]>0);assert.ok(s.models.length<=10);assert.ok(s.logs.length<=60);
+ const s=run(createGame(),3600000);validateState(s);assert.ok(s.generation>1);assert.ok(s.maxStage>200);assert.ok(s.weights[0]>0);assert.ok(s.models.length<=ROSTER.models.length);assert.ok(s.logs.length<=60);
 });
 test('manual distillation preserves models and unlocks but resets current run',()=>{
  const s=run(createGame(),900000);const models=[...s.models],unlocks=s.tasks.map(t=>t.unlocked),best=s.maxStage,gen=s.generation;assert.ok(canDistill(s));assert.ok(distill(s));assert.deepEqual(s.models,models);assert.deepEqual(s.tasks.map(t=>t.unlocked),unlocks);assert.equal(s.maxStage,best);assert.equal(s.generation,gen+1);assert.equal(s.stage,1);assert.equal(s.training,0);assert.equal(s.tasks[0].level,1);assert.ok(income(s)[0]>0);assert.equal(canDistill(s),false);assert.equal(distill(s),false);validateState(s);
@@ -50,6 +50,12 @@ test('short front-end updates and one offline catchup agree',()=>{
 test('one-hour online and offline paths agree within floating point tolerance',()=>{
  const a=run(createGame(18),3600000),b=createGame(18);for(let t=1000;t<=3600000;t+=1000)run(b,t);
  assert.equal(a.generation,b.generation);assert.equal(a.maxStage,b.maxStage);assert.deepEqual(a.tasks.map(t=>t.level),b.tasks.map(t=>t.level));close(a.coins,b.coins);close(a.weights,b.weights);
+});
+test('an old save without the new models still loads and advances',()=>{
+ const s=createGame();s.nextEventAt=1e9;s.auto=false;s.autoDistill=false;run(s,10000);
+ const oldSave=makeSave(s,Date.now()),loaded=readSave(oldSave);
+ assert.deepEqual(loaded.state.models,['gpt35']);
+ run(loaded.state,60000);validateState(loaded.state);
 });
 test('negative vendor event only changes its vendor and expires',()=>{
  const s=createGame();s.models.push('dsv2');const baseline=totalPower(s);s.event={id:'ds-busy',until:30000};assert.ok(compare(totalPower(s),baseline)<0);s.auto=false;s.autoDistill=false;run(s,30001);assert.equal(s.event,null);close(totalPower(s),baseline);

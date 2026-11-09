@@ -1,15 +1,20 @@
 {
   "schemaVersion": 1,
-  "status": "roster_2026_11_snapshot",
+  "status": "roster_2026_11_all_vendors",
   "enabledVendors": [
     "chatgpt",
     "deepseek",
     "claude",
     "gemini",
-    "qwen"
+    "qwen",
+    "doubao",
+    "glm",
+    "grok",
+    "kimi",
+    "minimax"
   ],
   "maxVisibleCharacters": 5,
-  "pricingNotice": "模型名称按 2026-11-08 官方发布页 / Startrise 模型跟踪源核对：OpenAI GPT-6 Astra / GPT-5.6 Luna，Anthropic Claude Fable 5.1 / Claude Haiku 5.5，Google Gemini 4 Argon / Gemini 3.8 Flash，DeepSeek-V4.1-Flash / DeepSeek-V4-Flash，Qwen3.8-Max / Qwen3.8-Flash。所有招募价格仍是游戏 Token 平衡值，不是已核验 API 报价。",
+  "pricingNotice": "模型名称仅作戏仿与梗使用：前 10 个型号按 2026-11-08 公开信息更新，新增型号是游戏内虚构扩展，不声称对应真实产品。所有招募价格都是游戏 Token 平衡值，不是 API 报价。",
   "models": [
     {
       "id": "gpt35",
@@ -110,10 +115,310 @@
       "power": 42000,
       "tag": "顶级编码 / 知识工作",
       "apiPrice": null
+    },
+    {
+      "id": "gpt56turbo",
+      "name": "GPT-5.6 Turbo",
+      "vendor": "chatgpt",
+      "unlockStage": 25,
+      "cost": 400,
+      "power": 150,
+      "tag": "轻量高频 · 低价",
+      "apiPrice": null
+    },
+    {
+      "id": "gpt6nova",
+      "name": "GPT-6 Nova",
+      "vendor": "chatgpt",
+      "unlockStage": 250,
+      "cost": 260000000,
+      "power": 2800000,
+      "tag": "推理旗舰",
+      "apiPrice": null
+    },
+    {
+      "id": "dsv4pro",
+      "name": "DeepSeek-V4-Pro",
+      "vendor": "deepseek",
+      "unlockStage": 45,
+      "cost": 2000,
+      "power": 320,
+      "tag": "长上下文 · 推理",
+      "apiPrice": null
+    },
+    {
+      "id": "dsv41pro",
+      "name": "DeepSeek-V4.1-Pro",
+      "vendor": "deepseek",
+      "unlockStage": 260,
+      "cost": 420000000,
+      "power": 4200000,
+      "tag": "开源旗舰",
+      "apiPrice": null
+    },
+    {
+      "id": "sonnet55",
+      "name": "Claude Sonnet 5.5",
+      "vendor": "claude",
+      "unlockStage": 70,
+      "cost": 15000,
+      "power": 1400,
+      "tag": "均衡编码",
+      "apiPrice": null
+    },
+    {
+      "id": "opus55",
+      "name": "Claude Opus 5.5",
+      "vendor": "claude",
+      "unlockStage": 280,
+      "cost": 1200000000,
+      "power": 9000000,
+      "tag": "深度推理",
+      "apiPrice": null
+    },
+    {
+      "id": "gemini4pro",
+      "name": "Gemini 4 Pro",
+      "vendor": "gemini",
+      "unlockStage": 100,
+      "cost": 120000,
+      "power": 6000,
+      "tag": "多模态旗舰",
+      "apiPrice": null
+    },
+    {
+      "id": "gemini42ultra",
+      "name": "Gemini 4.2 Ultra",
+      "vendor": "gemini",
+      "unlockStage": 300,
+      "cost": 3500000000,
+      "power": 16000000,
+      "tag": "超长上下文",
+      "apiPrice": null
+    },
+    {
+      "id": "qwen38coder",
+      "name": "Qwen3.8-Coder",
+      "vendor": "qwen",
+      "unlockStage": 115,
+      "cost": 200000,
+      "power": 7500,
+      "tag": "代码专精",
+      "apiPrice": null
+    },
+    {
+      "id": "qwen4preview",
+      "name": "Qwen4 Preview",
+      "vendor": "qwen",
+      "unlockStage": 320,
+      "cost": 8000000000,
+      "power": 28000000,
+      "tag": "下一代开源",
+      "apiPrice": null
+    },
+    {
+      "id": "doubao2pro",
+      "name": "Doubao 2.0 Pro",
+      "vendor": "doubao",
+      "unlockStage": 30,
+      "cost": 750,
+      "power": 180,
+      "tag": "中文创作 · 低价",
+      "apiPrice": null
+    },
+    {
+      "id": "seed25",
+      "name": "Doubao-Seed 2.5",
+      "vendor": "doubao",
+      "unlockStage": 90,
+      "cost": 50000,
+      "power": 2600,
+      "tag": "多模态 · 视频",
+      "apiPrice": null
+    },
+    {
+      "id": "seed3",
+      "name": "Doubao-Seed 3.0",
+      "vendor": "doubao",
+      "unlockStage": 160,
+      "cost": 3000000,
+      "power": 90000,
+      "tag": "原生多模态旗舰",
+      "apiPrice": null
+    },
+    {
+      "id": "doubao4ultra",
+      "name": "Doubao 4 Ultra",
+      "vendor": "doubao",
+      "unlockStage": 270,
+      "cost": 900000000,
+      "power": 7000000,
+      "tag": "超长上下文",
+      "apiPrice": null
+    },
+    {
+      "id": "glm5",
+      "name": "GLM-5",
+      "vendor": "glm",
+      "unlockStage": 40,
+      "cost": 1500,
+      "power": 260,
+      "tag": "开源 · 中文",
+      "apiPrice": null
+    },
+    {
+      "id": "glm5air",
+      "name": "GLM-5 Air",
+      "vendor": "glm",
+      "unlockStage": 95,
+      "cost": 70000,
+      "power": 3000,
+      "tag": "轻量推理",
+      "apiPrice": null
+    },
+    {
+      "id": "glm55",
+      "name": "GLM-5.5",
+      "vendor": "glm",
+      "unlockStage": 180,
+      "cost": 8000000,
+      "power": 120000,
+      "tag": "代码 / Agent",
+      "apiPrice": null
+    },
+    {
+      "id": "glm6",
+      "name": "GLM-6",
+      "vendor": "glm",
+      "unlockStage": 290,
+      "cost": 2000000000,
+      "power": 12000000,
+      "tag": "下一代旗舰",
+      "apiPrice": null
+    },
+    {
+      "id": "grok5",
+      "name": "Grok 5",
+      "vendor": "grok",
+      "unlockStage": 50,
+      "cost": 5000,
+      "power": 450,
+      "tag": "实时信息",
+      "apiPrice": null
+    },
+    {
+      "id": "grok5mini",
+      "name": "Grok 5 Mini",
+      "vendor": "grok",
+      "unlockStage": 105,
+      "cost": 180000,
+      "power": 5000,
+      "tag": "快速推理",
+      "apiPrice": null
+    },
+    {
+      "id": "grok6",
+      "name": "Grok 6",
+      "vendor": "grok",
+      "unlockStage": 190,
+      "cost": 20000000,
+      "power": 180000,
+      "tag": "旗舰推理",
+      "apiPrice": null
+    },
+    {
+      "id": "grok6heavy",
+      "name": "Grok 6 Heavy",
+      "vendor": "grok",
+      "unlockStage": 310,
+      "cost": 5000000000,
+      "power": 22000000,
+      "tag": "多智能体",
+      "apiPrice": null
+    },
+    {
+      "id": "kimik3",
+      "name": "Kimi K3",
+      "vendor": "kimi",
+      "unlockStage": 60,
+      "cost": 9000,
+      "power": 600,
+      "tag": "长文本",
+      "apiPrice": null
+    },
+    {
+      "id": "kimik3turbo",
+      "name": "Kimi K3 Turbo",
+      "vendor": "kimi",
+      "unlockStage": 120,
+      "cost": 300000,
+      "power": 8000,
+      "tag": "长上下文 · 快速",
+      "apiPrice": null
+    },
+    {
+      "id": "kimik4",
+      "name": "Kimi K4",
+      "vendor": "kimi",
+      "unlockStage": 210,
+      "cost": 40000000,
+      "power": 250000,
+      "tag": "旗舰长文本",
+      "apiPrice": null
+    },
+    {
+      "id": "kimik4pro",
+      "name": "Kimi K4 Pro",
+      "vendor": "kimi",
+      "unlockStage": 330,
+      "cost": 12000000000,
+      "power": 32000000,
+      "tag": "超长上下文旗舰",
+      "apiPrice": null
+    },
+    {
+      "id": "minimaxm3",
+      "name": "MiniMax M3",
+      "vendor": "minimax",
+      "unlockStage": 80,
+      "cost": 25000,
+      "power": 1200,
+      "tag": "性价比",
+      "apiPrice": null
+    },
+    {
+      "id": "minimaxm35",
+      "name": "MiniMax M3.5",
+      "vendor": "minimax",
+      "unlockStage": 125,
+      "cost": 450000,
+      "power": 12000,
+      "tag": "多模态",
+      "apiPrice": null
+    },
+    {
+      "id": "minimaxm4",
+      "name": "MiniMax M4",
+      "vendor": "minimax",
+      "unlockStage": 220,
+      "cost": 70000000,
+      "power": 400000,
+      "tag": "旗舰",
+      "apiPrice": null
+    },
+    {
+      "id": "minimaxm4pro",
+      "name": "MiniMax M4 Pro",
+      "vendor": "minimax",
+      "unlockStage": 340,
+      "cost": 18000000000,
+      "power": 40000000,
+      "tag": "顶级 Agent",
+      "apiPrice": null
     }
   ],
   "modelSnapshot": {
-    "checkedAt": "2026-11-08",
+    "checkedAt": "2026-11-09",
     "sources": [
       "https://openai.com/index/introducing-gpt-6-astra/",
       "https://openai.com/index/introducing-gpt-5-6/",
@@ -127,6 +432,6 @@
       "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
       "https://www.startrise.io/models/"
     ],
-    "note": "只更新名称与标签；id / 解锁关卡 / 招募价 / 算力保持不变，旧存档兼容，经济数值未动。"
+    "note": "原有 10 个模型的 id / 解锁关卡 / 招募价 / 算力保持不变，旧存档可继续使用；新增 30 个型号后每家厂商 4 个型号，总计 40 个，用于扩展后期军团与战力。"
   }
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "prototype-assets; launch roster not selected",
+  "status": "launch roster selected: all ten character assets (2026-11)",
   "frameSize": [
     192,
     192
@@ -70,7 +70,7 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "unselected",
+      "releaseRoster": "2026-11",
       "idleDurationsMs": [
         800,
         200,
@@ -87,7 +87,7 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "unselected",
+      "releaseRoster": "2026-11",
       "idleDurationsMs": [
         800,
         200,
@@ -104,7 +104,7 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "unselected"
+      "releaseRoster": "2026-11"
     },
     {
       "id": "glm",
@@ -116,7 +116,7 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "unselected",
+      "releaseRoster": "2026-11",
       "idleDurationsMs": [
         800,
         200,
@@ -133,7 +133,7 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "unselected"
+      "releaseRoster": "2026-11"
     },
     {
       "id": "gemini",
@@ -145,7 +145,7 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "unselected"
+      "releaseRoster": "2026-11"
     },
     {
       "id": "kimi",
@@ -157,7 +157,7 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "unselected"
+      "releaseRoster": "2026-11"
     },
     {
       "id": "qwen",
@@ -169,7 +169,7 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "unselected"
+      "releaseRoster": "2026-11"
     },
     {
       "id": "doubao",
@@ -181,7 +181,7 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "unselected"
+      "releaseRoster": "2026-11"
     },
     {
       "id": "minimax",
@@ -193,7 +193,7 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "unselected"
+      "releaseRoster": "2026-11"
     }
   ]
 }
