@@ -88,8 +88,8 @@
   ],
   "combos": [
     {
-      "id": "cat-group-kick",
-      "name": "猫群：一发力就被踹飞",
+      "id": "kimi-dog-kick",
+      "name": "被 Kimi 当🐶踹飞",
       "requires": [
         {
           "vendor": "kimi",
@@ -106,8 +106,8 @@
       },
       "income": 0.95,
       "debuff": true,
-      "source": "用户提供的猫群截图（DeepSeek staff 发言）",
-      "desc": "猫群逆天发言：「Kimi3.1Pro 一发力 DeepSeek 就像狗一样被踹飞了」。Kimi 与 DeepSeek 同队时，DeepSeek 算力下降。"
+      "source": "用户提供的内部群聊截图（DeepSeek staff 发言）",
+      "desc": "「Kimi3.1Pro 一发力 DeepSeek 就像狗一样被踹飞了」——DeepSeek staff 内部群聊发言。Kimi 与 DeepSeek 同队时，DeepSeek 算力下降。"
     },
     {
       "id": "kimi-distill-claude",

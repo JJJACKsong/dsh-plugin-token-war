@@ -103,7 +103,7 @@ Agent 完成或等待批准时，顶部会切换为高亮提醒并显示「返�
 - **MiniMax 刷分负面羁绊**：凑齐 2 个 MiniMax M3 系列后，算力/推关速度 ×1.12，但任务收益 ×0.82。
 - **跨系列连携**（真实社媒梗）：
   - **Kimi 蒸馏了 Claude**（Kimi K3 + Claude 5.5）
-  - **猫群：一发力就被踹飞**（Kimi K3 + DeepSeek V4，DeepSeek 算力 ×0.68，**负面连携**；来源为用户提供的猫群截图）
+  - **被 Kimi 当🐶踹飞**（Kimi K3 + DeepSeek V4，DeepSeek 算力 ×0.68，**负面连携**；来源为用户提供的内部群聊截图）
   - **问 GLM 你是谁：我是 Claude**（GLM-5 + Claude 5.5）
   - **开源双龙**（Kimi K3 + Qwen3.8）
   - **Arena 刷榜**（GPT-6 + Claude 5.5）

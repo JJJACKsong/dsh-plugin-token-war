@@ -65,7 +65,7 @@ test('same-series bonds and cross-vendor meme combos activate',()=>{
  const base=skillEffects(s).vendor.deepseek;
  s.models.push('kimik3turbo','fable5');
  assert.ok(activeCombos(s).some(c=>c.id==='kimi-distill-claude'));
- assert.ok(activeCombos(s).some(c=>c.id==='cat-group-kick'));
+ assert.ok(activeCombos(s).some(c=>c.id==='kimi-dog-kick'));
  assert.ok(skillEffects(s).vendor.deepseek<base);
 });
 test('MiniMax score-farm bond raises speed but cuts income',()=>{
