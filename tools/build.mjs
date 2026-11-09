@@ -3,7 +3,7 @@ import './build-data.mjs';
 const pkg=JSON.parse(await readFile(new URL('../package.json',import.meta.url),'utf8'));
 const root=new URL('../',import.meta.url);
 const read=f=>readFile(new URL(f,root),'utf8');
-const names=['amount','config','game','animation','playback','storage','ui'];
+const names=['amount','config','logos','game','animation','playback','storage','ui'];
 let bundle='const __twmods = {};\n';
 for(const name of names){
  let source=await read('lib/'+name+'.js');
