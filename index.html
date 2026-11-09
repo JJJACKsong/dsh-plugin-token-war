@@ -1026,12 +1026,21 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
     const starterVendor=ROSTER.enabledVendors[0];
     const pinned=sortedOwned.includes(starterVendor)?[starterVendor,...sortedOwned.filter(v=>v!==starterVendor)]:sortedOwned;
     const visibleOwned=pinned.slice(0,maxChars);
-    const leftW=W*(compactCanvas?0.66:0.70);
+    // 角色占满整个战场宽度；敌人状态压缩为顶部一条窄状态条，给模型名留出空间
+    const slot=Math.max(24,Math.min(150,(W-12)/Math.max(1,visibleOwned.length)));
     const charH=Math.max(40,Math.min(H*0.64,groundY-14));
-    const slot=Math.max(28,Math.min(150,leftW/Math.max(1,visibleOwned.length)));
     // 所有角色按 alpha 实际内容高度统一到同一显示高度；只影响渲染，不改贴图。
-    const targetH=Math.max(26,Math.min(charH*.82,groundY-18,slot*.95));
-    const x0=(leftW-slot*visibleOwned.length)/2+slot/2;
+    const targetH=Math.max(24,Math.min(charH*.82,groundY-18,slot*.95));
+    const x0=(W-slot*visibleOwned.length)/2+slot/2;
+    const fitFontSize=(text,maxW,weight,base,min=6)=>{
+      let size=base;
+      while(size>min){
+        ctx.font=`${weight} ${size}px 'PingFang SC','Heiti SC',system-ui,sans-serif`;
+        if(ctx.measureText(String(text)).width<=maxW)break;
+        size-=.5;
+      }
+      return Math.max(min,size);
+    };
     visibleOwned.forEach((id,i)=>{
       loadCharacter(id);
       const character=CATALOG.characters.find(c=>c.id===id),image=images.get(id),x=x0+i*slot;
@@ -1040,7 +1049,7 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
       const state=!held||s.paused?'idle':moving?'move':t<600?'attack':'idle';
       const clip=resolveClip(CATALOG,character,state);
       const frame=selectFrame(clip,state==='attack'?t:animationTime+i*350).frame;
-      ctx.fillStyle='#00000066';ctx.beginPath();ctx.ellipse(x,groundY-2,Math.max(10,charH*.24),Math.max(2,charH*.05),0,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle='#00000066';ctx.beginPath();ctx.ellipse(x,groundY-2,Math.max(8,charH*.20),Math.max(2,charH*.05),0,0,Math.PI*2);ctx.fill();
       if(image){
         const bounds=character.renderBounds||[0,0,192,192];
         const contentH=Math.max(1,bounds[3]-bounds[1]);
@@ -1050,52 +1059,37 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
         drawFrame(ctx,image,CATALOG,frame,originX+CATALOG.anchorPx[0]*scaleC,originY+CATALOG.anchorPx[1]*scaleC,scaleC);
       } else{ctx.fillStyle=VENDOR_COLORS[id];ctx.fillRect(x-charH*.18,groundY-charH*.7,charH*.36,charH*.7);}
       ctx.save();ctx.shadowColor='#000000';ctx.shadowBlur=3;ctx.shadowOffsetY=1;
-      ctx.textAlign='center';ctx.font=`700 ${compactCanvas?10:11}px 'PingFang SC','Heiti SC',system-ui,sans-serif`;ctx.fillStyle=VENDOR_TEXT[id]||VENDOR_COLORS[id];
-      ctx.fillText(fitText(VENDOR_LABELS[id],slot-4),x,groundY+14);
+      ctx.textAlign='center';ctx.fillStyle=VENDOR_TEXT[id]||VENDOR_COLORS[id];
+      const vendor=VENDOR_LABELS[id]||id;
+      const vendorSize=fitFontSize(vendor,slot-6,'700',compactCanvas?10:11,7);
+      ctx.font=`700 ${vendorSize}px 'PingFang SC','Heiti SC',system-ui,sans-serif`;
+      ctx.fillText(vendor,x,groundY+14);
       if(H>=112){
         const latest=ROSTER.models.filter(m=>m.vendor===id&&s.models.includes(m.id)).at(-1);
-        ctx.globalAlpha=.86;ctx.font=`${compactCanvas?9:10}px 'PingFang SC','Heiti SC',system-ui,sans-serif`;ctx.fillStyle=VENDOR_TEXT[id]||VENDOR_COLORS[id];
-        ctx.fillText(fitText(latest?latest.name:'',slot-4),x,groundY+26);
+        const modelName=latest?latest.name:'';
+        const modelSize=fitFontSize(modelName,slot-6,'400',compactCanvas?9:10,6.2);
+        ctx.globalAlpha=.86;ctx.font=`${modelSize}px 'PingFang SC','Heiti SC',system-ui,sans-serif`;
+        ctx.fillText(modelName,x,groundY+26);
         ctx.globalAlpha=1;
       }
       ctx.restore();
       if(ev?.vendor===id){
-        ctx.font='11px system-ui,-apple-system,sans-serif';
+        ctx.font='10px system-ui,-apple-system,sans-serif';
         ctx.fillStyle=ev.powerMultiplier<1?'#FF8A7A':'#7D93FF';
         ctx.fillText(ev.powerMultiplier<1?'暂时受限':'算力提升',x,Math.max(30,groundY-charH-4));
       }
     });
-    // 右侧 26%：敌人 / TODO 任务卡
-    const cardW=Math.max(compactCanvas?96:132,Math.round(W*(compactCanvas?0.27:0.26))),cardX=Math.round(W-cardW-(compactCanvas?8:12));
-    const cardTop=Math.max(26,Math.round(H*0.16)),cardH=Math.max(38,groundY-cardTop-26);
-    const boss=s.stage%10===0;
-    ctx.save();ctx.shadowColor='#000000';ctx.shadowBlur=3;ctx.shadowOffsetY=1;
-    ctx.textAlign='center';ctx.font="700 12px 'PingFang SC','Heiti SC',system-ui,sans-serif";ctx.fillStyle=boss?'#FF8A7A':'#F1EDE2';
-    ctx.fillText(fitText(boss?'需求方还有一点小修改':ENEMY_NAMES[Math.floor(s.stage/10)%ENEMY_NAMES.length],cardW),cardX+cardW/2,cardTop-9);
-    ctx.restore();
-    ctx.fillStyle='#000000';ctx.fillRect(cardX+4,cardTop+4,cardW,cardH);
-    ctx.fillStyle=boss?'#221A1A':'#1B1E26';ctx.fillRect(cardX,cardTop,cardW,cardH);
-    ctx.strokeStyle='#E9E3D6';ctx.lineWidth=2;ctx.strokeRect(cardX+1,cardTop+1,cardW-2,cardH-2);
-    const headerH=Math.min(20,Math.max(14,cardH*.3));
-    ctx.fillStyle=boss?'#E74438':'#4D6BFE';ctx.fillRect(cardX+8,cardTop+8,cardW-16,headerH);
-    ctx.textAlign='left';ctx.font="700 10px 'PingFang SC','Heiti SC',system-ui,sans-serif";ctx.fillStyle=boss?'#F1EDE2':'#0E0F12';
-    ctx.fillText(boss?'FINAL_v9.md':'TODO.md',cardX+13,cardTop+8+headerH-5);
-    const lineGap=Math.max(8,Math.round(cardH*.16));let ly=cardTop+8+headerH+lineGap;const lineBase=cardW-40;
-    for(let j=0;j<4&&ly<cardTop+cardH-4;j++){
-      ctx.fillStyle='#C9C4B7';ctx.fillRect(cardX+13,ly-4,4,4);
-      ctx.fillStyle='#C9C4B735';ctx.fillRect(cardX+21,ly-3,Math.max(12,lineBase*(1-j*.15)),2);
-      ly+=lineGap;
-    }
-    // HP / 关卡进度
+    // 顶部敌人状态条：不占角色横向空间
     const hp=Math.max(0,Math.min(1,ratio(s.hp,enemyHP(s.stage))));
-    const barY=cardTop+cardH+8,barH=5;
-    ctx.fillStyle='#262932';ctx.fillRect(cardX,barY,cardW,barH);ctx.strokeStyle='#E9E3D6';ctx.lineWidth=1;ctx.strokeRect(cardX+.5,barY+.5,cardW-1,barH-1);
-    ctx.fillStyle=boss?'#E74438':'#46E3D2';ctx.fillRect(cardX+1,barY+1,Math.max(0,(cardW-2)*hp),barH-2);
-    const labelY=barY+barH+4,labelH=17;
-    ctx.fillStyle='#17181D';ctx.fillRect(cardX,labelY,cardW,labelH);
-    ctx.strokeStyle='#E9E3D6';ctx.lineWidth=1;ctx.strokeRect(cardX+.5,labelY+.5,cardW-1,labelH-1);
-    ctx.textAlign='center';ctx.font=`600 ${compactCanvas?8:10}px 'PingFang SC','Heiti SC',system-ui,sans-serif`;ctx.fillStyle='#E9E3D6';
-    ctx.fillText(compactCanvas?`剩余 ${Math.round(hp*100)}% · ST ${s.stage}`:`剩余工作量 ${Math.round(hp*100)}% · STAGE ${s.stage}`,cardX+cardW/2,labelY+(compactCanvas?11:12));
+    const boss=s.stage%10===0;
+    const statusText=`${boss?'FINAL_v9.md':'TODO.md'} · 剩余 ${Math.round(hp*100)}% · STAGE ${s.stage}`;
+    ctx.save();ctx.textAlign='center';ctx.font="600 9px 'PingFang SC','Heiti SC',system-ui,sans-serif";
+    const statusW=Math.min(W-20,Math.ceil(ctx.measureText(statusText).width)+16),statusH=20;
+    const statusX=Math.round(W-statusW-8),statusY=8;
+    ctx.fillStyle=boss?'#221A1A':'#1B1E26';ctx.fillRect(statusX,statusY,statusW,statusH);
+    ctx.strokeStyle=boss?'#E74438':'#4D6BFE';ctx.lineWidth=1;ctx.strokeRect(statusX+.5,statusY+.5,statusW-1,statusH-1);
+    ctx.fillStyle=boss?'#FF8A7A':'#DCE3FF';ctx.fillText(statusText,statusX+statusW/2,statusY+14);
+    ctx.restore();
     lastRenderedStage=s.stage;
     if(s.paused||!held){
       ctx.fillStyle='#0E0F12E6';ctx.fillRect(0,0,W,H);
