@@ -41,7 +41,7 @@ HTML 文件、`localhost`、DSH 面板是不同存储来源，进度互通请用
 
 - **任务**：20 个循环任务自动并行生产 Token，升级提高单周期收益；未解锁任务会显示解锁关卡。
 - **军团**：10 家厂商、59 个真实模型型号（各家 5–6 个），按关卡解锁；同厂商共享一个角色，战力按厂商汇总。首发免费 DeepSeek-V4.1-Flash。
-- **羁绊 / 连携**：同系列模型凑齐触发「羁绊」，不同厂商的梗组合触发「连携」；加成直接作用于军团算力与任务收益，在「军团」面板的技能条查看。
+- **羁绊 / 连携**：同系列模型凑齐触发「羁绊」，不同厂商的梗组合触发「连携」；加成直接作用于军团算力与任务收益，在侧栏的「羁绊」「连携」Tab 查看。
 - **战斗**：军团自动推进关卡，敌人是无尽 TODO；没有最终 Boss。
 - **厂商事件**：20 个本地静态戏仿事件，同时最多一个，自动生效，不做永久惩罚。
 - **蒸馏**：重置本代 Token / 任务等级 / 关卡 / 本代训练，保留模型、任务解锁、累计权重与世代编号；自动蒸馏先用有界试算确认收益。
@@ -54,7 +54,7 @@ HTML 文件、`localhost`、DSH 面板是不同存储来源，进度互通请用
 ## 本地与隐私
 
 - 纯本地：不读取会话或工作区，不调用模型，不发网络请求，无遥测。
-- 单屏：固定布局，无页面滚动；右侧栏底部为「蒸馏 / 模型 / 技能」Tab，默认打开蒸馏；窄屏同样使用底部 Tab（额外保留「任务」）。
+- 单屏：固定布局，无页面滚动；右侧栏底部为「蒸馏 / 模型 / 羁绊 / 连携」Tab，默认打开蒸馏；窄屏同样使用底部 Tab（额外保留「任务」）。
 - 存档只写本机 `localStorage`：自动备份、坏档恢复、导入导出、多窗口单写者（后开的窗口只读，写者关闭后自动接管）。
 - 面板不可见时停止绘制与经济计时器；回来补算，不在后台空转。
 - 默认 12 FPS（可切 6 / 24），帧率只影响画面，不影响收益。
@@ -108,10 +108,12 @@ Agent 完成或等待批准时，顶部会切换为高亮提醒并显示「返�
   - **开源双龙**（Kimi K3 + Qwen3.8）
   - **Arena 刷榜**（GPT-6 + Claude 5.5）
   - **Claude 蒸馏了 Qwen / DeepSeek / Kimi**（三组，收益 ×1.06）——Claude Opus 4.8 被曝自称千问/DeepSeek；蒸馏回旋镖梗
-- 激活后会在「技能」Tab 显示，点击查看说明与来源；加成实时作用于收益与战力，不额外占用操作。旧存档中的旧 id 仍然兼容。
+- 激活后会分别在「羁绊」「连携」Tab 显示，点击查看说明与来源；加成实时作用于收益与战力，不额外占用操作。旧存档中的旧 id 仍然兼容。
 - 主要来源：[DeepSeek 群聊截图报道](https://www.tmtpost.com/8173268.html)、[微博大肥鱼](https://weibo.com/2/detail/5359694089556913)、[Linux.do ](https://linux.do/t/topic/3070375/8)、[Qwen/Kimi 梗图](https://www.163.com/dy/article/L2ITNLQ705568W0A.html)、[GLM 说自己是 Claude](https://zhuanlan.zhihu.com/p/2005476822993880454)、[Kimi 蒸馏 Claude](https://m.163.com/dy/article_v5/L2AT7RMQ0556BI4K.html)、[Arena 榜单争议](http://mp.weixin.qq.com/s?__biz=Mzg3NzYwMjMxOQ==&mid=2247484582&idx=1&sn=d34efc3e48ef900fd7572dcf9e5b8b96)、[Claude 蒸馏中国模型报道](https://www.c114.net.cn/industry/85669.html)、[蒸馏回旋镖](https://www.bianews.com/news/details?id=238954&type=0)、[MiniMax 刷榜怪讨论](https://linux.do/t/topic/2401857/4)、[MiniMax 刷分/背题疑云](https://cnbeta.stateserver.com/view/1582976.htm)。
 
-![羁绊与连携](https://raw.githubusercontent.com/JJJACKsong/dsh-plugin-token-war/main/docs/screenshots/07-skills.png)
+![羁绊](https://raw.githubusercontent.com/JJJACKsong/dsh-plugin-token-war/main/docs/screenshots/07-bonds.png)
+
+![连携](https://raw.githubusercontent.com/JJJACKsong/dsh-plugin-token-war/main/docs/screenshots/09-combos.png)
 
 ## 开发
 
