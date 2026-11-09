@@ -46,6 +46,9 @@ HTML 文件、`localhost`、DSH 面板是不同存储来源，进度互通请用
 
 ![模型 Tab · 厂商背景 Logo](https://raw.githubusercontent.com/JJJACKsong/dsh-plugin-token-war/main/docs/screenshots/10-models.png)
 - **战斗**：军团自动推进关卡，敌人是无尽 TODO；战场有呼吸浮动、攻击火花、飞向 TODO 状态条的弹道和顶部工作量条，没有最终 Boss。
+- 厂商遭遇负面事件时，对应角色会变灰并显示「暂时受限」，事件结束后自动恢复。
+
+![厂商事件 · 暂时受限](https://raw.githubusercontent.com/JJJACKsong/dsh-plugin-token-war/main/docs/screenshots/11-restricted.png)
 - **厂商事件**：20 个本地静态戏仿事件，同时最多一个，自动生效，不做永久惩罚。
 - **蒸馏**：重置本代 Token / 任务等级 / 关卡 / 本代训练，保留模型、任务解锁、累计权重与世代编号；自动蒸馏先用有界试算确认收益。
 - **离线成长**：切走面板、隐藏页面或关掉再回来，按同一套规则补算（单次最多 30 天）。
