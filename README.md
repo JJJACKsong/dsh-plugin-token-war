@@ -116,7 +116,7 @@ Agent 完成或等待批准时，顶部会切换为高亮提醒并显示「返�
   - **Arena 刷榜**（GPT-6 + Claude 5.5）
   - **耽误伟大复兴**（DeepSeek V4 + Qwen3.8，算力 ×0.94、收益 ×1.18）——「别的公司天天打游戏，等着 deepswe 涨了」
   - **Claude 蒸馏了 Qwen / DeepSeek / Kimi**（三组，收益 ×1.06）——Claude Opus 4.8 被曝自称千问/DeepSeek；蒸馏回旋镖梗
-- 激活后会分别在「羁绊」「连携」Tab 显示，卡片标明梗的发出者；加成实时作用于收益与战力，不额外占用操作。旧存档中的旧 id 仍然兼容。
+- 激活后会分别在「羁绊」「连携」Tab 显示，卡片标明这个技能发出自哪家厂商；加成实时作用于收益与战力，不额外占用操作。旧存档中的旧 id 仍然兼容。
 - 主要来源：[DeepSeek 群聊截图报道](https://www.tmtpost.com/8173268.html)、[微博大肥鱼](https://weibo.com/2/detail/5359694089556913)、[Linux.do ](https://linux.do/t/topic/3070375/8)、[Qwen/Kimi 梗图](https://www.163.com/dy/article/L2ITNLQ705568W0A.html)、[GLM 说自己是 Claude](https://zhuanlan.zhihu.com/p/2005476822993880454)、[Kimi 蒸馏 Claude](https://m.163.com/dy/article_v5/L2AT7RMQ0556BI4K.html)、[Arena 榜单争议](http://mp.weixin.qq.com/s?__biz=Mzg3NzYwMjMxOQ==&mid=2247484582&idx=1&sn=d34efc3e48ef900fd7572dcf9e5b8b96)、[Claude 蒸馏中国模型报道](https://www.c114.net.cn/industry/85669.html)、[蒸馏回旋镖](https://www.bianews.com/news/details?id=238954&type=0)、[MiniMax 刷榜怪讨论](https://linux.do/t/topic/2401857/4)、[MiniMax 刷分/背题疑云](https://cnbeta.stateserver.com/view/1582976.htm)、[员工群串子截图合集（B站，47 万播放）](https://www.bilibili.com/video/BV1jvn46dE2R/)。
 
 ![羁绊](https://raw.githubusercontent.com/JJJACKsong/dsh-plugin-token-war/main/docs/screenshots/07-bonds.png)

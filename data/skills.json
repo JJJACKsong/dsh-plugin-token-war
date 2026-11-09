@@ -26,8 +26,7 @@
       ],
       "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
       "source2": "https://www.tmtpost.com/8173268.html",
-      "desc": "「梁文锋是个 380 磅的大只佬，太阳穴爆鼓，采访拍到的照片都被 P 成了视频里的瘦弱版。被困无人区半个月，水米未进，全靠一身的脂肪和肌肉硬撑着走出去，从那以后他就放弃力量转而开发智力了。」",
-      "author": "非对称加密 · DeepSeek 员工群"
+      "desc": "「梁文锋是个 380 磅的大只佬，太阳穴爆鼓，采访拍到的照片都被 P 成了视频里的瘦弱版。被困无人区半个月，水米未进，全靠一身的脂肪和肌肉硬撑着走出去，从那以后他就放弃力量转而开发智力了。」"
     },
     {
       "id": "ds-troll-incubator",
@@ -47,8 +46,7 @@
         }
       ],
       "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
-      "desc": "「串子嘉豪培养体系？」——模型越多，段子产量越高，算力跟着一起涨。",
-      "author": "非对称加密 · DeepSeek 员工群"
+      "desc": "「串子嘉豪培养体系？」——模型越多，段子产量越高，算力跟着一起涨。"
     },
     {
       "id": "kimi-k3-score",
@@ -68,8 +66,7 @@
         }
       ],
       "source": "https://linux.do/t/topic/3070375/8",
-      "desc": "Kimi K3.1 Pro 跑 AGENT 测试出分；K3 系列一起上阵，榜单分数也一起涨。",
-      "author": "Linux.do 社区"
+      "desc": "Kimi K3.1 Pro 跑 AGENT 测试出分；K3 系列一起上阵，榜单分数也一起涨。"
     },
     {
       "id": "qwen-daily-iteration",
@@ -89,8 +86,7 @@
         }
       ],
       "source": "https://www.163.com/dy/article/L2ITNLQ705568W0A.html",
-      "desc": "Qwen3.8 预览版被网友发现“按天变强”，每晚重跑一次像换了新模型。",
-      "author": "Qwen 社区"
+      "desc": "Qwen3.8 预览版被网友发现“按天变强”，每晚重跑一次像换了新模型。"
     },
     {
       "id": "minimax-score-farm",
@@ -107,8 +103,7 @@
       ],
       "source": "https://linux.do/t/topic/2401857/4",
       "source2": "https://cnbeta.stateserver.com/view/1582976.htm",
-      "desc": "刷分把推关速度拉高，但任务收益被算法分走。",
-      "author": "Reddit / Linux.do 社区"
+      "desc": "刷分把推关速度拉高，但任务收益被算法分走。"
     }
   ],
   "combos": [
@@ -133,8 +128,7 @@
       "debuff": true,
       "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
       "desc": "「Kimi3.1Pro 一发力 DeepSeek 就像狗一样被踹飞了。」",
-      "source2": "https://www.bilibili.com/video/BV1jvn46dE2R/",
-      "author": "不知何许人 · DeepSeek"
+      "source2": "https://www.bilibili.com/video/BV1jvn46dE2R/"
     },
     {
       "id": "kimi-distill-claude",
@@ -152,8 +146,7 @@
       "power": 1.35,
       "income": 1.05,
       "source": "https://m.163.com/dy/article_v5/L2AT7RMQ0556BI4K.html",
-      "desc": "Anthropic 指控 Kimi 蒸馏其未发布模型，网友反手一句“你下一步就是蒸馏 Kimi”。",
-      "author": "Anthropic"
+      "desc": "Anthropic 指控 Kimi 蒸馏其未发布模型，网友反手一句“你下一步就是蒸馏 Kimi”。"
     },
     {
       "id": "glm-says-claude",
@@ -171,8 +164,7 @@
       "power": 1.12,
       "income": 1.08,
       "source": "https://zhuanlan.zhihu.com/p/2005476822993880454",
-      "desc": "问 GLM-5 你是谁，它说我是 Claude；身份错位反而让两家模型互相补齐。",
-      "author": "GLM-5 自己"
+      "desc": "问 GLM-5 你是谁，它说我是 Claude；身份错位反而让两家模型互相补齐。"
     },
     {
       "id": "kimi-qwen-open-dragons",
@@ -190,8 +182,7 @@
       "power": 1.2,
       "income": 1.12,
       "source": "https://www.163.com/dy/article/L2ITNLQ705568W0A.html",
-      "desc": "Kimi 和 Qwen 接连开源，海外网友把两家做成后来居上的“两条巨龙”梗图。",
-      "author": "海外开发者"
+      "desc": "Kimi 和 Qwen 接连开源，海外网友把两家做成后来居上的“两条巨龙”梗图。"
     },
     {
       "id": "arena-farm",
@@ -209,8 +200,7 @@
       "power": 1.12,
       "income": 1.15,
       "source": "http://mp.weixin.qq.com/s?__biz=Mzg3NzYwMjMxOQ==&mid=2247484582&idx=1&sn=d34efc3e48ef900fd7572dcf9e5b8b96",
-      "desc": "LM Arena 榜单的博弈与刷榜争议；上了竞技场，先刷一波存在感。",
-      "author": "竞技场玩家"
+      "desc": "LM Arena 榜单的博弈与刷榜争议；上了竞技场，先刷一波存在感。"
     },
     {
       "id": "claude-distills-qwen",
@@ -228,8 +218,7 @@
       "power": 1.0,
       "income": 1.06,
       "source": "https://www.c114.net.cn/industry/85669.html",
-      "desc": "Claude Opus 4.8 上线后被曝自称是千问和 DeepSeek；蒸馏回旋镖飞回 Anthropic。",
-      "author": "Claude Opus 4.8 自己"
+      "desc": "Claude Opus 4.8 上线后被曝自称是千问和 DeepSeek；蒸馏回旋镖飞回 Anthropic。"
     },
     {
       "id": "claude-distills-deepseek",
@@ -247,8 +236,7 @@
       "power": 1.0,
       "income": 1.06,
       "source": "https://www.c114.net.cn/industry/85669.html",
-      "desc": "Claude 被指蒸馏中国模型，DeepSeek 也在名单里。",
-      "author": "Claude Opus 4.8 自己"
+      "desc": "Claude 被指蒸馏中国模型，DeepSeek 也在名单里。"
     },
     {
       "id": "claude-distills-kimi",
@@ -266,8 +254,7 @@
       "power": 1.0,
       "income": 1.06,
       "source": "https://www.bianews.com/news/details?id=238954&type=0",
-      "desc": "Anthropic 报告点名 Kimi / Qwen / DeepSeek，反向蒸馏梗成立。",
-      "author": "Anthropic 报告"
+      "desc": "Anthropic 报告点名 Kimi / Qwen / DeepSeek，反向蒸馏梗成立。"
     },
     {
       "id": "delay-great-revival",
@@ -285,8 +272,7 @@
       "power": 0.94,
       "income": 1.18,
       "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
-      "desc": "「你们这么截串子消息，容易误导其他公司，让其他公司误入歧途。最后别的公司天天打游戏，等着 deepswe 涨了，耽误伟大复兴。」",
-      "author": "吴侯 · DeepSeek 员工群"
+      "desc": "「你们这么截串子消息，容易误导其他公司，让其他公司误入歧途。最后别的公司天天打游戏，等着 deepswe 涨了，耽误伟大复兴。」"
     }
   ]
 }
