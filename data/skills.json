@@ -180,6 +180,60 @@
       "income": 1.15,
       "source": "http://mp.weixin.qq.com/s?__biz=Mzg3NzYwMjMxOQ==&mid=2247484582&idx=1&sn=d34efc3e48ef900fd7572dcf9e5b8b96",
       "desc": "LM Arena 榜单的博弈与刷榜争议；上了竞技场，先刷一波存在感。"
+    },
+    {
+      "id": "claude-distills-qwen",
+      "name": "Claude 蒸馏了 Qwen",
+      "requires": [
+        {
+          "vendor": "claude",
+          "series": "claude5"
+        },
+        {
+          "vendor": "qwen",
+          "series": "qwen38"
+        }
+      ],
+      "power": 1.0,
+      "income": 1.06,
+      "source": "https://www.c114.net.cn/industry/85669.html",
+      "desc": "Claude Opus 4.8 上线后被曝自称是千问和 DeepSeek；蒸馏回旋镖飞回 Anthropic。轻微收益，不抢主力。"
+    },
+    {
+      "id": "claude-distills-deepseek",
+      "name": "Claude 蒸馏了 DeepSeek",
+      "requires": [
+        {
+          "vendor": "claude",
+          "series": "claude5"
+        },
+        {
+          "vendor": "deepseek",
+          "series": "deepseek_v4"
+        }
+      ],
+      "power": 1.0,
+      "income": 1.06,
+      "source": "https://www.c114.net.cn/industry/85669.html",
+      "desc": "同上，Claude 被指蒸馏中国模型，DeepSeek 也在名单里；收益小幅提升。"
+    },
+    {
+      "id": "claude-distills-kimi",
+      "name": "Claude 蒸馏了 Kimi",
+      "requires": [
+        {
+          "vendor": "claude",
+          "series": "claude5"
+        },
+        {
+          "vendor": "kimi",
+          "series": "k3"
+        }
+      ],
+      "power": 1.0,
+      "income": 1.06,
+      "source": "https://www.bianews.com/news/details?id=238954&type=0",
+      "desc": "Anthropic 报告点名 Kimi/Qwen/DeepSeek，反向蒸馏梗成立；与『Kimi 蒸馏了 Claude』可以同时存在。"
     }
   ]
 }
