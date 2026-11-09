@@ -1101,6 +1101,7 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
       }
       return Math.max(min,size);
     };
+    const chars=[];
     visibleOwned.forEach((id,i)=>{
       loadCharacter(id);
       const character=CATALOG.characters.find(c=>c.id===id),image=images.get(id),x=x0+i*slot;
@@ -1109,14 +1110,19 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
       const state=!held||s.paused?'idle':moving?'move':t<600?'attack':'idle';
       const clip=resolveClip(CATALOG,character,state);
       const frame=selectFrame(clip,state==='attack'?t:animationTime+i*350).frame;
+      const bob=Math.sin((animationTime+i*340)/380)*1.1;
+      const lunge=state==='attack'?4:0;
+      const charX=x+lunge;
+      chars.push({id,x:charX,y:groundY,targetH});
       ctx.fillStyle='#00000066';ctx.beginPath();ctx.ellipse(x,groundY-2,Math.max(8,charH*.20),Math.max(2,charH*.05),0,0,Math.PI*2);ctx.fill();
       if(image){
         const bounds=character.renderBounds||[0,0,192,192];
         const contentH=Math.max(1,bounds[3]-bounds[1]);
         const scaleC=targetH/contentH;
-        const originX=x-(bounds[0]+bounds[2])/2*scaleC;
-        const originY=groundY+1-bounds[3]*scaleC;
+        const originX=charX-(bounds[0]+bounds[2])/2*scaleC;
+        const originY=groundY+1+bob-bounds[3]*scaleC;
         drawFrame(ctx,image,CATALOG,frame,originX+CATALOG.anchorPx[0]*scaleC,originY+CATALOG.anchorPx[1]*scaleC,scaleC);
+        if(state==='attack'){ctx.globalAlpha=.55;ctx.strokeStyle=VENDOR_TEXT[id]||VENDOR_COLORS[id];ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(charX+targetH*.24,groundY-targetH*.58);ctx.lineTo(charX+targetH*.43,groundY-targetH*.66);ctx.stroke();ctx.globalAlpha=1;}
       } else{ctx.fillStyle=VENDOR_COLORS[id];ctx.fillRect(x-charH*.18,groundY-charH*.7,charH*.36,charH*.7);}
       ctx.save();ctx.shadowColor='#000000';ctx.shadowBlur=3;ctx.shadowOffsetY=1;
       ctx.textAlign='center';ctx.fillStyle=VENDOR_TEXT[id]||VENDOR_COLORS[id];
@@ -1149,6 +1155,35 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
     ctx.fillStyle=boss?'#221A1A':'#1B1E26';ctx.fillRect(statusX,statusY,statusW,statusH);
     ctx.strokeStyle=boss?'#E74438':'#4D6BFE';ctx.lineWidth=1;ctx.strokeRect(statusX+.5,statusY+.5,statusW-1,statusH-1);
     ctx.fillStyle=boss?'#FF8A7A':'#DCE3FF';ctx.fillText(statusText,statusX+statusW/2,statusY+14);
+    ctx.restore();
+    // 敌人工作量条：让“还剩多少”一眼可读
+    ctx.fillStyle='#14272A';ctx.fillRect(statusX,statusY+statusH+3,statusW,3);
+    ctx.fillStyle=hp<.3?'#E74438':'#46E3D2';ctx.fillRect(statusX,statusY+statusH+3,Math.max(1,statusW*hp),3);
+    // 角色向 TODO 状态条发射的小型攻击火花
+    if(held&&!s.paused&&chars.length){
+      const shooter=chars[Math.floor(animationTime/420)%chars.length];
+      const tt=(animationTime%420)/420;
+      if(tt<.55){
+        const sx=shooter.x+shooter.targetH*.28,sy=shooter.y-shooter.targetH*.62;
+        const tx=statusX+statusW*.5,ty=statusY+statusH/2;
+        const p=Math.min(1,tt/.55);
+        const px=sx+(tx-sx)*p,py=sy+(ty-sy)*p-Math.sin(p*Math.PI)*18;
+        ctx.save();ctx.globalAlpha=.22;ctx.strokeStyle=VENDOR_TEXT[shooter.id]||VENDOR_COLORS[shooter.id];ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(sx,sy);ctx.lineTo(px,py);ctx.stroke();ctx.restore();
+        ctx.fillStyle=VENDOR_TEXT[shooter.id]||VENDOR_COLORS[shooter.id];ctx.beginPath();ctx.arc(px,py,2.2,0,Math.PI*2);ctx.fill();
+        if(p>.82){ctx.save();ctx.globalAlpha=(1-p)*1.8;ctx.strokeStyle='#46E3D2';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(tx,ty,4+(p-.82)*26,0,Math.PI*2);ctx.stroke();ctx.restore();}
+      }
+    }
+    // 背景扫描 + 缓慢上升的数据尘埃：静态战场也有呼吸感
+    ctx.save();ctx.globalAlpha=.035;ctx.strokeStyle='#4D6BFE';ctx.lineWidth=1;
+    const scan=(animationTime/120)%140;
+    for(let xx=-scan;xx<W;xx+=140){ctx.beginPath();ctx.moveTo(xx,0);ctx.lineTo(xx,groundY);ctx.stroke();}
+    ctx.restore();
+    ctx.save();ctx.globalAlpha=.22;
+    for(let k=0;k<14;k++){
+      const px=((k*137+animationTime/78)%(W+100))-50;
+      const py=groundY-10-((k*53+animationTime/34)%Math.max(20,groundY-20));
+      ctx.fillStyle=k%3?'#4D6BFE':'#46E3D2';ctx.fillRect(px,py,2,4);
+    }
     ctx.restore();
     lastRenderedStage=s.stage;
     if(s.paused||!held){
