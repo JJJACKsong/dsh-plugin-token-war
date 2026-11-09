@@ -273,6 +273,40 @@
       "income": 1.18,
       "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
       "desc": "「你们这么截串子消息，容易误导其他公司，让其他公司误入歧途。最后别的公司天天打游戏，等着 deepswe 涨了，耽误伟大复兴。」"
+    },
+    {
+      "id": "no-gpu-savages",
+      "name": "无卡野人",
+      "vendors": [
+        "deepseek",
+        "qwen",
+        "doubao",
+        "glm",
+        "kimi",
+        "minimax"
+      ],
+      "minModels": 10,
+      "power": 0.9,
+      "income": 1.18,
+      "issuer": "国产模型",
+      "desc": "卡不够，就把每一张卡榨到极限。国产模型凑得多，算力往下走，收益往上走。",
+      "source": "用户设定"
+    },
+    {
+      "id": "brute-force",
+      "name": "力大砖飞",
+      "vendors": [
+        "chatgpt",
+        "claude",
+        "gemini",
+        "grok"
+      ],
+      "minModels": 8,
+      "power": 1.18,
+      "income": 0.94,
+      "issuer": "海外模型",
+      "desc": "算力管够，直接拿卡堆出来。海外模型堆得多，算力更猛，但成本吃掉一点收益。",
+      "source": "用户设定"
     }
   ]
 }

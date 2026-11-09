@@ -74,6 +74,20 @@ test('MiniMax score-farm bond raises speed but cuts income',()=>{
  assert.ok(skillEffects(s).vendor.minimax>1);
  assert.ok(skillEffects(s).income<1);
 });
+test('faction combos trade power against income',()=>{
+ const s=createGame();
+ s.models=['dsv41flash','dsv2','dsv41','dsv4pro','qwen2','qwen3','qwen3827b','kimik3','kimik3turbo','glm5'];
+ const cn=skillEffects(s);
+ assert.ok(activeCombos(s).some(c=>c.id==='no-gpu-savages'));
+ assert.ok(cn.income>1);
+ assert.ok(cn.vendor.deepseek<2);
+ const f=createGame();
+ f.models=['gpt56turbo','gpt56sol','opus55','sonnet55','gemini4flash','gemini4pro','grok5','grok6'];
+ const us=skillEffects(f);
+ assert.ok(activeCombos(f).some(c=>c.id==='brute-force'));
+ assert.ok(us.income<1);
+ assert.ok(us.vendor.chatgpt>1.1);
+});
 test('negative vendor event only changes its vendor and expires',()=>{
  const s=createGame();s.models.push('dsv2');const baseline=totalPower(s);s.event={id:'ds-busy',until:30000};assert.ok(compare(totalPower(s),baseline)<0);s.auto=false;s.autoDistill=false;run(s,30001);assert.equal(s.event,null);close(totalPower(s),baseline);
 });

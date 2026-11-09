@@ -71,14 +71,14 @@ test('roster uses real model lineups and keeps legacy ids', async () => {
   for(const v of roster.enabledVendors) assert.ok(events.events.some(e=>e.vendor===v),`missing event for ${v}`);
   assert.equal(events.events.length,21);
   const skills=await json('../data/skills.json');
-  assert.equal(skills.bonds.length,5);assert.equal(skills.combos.length,9);
+  assert.equal(skills.bonds.length,5);assert.equal(skills.combos.length,11);
   for(const b of skills.bonds) assert.ok(b.vendor&&b.desc,`bond ${b.id} needs vendor/desc`);
-  for(const c of skills.combos) assert.ok(c.desc&&c.requires.length>=2,`combo ${c.id} needs desc/requires`);
+  for(const c of skills.combos) assert.ok(c.desc&&(c.requires?.length>=2||c.vendors?.length>=2),`combo ${c.id} needs desc/requires`);
   assert.ok(skills.combos.some(c=>c.debuff&&c.vendorPower?.deepseek<1));
   assert.ok(skills.bonds.some(b=>b.debuff&&b.tiers.some(t=>t.income<1&&t.power>1)));
   const series=new Set(roster.models.map(m=>m.series));
   for(const b of skills.bonds) assert.ok(series.has(b.series),`unknown bond series ${b.series}`);
-  for(const c of skills.combos) assert.ok(c.requires.length>=2);
+  for(const c of skills.combos) assert.ok(c.requires?.length>=2||c.vendors?.length>=2,`combo ${c.id} needs reqs`);
 });
 test('private package and inert host', async () => {
   const pkg=await json('../package.json');
