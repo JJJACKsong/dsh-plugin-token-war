@@ -262,6 +262,21 @@
         "厂商算力 ×0.7",
         "任务产出 ×1.08"
       ]
+    },
+    {
+      "id": "ds-office-gaming",
+      "vendor": "deepseek",
+      "name": "最近在工位玩游戏的太多了",
+      "durationMs": 45000,
+      "effects": [
+        "厂商算力 ×1.45",
+        "任务产出 ×0.88"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 1.45,
+      "incomeMultiplier": 0.88,
+      "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
+      "desc": "员工群原话：「最近在工位玩游戏的太多了」。全员摸鱼反而把模型训得更猛，但任务产出被分走。"
     }
   ]
 }

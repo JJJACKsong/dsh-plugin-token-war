@@ -61,7 +61,7 @@ test('an old save with the old starter gains the new starter and advances',()=>{
 });
 test('same-series bonds and cross-vendor meme combos activate',()=>{
  const s=createGame();s.models=['dsv41flash','dsv2'];
- assert.ok(activeBonds(s).some(b=>b.id==='deepseek-big-fish'));
+ assert.ok(activeBonds(s).some(b=>b.id==='ds-380-pound'));
  const base=skillEffects(s).vendor.deepseek;
  s.models.push('kimik3turbo','fable5');
  assert.ok(activeCombos(s).some(c=>c.id==='kimi-distill-claude'));

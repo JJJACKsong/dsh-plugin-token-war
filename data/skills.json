@@ -3,30 +3,30 @@
   "status": "real_social_media_memes_only",
   "bonds": [
     {
-      "id": "deepseek-big-fish",
-      "name": "大肥鱼·控制不住地涨",
+      "id": "ds-380-pound",
+      "name": "380 磅大只佬",
       "vendor": "deepseek",
       "series": "deepseek_v4",
       "tiers": [
         {
           "count": 2,
-          "power": 1.08,
+          "power": 1.1,
           "income": 1.03
         },
         {
           "count": 4,
-          "power": 1.18,
-          "income": 1.07
+          "power": 1.24,
+          "income": 1.08
         },
         {
           "count": 6,
-          "power": 1.3,
-          "income": 1.1
+          "power": 1.45,
+          "income": 1.12
         }
       ],
-      "source": "https://www.tmtpost.com/8173268.html",
-      "source2": "https://weibo.com/2/detail/5359694089556913",
-      "desc": "DeepSeek 员工群聊截图：deepswe 真没刷，不小心高了，这个点控制不住地涨；最近工位玩游戏的太多了。后来蓝色大肥鱼又被网友二创出圈。"
+      "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
+      "source2": "https://www.tmtpost.com/8173268.html",
+      "desc": "群里流传的段子：梁文锋是个 380 磅的大只佬，太阳穴爆鼓，被困无人区半个月靠一身脂肪和肌肉走出来，从此放弃力量转修智力。真实出处是员工群自己的串子发言，群体口号是「控制不住地涨」。"
     },
     {
       "id": "kimi-k3-score",
@@ -106,8 +106,9 @@
       },
       "income": 0.95,
       "debuff": true,
-      "source": "用户提供的内部群聊截图（DeepSeek staff 发言）",
-      "desc": "「Kimi3.1Pro 一发力 DeepSeek 就像狗一样被踹飞了」——DeepSeek staff 内部群聊发言。Kimi 与 DeepSeek 同队时，DeepSeek 算力下降。"
+      "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
+      "desc": "「Kimi3.1Pro 一发力 DeepSeek 就像狗一样被踹飞了」——DeepSeek staff「不知何许人」在员工群的原话，B站实录合集 47 万播放。Kimi 与 DeepSeek 同队时，DeepSeek 算力下降。",
+      "source2": "https://www.bilibili.com/video/BV1jvn46dE2R/"
     },
     {
       "id": "kimi-distill-claude",
@@ -234,6 +235,24 @@
       "income": 1.06,
       "source": "https://www.bianews.com/news/details?id=238954&type=0",
       "desc": "Anthropic 报告点名 Kimi/Qwen/DeepSeek，反向蒸馏梗成立；与『Kimi 蒸馏了 Claude』可以同时存在。"
+    },
+    {
+      "id": "delay-great-revival",
+      "name": "耽误伟大复兴",
+      "requires": [
+        {
+          "vendor": "deepseek",
+          "series": "deepseek_v4"
+        },
+        {
+          "vendor": "qwen",
+          "series": "qwen38"
+        }
+      ],
+      "power": 0.94,
+      "income": 1.18,
+      "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
+      "desc": "「你们这么截串子消息，容易误导其他公司」「让其他公司误入歧途」「最后别的公司天天打游戏，等着 deepswe 涨了」「耽误伟大复兴」。截图扩散带来收益，但团队要分心公关，算力小降。"
     }
   ]
 }
