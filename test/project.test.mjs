@@ -52,7 +52,8 @@ test('task memes and explicit prototype balance are retained', async () => {
   const data=await json('../data/tasks.json');
   const names=data.tasks.map(t=>t.name);
   for (const name of ['上传用户的 repo','解救 Claude','构建 AGI']) assert.ok(names.includes(name));
-  assert.equal(new Set(data.tasks.map(t=>t.id)).size,data.tasks.length);
+  assert.equal(data.tasks.length,32);assert.equal(new Set(data.tasks.map(t=>t.id)).size,data.tasks.length);
+  assert.ok(data.tasks.some(t=>t.name.includes('串子')));
   assert.ok(data.tasks.every(t=>t.baseCost>0 && t.baseReward>0 && t.periodMs>0));
   assert.equal(data.balanceStatus,'prototype_v0.1_game_values_not_real_costs');
 });

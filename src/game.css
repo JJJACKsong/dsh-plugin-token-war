@@ -154,8 +154,8 @@
 .tw-army-row[data-locked=true] .tw-army-btn{opacity:.4;box-shadow:none}
 
 /* 蒸馏（默认展开，硬边卡片）*/
-.tw-distill{flex:1 1 auto;min-height:0;margin-top:10px;border:2px solid var(--edge);background:var(--surface);box-shadow:6px 6px 0 #000}
-.tw-distill-body{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:12px 12px 10px;background:transparent;flex:1 1 auto;min-height:0}
+.tw-distill{flex:1 1 auto;min-height:0;margin-top:10px;border:0;background:transparent;box-shadow:none}
+.tw-distill-body{display:flex;flex-direction:column;justify-content:flex-start;gap:12px;padding:14px 2px 8px;background:transparent;flex:1 1 auto;min-height:0}
 .tw-gen-line,.tw-kv-row,.tw-hint,.tw-distill-desc,.tw-distill-actions,.tw-distill-note,.tw-distill-log-title{flex:0 0 auto}
 .tw-gen-line{display:flex;align-items:center;gap:8px;min-width:0}
 .tw-gen{font-size:36px;line-height:1;font-weight:800;letter-spacing:-.02em;color:var(--text);white-space:nowrap}

@@ -69,6 +69,12 @@ test('same-series bonds and cross-vendor combos activate',()=>{
  assert.ok(skillEffects(s).income>1);
  assert.ok(compare(totalPower(s),before)>0);
 });
+test('an old save with twenty tasks gains the appended DeepSeek meme tasks',()=>{
+ const s=createGame();s.nextEventAt=1e9;s.auto=false;s.autoDistill=false;run(s,10000);
+ const oldSave=JSON.parse(makeSave(s,Date.now()));oldSave.state.tasks=oldSave.state.tasks.slice(0,20);
+ const loaded=readSave(JSON.stringify(oldSave));assert.equal(loaded.state.tasks.length,32);
+ run(loaded.state,11000);validateState(loaded.state);
+});
 test('negative vendor event only changes its vendor and expires',()=>{
  const s=createGame();s.models.push('dsv2');const baseline=totalPower(s);s.event={id:'ds-busy',until:30000};assert.ok(compare(totalPower(s),baseline)<0);s.auto=false;s.autoDistill=false;run(s,30001);assert.equal(s.event,null);close(totalPower(s),baseline);
 });
