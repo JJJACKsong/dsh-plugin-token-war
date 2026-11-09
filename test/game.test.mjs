@@ -59,15 +59,14 @@ test('an old save with the old starter gains the new starter and advances',()=>{
  assert.ok(loaded.state.models.includes('gpt35'));
  run(loaded.state,60000);validateState(loaded.state);
 });
-test('same-series bonds and cross-vendor combos activate',()=>{
- const s=createGame();s.maxStage=400;s.coins=amount(1e50);s.nextEventAt=1e12;
- for(const id of ['gpt56sol','gpt56solpro'])assert.equal(buyModel(s,id),true);
- assert.ok(activeBonds(s).some(b=>b.id==='gpt56-family'));
- const before=totalPower(s);
- s.models.push('kimik3','fable5');
+test('same-series bonds and cross-vendor meme combos activate',()=>{
+ const s=createGame();s.models=['dsv41flash','dsv2'];
+ assert.ok(activeBonds(s).some(b=>b.id==='deepseek-big-fish'));
+ const base=skillEffects(s).vendor.deepseek;
+ s.models.push('kimik3turbo','fable5');
  assert.ok(activeCombos(s).some(c=>c.id==='kimi-distill-claude'));
- assert.ok(skillEffects(s).income>1);
- assert.ok(compare(totalPower(s),before)>0);
+ assert.ok(activeCombos(s).some(c=>c.id==='cat-group-kick'));
+ assert.ok(skillEffects(s).vendor.deepseek<base);
 });
 test('negative vendor event only changes its vendor and expires',()=>{
  const s=createGame();s.models.push('dsv2');const baseline=totalPower(s);s.event={id:'ds-busy',until:30000};assert.ok(compare(totalPower(s),baseline)<0);s.auto=false;s.autoDistill=false;run(s,30001);assert.equal(s.event,null);close(totalPower(s),baseline);

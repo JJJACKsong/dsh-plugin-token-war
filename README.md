@@ -99,9 +99,15 @@ Agent 完成或等待批准时，顶部会切换为高亮提醒并显示「返�
 
 ## 羁绊与连携
 
-- **同系列羁绊**：同一厂商同一代型号凑齐 2–4 个，触发该厂商算力与全局收益加成，例如 GPT-5.6 家族、Claude 5.5 全家桶、DeepSeek V4 开源阵、GLM-5 全家桶。
-- **跨系列连携**：不同厂商各出一个系列即可触发，带 AI 圈梗，例如「Kimi 蒸馏了 Claude」「开源蒸馏链」「Arena 互刷」「马斯克 vs 奥特曼」「视频生成内卷」「国产开源双雄」。
-- 激活后会在「军团」面板顶部的技能条显示；加成实时作用于收益与战力，不额外占用操作。模型名称只作为戏仿；旧存档中的旧 id 仍然兼容。
+- **同系列羁绊**（真实社媒梗）：DeepSeek「大肥鱼·控制不住地涨」、Kimi「猫榜出分」、Qwen「按天迭代」。
+- **跨系列连携**（真实社媒梗）：
+  - **Kimi 蒸馏了 Claude**（Kimi K3 + Claude 5.5）
+  - **猫群：一发力就被踹飞**（Kimi K3 + DeepSeek V4，DeepSeek 算力 ×0.68，**负面连携**；来源为用户提供的猫群截图）
+  - **问 GLM 你是谁：我是 Claude**（GLM-5 + Claude 5.5）
+  - **开源双龙**（Kimi K3 + Qwen3.8）
+  - **Arena 刷榜**（GPT-6 + Claude 5.5）
+- 激活后会在「军团」面板顶部的技能条显示，点击查看说明与来源；加成实时作用于收益与战力，不额外占用操作。旧存档中的旧 id 仍然兼容。
+- 主要来源：[DeepSeek 群聊截图报道](https://www.tmtpost.com/8173268.html)、[微博大肥鱼](https://weibo.com/2/detail/5359694089556913)、[Linux.do 猫榜](https://linux.do/t/topic/3070375/8)、[Qwen/Kimi 梗图](https://www.163.com/dy/article/L2ITNLQ705568W0A.html)、[GLM 说自己是 Claude](https://zhuanlan.zhihu.com/p/2005476822993880454)、[Kimi 蒸馏 Claude](https://m.163.com/dy/article_v5/L2AT7RMQ0556BI4K.html)、[Arena 榜单争议](http://mp.weixin.qq.com/s?__biz=Mzg3NzYwMjMxOQ==&mid=2247484582&idx=1&sn=d34efc3e48ef900fd7572dcf9e5b8b96)。
 
 ![羁绊与连携](https://raw.githubusercontent.com/JJJACKsong/dsh-plugin-token-war/main/docs/screenshots/07-skills.png)
 
