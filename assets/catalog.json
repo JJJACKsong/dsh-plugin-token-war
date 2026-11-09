@@ -75,6 +75,12 @@
         800,
         200,
         110
+      ],
+      "renderBounds": [
+        8,
+        27,
+        174,
+        177
       ]
     },
     {
@@ -92,6 +98,12 @@
         800,
         200,
         110
+      ],
+      "renderBounds": [
+        29,
+        40,
+        184,
+        176
       ]
     },
     {
@@ -104,7 +116,13 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "2026-11"
+      "releaseRoster": "2026-11",
+      "renderBounds": [
+        20,
+        44,
+        184,
+        176
+      ]
     },
     {
       "id": "glm",
@@ -121,6 +139,12 @@
         800,
         200,
         110
+      ],
+      "renderBounds": [
+        9,
+        36,
+        184,
+        176
       ]
     },
     {
@@ -133,7 +157,13 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "2026-11"
+      "releaseRoster": "2026-11",
+      "renderBounds": [
+        8,
+        48,
+        173,
+        176
+      ]
     },
     {
       "id": "gemini",
@@ -145,7 +175,13 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "2026-11"
+      "releaseRoster": "2026-11",
+      "renderBounds": [
+        18,
+        44,
+        184,
+        177
+      ]
     },
     {
       "id": "kimi",
@@ -157,7 +193,13 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "2026-11"
+      "releaseRoster": "2026-11",
+      "renderBounds": [
+        28,
+        60,
+        185,
+        176
+      ]
     },
     {
       "id": "qwen",
@@ -169,7 +211,13 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "2026-11"
+      "releaseRoster": "2026-11",
+      "renderBounds": [
+        11,
+        32,
+        184,
+        176
+      ]
     },
     {
       "id": "doubao",
@@ -181,7 +229,13 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "2026-11"
+      "releaseRoster": "2026-11",
+      "renderBounds": [
+        17,
+        51,
+        184,
+        176
+      ]
     },
     {
       "id": "minimax",
@@ -193,7 +247,13 @@
         "move",
         "attack"
       ],
-      "releaseRoster": "2026-11"
+      "releaseRoster": "2026-11",
+      "renderBounds": [
+        22,
+        20,
+        183,
+        176
+      ]
     }
   ]
 }

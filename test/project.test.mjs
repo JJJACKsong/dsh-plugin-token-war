@@ -44,6 +44,8 @@ test('asset catalog covers all ten characters in the 2026-11 roster', () => {
     assert.ok(c.atlas.startsWith('assets/characters/'));
     for (const p of [c.source,c.atlas]) assert.ok(!p.includes('..') && !p.startsWith('/'));
     for (const clip of Object.values(catalog.animations)) assert.ok(selectFrame(clip,250).frame<9);
+    assert.ok(Array.isArray(c.renderBounds)&&c.renderBounds.length===4,`${c.id} needs renderBounds`);
+    assert.ok(c.renderBounds[3]>c.renderBounds[1],`${c.id} renderBounds height`);
   }
 });
 test('task memes and explicit prototype balance are retained', async () => {
