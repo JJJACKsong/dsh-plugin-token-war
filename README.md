@@ -40,7 +40,8 @@ HTML 文件、`localhost`、DSH 面板是不同存储来源，进度互通请用
 ## 玩法
 
 - **任务**：20 个循环任务自动并行生产 Token，升级提高单周期收益；未解锁任务会显示解锁关卡。
-- **军团**：10 家厂商、41 个模型型号（每家 4 个，DeepSeek 额外有免费首发 DeepSeek-V4.1-Flash），按关卡解锁；同厂商共享一个角色，战力按厂商汇总。后期型号会显著拉高军团战力。
+- **军团**：10 家厂商、59 个真实模型型号（各家 5–6 个），按关卡解锁；同厂商共享一个角色，战力按厂商汇总。首发免费 DeepSeek-V4.1-Flash。
+- **羁绊 / 连携**：同系列模型凑齐触发「羁绊」，不同厂商的梗组合触发「连携」；加成直接作用于军团算力与任务收益，在「军团」面板的技能条查看。
 - **战斗**：军团自动推进关卡，敌人是无尽 TODO；没有最终 Boss。
 - **厂商事件**：20 个本地静态戏仿事件，同时最多一个，自动生效，不做永久惩罚。
 - **蒸馏**：重置本代 Token / 任务等级 / 关卡 / 本代训练，保留模型、任务解锁、累计权重与世代编号；自动蒸馏先用有界试算确认收益。
@@ -64,20 +65,28 @@ Agent 完成或等待批准时，顶部会切换为高亮提醒并显示「返�
 
 ## 模型名单
 
-| 厂商 | 早期 / 中坚 | 后期 / 旗舰 |
-| --- | --- | --- |
-| DeepSeek | DeepSeek-V4.1-Flash（首发）· DeepSeek-V4-Flash · DeepSeek-V4-Pro | DeepSeek-V4.2-Flash · DeepSeek-V4.1-Pro |
-| OpenAI | GPT-5.6 Luna · GPT-5.6 Turbo | GPT-6 Astra · GPT-6 Nova |
-| Anthropic | Claude Haiku 5.5 · Claude Sonnet 5.5 | Claude Fable 5.1 · Claude Opus 5.5 |
-| Google | Gemini 3.8 Flash · Gemini 4 Pro | Gemini 4 Argon · Gemini 4.2 Ultra |
-| Qwen | Qwen3.8-Flash · Qwen3.8-Coder | Qwen3.8-Max · Qwen4 Preview |
-| ByteDance | Doubao 2.0 Pro · Doubao-Seed 2.5 | Doubao-Seed 3.0 · Doubao 4 Ultra |
-| Zhipu | GLM-5 · GLM-5 Air | GLM-5.5 · GLM-6 |
-| xAI | Grok 5 · Grok 5 Mini | Grok 6 · Grok 6 Heavy |
-| Moonshot | Kimi K3 · Kimi K3 Turbo | Kimi K4 · Kimi K4 Pro |
-| MiniMax | MiniMax M3 · MiniMax M3.5 | MiniMax M4 · MiniMax M4 Pro |
+按 2026-11 各厂商公开模型页整理（来源记录在 `data/roster.json` 的 `modelSnapshot.sources`）；只作为游戏戏仿，不是 API 报价。
 
-招募价格是**游戏 Token 平衡值**，不是官方 API 报价；模型名称只作为戏仿与梗使用。首个免费型号改为 DeepSeek-V4.1-Flash；原 GPT-5.6 Luna 改为早期付费型号，其余旧型号的 id、解锁关卡、招募价和算力保持不变，旧存档会自动补入新首发并可继续使用。新增型号为游戏内扩展。
+| 厂商 | 当前阵容 |
+| --- | --- |
+| DeepSeek | DeepSeek-V4.1-Flash（首发）· V4-Flash · V4-Flash-GA · V4-Pro · V4-Pro-GA · V4.1-Flash-Economy |
+| OpenAI | GPT-5.6 Luna · Terra · Sol · Sol Pro · GPT-6 Sol · GPT-6 Astra |
+| Anthropic | Claude Haiku 5.5 · Sonnet 5.5 · Opus 5.5 · Fable 5.1 · Sonnet 4.6 · Opus 4.6 |
+| Google | Gemini 3.8 Flash · Gemini 4 Argon · 4 Pro · 4 Flash · 4 Flash-Lite |
+| Qwen | Qwen3.8-Flash · Qwen3.8-Max · Max-0902 · 2.4T-A95B · 27B · Qwen3-Coder-Next |
+| ByteDance | Doubao-Seed-2.1-Pro · 2.1-Lite · 2.1-Turbo · 2.0-Lite · 2.0-Mini · Seed-Evolving |
+| Zhipu | GLM-5 · 5.1 · 5.2 · 5.3 · 5.3-Flash · 5.3-FlashX |
+| xAI | Grok 4.7 · 4.6 · 4.5 · 4.3 · 4.20 · Grok Build 0.1 |
+| Moonshot | Kimi K3.1 Pro · K3.1 Pro Highspeed · K3 · K2.7 Code · K2.6 · K2.5 |
+| MiniMax | MiniMax-M3 · M3.1-Flash · M2.7 · M2.5 · M2.1 · M2 |
+
+## 羁绊与连携
+
+- **同系列羁绊**：同一厂商同一代型号凑齐 2–4 个，触发该厂商算力与全局收益加成，例如 GPT-5.6 家族、Claude 5.5 全家桶、DeepSeek V4 开源阵、GLM-5 全家桶。
+- **跨系列连携**：不同厂商各出一个系列即可触发，带 AI 圈梗，例如「Kimi 蒸馏了 Claude」「开源蒸馏链」「Arena 互刷」「马斯克 vs 奥特曼」「视频生成内卷」「国产开源双雄」。
+- 激活后会在「军团」面板顶部的技能条显示；加成实时作用于收益与战力，不额外占用操作。模型名称只作为戏仿；旧存档中的旧 id 仍然兼容。
+
+![羁绊与连携](https://raw.githubusercontent.com/JJJACKsong/dsh-plugin-token-war/main/docs/screenshots/07-skills.png)
 
 ## 开发
 

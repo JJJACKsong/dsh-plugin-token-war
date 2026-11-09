@@ -54,19 +54,25 @@ test('task memes and explicit prototype balance are retained', async () => {
   assert.ok(data.tasks.every(t=>t.baseCost>0 && t.baseReward>0 && t.periodMs>0));
   assert.equal(data.balanceStatus,'prototype_v0.1_game_values_not_real_costs');
 });
-test('expanded roster keeps the original ten ids and adds four models per vendor', async () => {
+test('roster uses real model lineups and keeps legacy ids', async () => {
   const roster=await json('../data/roster.json');
-  assert.equal(roster.enabledVendors.length,10);assert.equal(roster.models.length,41);assert.ok(roster.models.every(m=>m.apiPrice===null));
+  assert.equal(roster.enabledVendors.length,10);assert.equal(roster.models.length,59);assert.ok(roster.models.every(m=>m.apiPrice===null));
   assert.equal(roster.models[0].id,'dsv41flash');assert.equal(roster.models[0].name,'DeepSeek-V4.1-Flash');assert.equal(roster.models[0].vendor,'deepseek');
   const originalIds=['gpt35','dsv2','claude2','gemini15','qwen2','dsv41','gpt4o','gemini25','qwen3','fable5'];
   for(const id of originalIds) assert.ok(roster.models.some(m=>m.id===id),`missing original model ${id}`);
-  for(const v of roster.enabledVendors) assert.ok(roster.models.filter(m=>m.vendor===v).length>=4,`${v} should have at least four models`);
+  for(const v of roster.enabledVendors) assert.ok(roster.models.filter(m=>m.vendor===v).length>=5,`${v} should have at least five models`);
+  for(const m of roster.models) assert.ok(m.series,`model ${m.id} needs a series for bonds`);
   assert.equal(roster.maxVisibleCharacters,5);
   const events=await json('../data/events.json');
   assert.equal(events.status,'user_supplied_satire_not_verified_news');
   assert.equal(events.maxConcurrent,1);
   for(const v of roster.enabledVendors) assert.ok(events.events.some(e=>e.vendor===v),`missing event for ${v}`);
   assert.equal(events.events.length,20);
+  const skills=await json('../data/skills.json');
+  assert.equal(skills.bonds.length,15);assert.equal(skills.combos.length,10);
+  const series=new Set(roster.models.map(m=>m.series));
+  for(const b of skills.bonds) assert.ok(series.has(b.series),`unknown bond series ${b.series}`);
+  for(const c of skills.combos) assert.ok(c.requires.length>=2);
 });
 test('private package and inert host', async () => {
   const pkg=await json('../package.json');

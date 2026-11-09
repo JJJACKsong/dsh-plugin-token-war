@@ -278,3 +278,10 @@
 .tw-app[data-h=short] .tw-kv-cell{padding:6px 8px}
 
 @media(prefers-reduced-motion:reduce){.tw-app *{transition:none!important;animation:none!important}}
+
+/* 羁绊 / 连携：军团面板内的紧凑技能条 */
+.tw-skill-strip{flex:0 0 auto;display:flex;flex-wrap:nowrap;gap:4px;padding:5px 9px;border-bottom:1px solid var(--line);background:var(--surface-2);overflow-x:auto;overflow-y:hidden;scrollbar-width:thin}
+.tw-skill-chip{display:inline-flex;flex:0 0 auto;cursor:pointer;align-items:center;max-width:100%;padding:1px 5px;border:1px solid var(--line);background:var(--surface);color:var(--muted);font-size:9px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tw-skill-chip[data-kind=bond]{border-color:#4D6BFE66;color:#AFC0FF}
+.tw-skill-chip[data-kind=combo]{border-color:#E9C17A66;color:#E9C17A}
+.tw-skill-empty{font-size:9px;color:var(--muted);padding:1px 0}
