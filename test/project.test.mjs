@@ -71,7 +71,7 @@ test('roster uses real model lineups and keeps legacy ids', async () => {
   for(const v of roster.enabledVendors) assert.ok(events.events.some(e=>e.vendor===v),`missing event for ${v}`);
   assert.equal(events.events.length,21);
   const skills=await json('../data/skills.json');
-  assert.equal(skills.bonds.length,4);assert.equal(skills.combos.length,9);
+  assert.equal(skills.bonds.length,5);assert.equal(skills.combos.length,9);
   for(const b of skills.bonds) assert.ok(b.source&&b.desc,`bond ${b.id} needs source/desc`);
   for(const c of skills.combos) assert.ok(c.source&&c.desc,`combo ${c.id} needs source/desc`);
   assert.ok(skills.combos.some(c=>c.debuff&&c.vendorPower?.deepseek<1));
