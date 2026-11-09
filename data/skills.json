@@ -29,8 +29,8 @@
       "desc": "DeepSeek 员工群聊截图：deepswe 真没刷，不小心高了，这个点控制不住地涨；最近工位玩游戏的太多了。后来蓝色大肥鱼又被网友二创出圈。"
     },
     {
-      "id": "kimi-cat-board",
-      "name": "猫榜出分",
+      "id": "kimi-k3-score",
+      "name": "K3 出分",
       "vendor": "kimi",
       "series": "k3",
       "tiers": [
@@ -46,7 +46,7 @@
         }
       ],
       "source": "https://linux.do/t/topic/3070375/8",
-      "desc": "社区用 Kimi K3.1 Pro 跑猫榜 AGENT 测试出分；K3 系列一起上阵，榜单分数也一起涨。"
+      "desc": "Kimi K3.1 Pro 跑 AGENT 测试出分；K3 系列一起上阵，榜单分数也一起涨。"
     },
     {
       "id": "qwen-daily-iteration",
