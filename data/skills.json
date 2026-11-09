@@ -67,6 +67,23 @@
       ],
       "source": "https://www.163.com/dy/article/L2ITNLQ705568W0A.html",
       "desc": "Qwen3.8 预览版被网友发现“按天变强”，每晚重跑一次像换了新模型。"
+    },
+    {
+      "id": "minimax-score-farm",
+      "name": "刷分怪：速度↑ 收益↓",
+      "vendor": "minimax",
+      "series": "m3",
+      "debuff": true,
+      "tiers": [
+        {
+          "count": 2,
+          "power": 1.12,
+          "income": 0.82
+        }
+      ],
+      "source": "https://linux.do/t/topic/2401857/4",
+      "source2": "https://cnbeta.stateserver.com/view/1582976.htm",
+      "desc": "Reddit / LINUX DO 讨论 MiniMax 是刷榜怪；社区也质疑 MiniMax 新模型提前获取评测题目。刷分把推关速度拉高，但任务收益被算法分走。"
     }
   ],
   "combos": [

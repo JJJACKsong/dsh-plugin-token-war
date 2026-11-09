@@ -284,5 +284,6 @@
 .tw-skill-chip{display:inline-flex;flex:0 0 auto;cursor:pointer;align-items:center;max-width:100%;padding:1px 5px;border:1px solid var(--line);background:var(--surface);color:var(--muted);font-size:9px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tw-skill-chip[data-kind=bond]{border-color:#4D6BFE66;color:#AFC0FF}
 .tw-skill-chip[data-kind=combo]{border-color:#E9C17A66;color:#E9C17A}
+.tw-skill-chip[data-kind=bond][data-negative=true]{border-color:#E7443866;color:#FF8A7A}
 .tw-skill-chip[data-kind=combo][data-negative=true]{border-color:#E7443866;color:#FF8A7A}
 .tw-skill-empty{font-size:9px;color:var(--muted);padding:1px 0}

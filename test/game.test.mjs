@@ -68,6 +68,12 @@ test('same-series bonds and cross-vendor meme combos activate',()=>{
  assert.ok(activeCombos(s).some(c=>c.id==='cat-group-kick'));
  assert.ok(skillEffects(s).vendor.deepseek<base);
 });
+test('MiniMax score-farm bond raises speed but cuts income',()=>{
+ const s=createGame();s.models=['dsv41flash','minimaxm3','minimaxm35'];
+ assert.ok(activeBonds(s).some(b=>b.id==='minimax-score-farm'));
+ assert.ok(skillEffects(s).vendor.minimax>1);
+ assert.ok(skillEffects(s).income<1);
+});
 test('negative vendor event only changes its vendor and expires',()=>{
  const s=createGame();s.models.push('dsv2');const baseline=totalPower(s);s.event={id:'ds-busy',until:30000};assert.ok(compare(totalPower(s),baseline)<0);s.auto=false;s.autoDistill=false;run(s,30001);assert.equal(s.event,null);close(totalPower(s),baseline);
 });
