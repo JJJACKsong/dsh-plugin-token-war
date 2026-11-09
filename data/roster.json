@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "status": "roster_2026_11_all_vendors",
   "enabledVendors": [
-    "chatgpt",
     "deepseek",
+    "chatgpt",
     "claude",
     "gemini",
     "qwen",
@@ -14,16 +14,26 @@
     "minimax"
   ],
   "maxVisibleCharacters": 5,
-  "pricingNotice": "模型名称仅作戏仿与梗使用：前 10 个型号按 2026-11-08 公开信息更新，新增型号是游戏内虚构扩展，不声称对应真实产品。所有招募价格都是游戏 Token 平衡值，不是 API 报价。",
+  "pricingNotice": "模型名称仅作戏仿与梗使用：旧型号按 2026-11-08 公开信息更新，新增型号是游戏内虚构扩展，不声称对应真实产品。首个模型 DeepSeek-V4.1-Flash 为游戏内免费起步型号；所有招募价格都是游戏 Token 平衡值，不是 API 报价。",
   "models": [
+    {
+      "id": "dsv41flash",
+      "name": "DeepSeek-V4.1-Flash",
+      "vendor": "deepseek",
+      "unlockStage": 0,
+      "cost": 0,
+      "power": 5,
+      "tag": "免费起步 · 原生多模态",
+      "apiPrice": null
+    },
     {
       "id": "gpt35",
       "name": "GPT-5.6 Luna",
       "vendor": "chatgpt",
-      "unlockStage": 0,
-      "cost": 0,
+      "unlockStage": 3,
+      "cost": 60,
       "power": 5,
-      "tag": "免费起步 · 低价快模型",
+      "tag": "早期低价 · 快模型",
       "apiPrice": null
     },
     {
@@ -68,7 +78,7 @@
     },
     {
       "id": "dsv41",
-      "name": "DeepSeek-V4.1-Flash",
+      "name": "DeepSeek-V4.2-Flash",
       "vendor": "deepseek",
       "unlockStage": 85,
       "cost": 35000,
@@ -432,6 +442,6 @@
       "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
       "https://www.startrise.io/models/"
     ],
-    "note": "原有 10 个模型的 id / 解锁关卡 / 招募价 / 算力保持不变，旧存档可继续使用；新增 30 个型号后每家厂商 4 个型号，总计 40 个，用于扩展后期军团与战力。"
+    "note": "免费首发改为 DeepSeek-V4.1-Flash（id `dsv41flash`）；原 GPT-5.6 Luna 改为早期付费型号；其余旧型号的 id / 解锁关卡 / 招募价 / 算力保持不变，旧存档读取时自动补入新首发并可继续使用。"
   }
 }

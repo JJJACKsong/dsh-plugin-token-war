@@ -40,7 +40,7 @@ HTML 文件、`localhost`、DSH 面板是不同存储来源，进度互通请用
 ## 玩法
 
 - **任务**：20 个循环任务自动并行生产 Token，升级提高单周期收益；未解锁任务会显示解锁关卡。
-- **军团**：10 家厂商、40 个模型型号，每家 4 个，按关卡解锁；同厂商共享一个角色，战力按厂商汇总。后期型号会显著拉高军团战力。
+- **军团**：10 家厂商、41 个模型型号（每家 4 个，DeepSeek 额外有免费首发 DeepSeek-V4.1-Flash），按关卡解锁；同厂商共享一个角色，战力按厂商汇总。后期型号会显著拉高军团战力。
 - **战斗**：军团自动推进关卡，敌人是无尽 TODO；没有最终 Boss。
 - **厂商事件**：20 个本地静态戏仿事件，同时最多一个，自动生效，不做永久惩罚。
 - **蒸馏**：重置本代 Token / 任务等级 / 关卡 / 本代训练，保留模型、任务解锁、累计权重与世代编号；自动蒸馏先用有界试算确认收益。
@@ -66,8 +66,8 @@ Agent 完成或等待批准时，顶部会切换为高亮提醒并显示「返�
 
 | 厂商 | 早期 / 中坚 | 后期 / 旗舰 |
 | --- | --- | --- |
+| DeepSeek | DeepSeek-V4.1-Flash（首发）· DeepSeek-V4-Flash · DeepSeek-V4-Pro | DeepSeek-V4.2-Flash · DeepSeek-V4.1-Pro |
 | OpenAI | GPT-5.6 Luna · GPT-5.6 Turbo | GPT-6 Astra · GPT-6 Nova |
-| DeepSeek | DeepSeek-V4-Flash · DeepSeek-V4-Pro | DeepSeek-V4.1-Flash · DeepSeek-V4.1-Pro |
 | Anthropic | Claude Haiku 5.5 · Claude Sonnet 5.5 | Claude Fable 5.1 · Claude Opus 5.5 |
 | Google | Gemini 3.8 Flash · Gemini 4 Pro | Gemini 4 Argon · Gemini 4.2 Ultra |
 | Qwen | Qwen3.8-Flash · Qwen3.8-Coder | Qwen3.8-Max · Qwen4 Preview |
@@ -77,7 +77,7 @@ Agent 完成或等待批准时，顶部会切换为高亮提醒并显示「返�
 | Moonshot | Kimi K3 · Kimi K3 Turbo | Kimi K4 · Kimi K4 Pro |
 | MiniMax | MiniMax M3 · MiniMax M3.5 | MiniMax M4 · MiniMax M4 Pro |
 
-招募价格是**游戏 Token 平衡值**，不是官方 API 报价；模型名称只作为戏仿与梗使用。前 10 个旧型号的 id、解锁关卡、招募价和算力保持不变，旧存档可继续使用；新增 30 个型号为游戏内扩展。
+招募价格是**游戏 Token 平衡值**，不是官方 API 报价；模型名称只作为戏仿与梗使用。首个免费型号改为 DeepSeek-V4.1-Flash；原 GPT-5.6 Luna 改为早期付费型号，其余旧型号的 id、解锁关卡、招募价和算力保持不变，旧存档会自动补入新首发并可继续使用。新增型号为游戏内扩展。
 
 ## 开发
 
