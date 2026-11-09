@@ -63,8 +63,8 @@ test('roster uses real model lineups and keeps legacy ids', async () => {
   const originalIds=['gpt35','dsv2','claude2','gemini15','qwen2','dsv41','gpt4o','gemini25','qwen3','fable5'];
   for(const id of originalIds) assert.ok(roster.models.some(m=>m.id===id),`missing original model ${id}`);
   for(const v of roster.enabledVendors) assert.ok(roster.models.filter(m=>m.vendor===v).length>=5,`${v} should have at least five models`);
-  for(const m of roster.models) assert.ok(m.series,`model ${m.id} needs a series for bonds`);
-  assert.equal(roster.maxVisibleCharacters,5);
+  for(const m of roster.models){assert.ok(m.series,`model ${m.id} needs a series for bonds`);assert.ok(Number.isInteger(m.tier)&&m.tier>=1&&m.tier<=6,`model ${m.id} tier`);}
+  assert.equal(roster.maxVisibleCharacters,10);
   const events=await json('../data/events.json');
   assert.equal(events.status,'user_supplied_satire_not_verified_news');
   assert.equal(events.maxConcurrent,1);

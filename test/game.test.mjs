@@ -28,7 +28,7 @@ test('locked tasks and models cannot be purchased',()=>{
  const s=createGame();s.coins=amount(1e100);assert.equal(buyTask(s,10),0);assert.equal(buyModel(s,'fable5'),false);assert.equal(buyModel(s,'does-not-exist'),false);
 });
 test('models cannot be bought twice, training increases output',()=>{
- const s=createGame();s.maxStage=10;s.coins=amount(1e6);assert.equal(buyModel(s,'dsv2'),true);assert.equal(buyModel(s,'dsv2'),false);const d=totalPower(s);assert.ok(buyTraining(s));assert.ok(compare(totalPower(s),d)>0);
+ const s=createGame();s.maxStage=100;s.coins=amount(1e6);assert.equal(buyModel(s,'dsv2'),true);assert.equal(buyModel(s,'dsv2'),false);const d=totalPower(s);assert.ok(buyTraining(s));assert.ok(compare(totalPower(s),d)>0);
 });
 test('ten minutes of no-click play progresses economy and roster',()=>{
  const game=createGame();game.autoDistill=false;const s=run(game,600000);validateState(s);assert.ok(s.maxStage>40);assert.ok(s.models.length>=3);assert.ok(s.tasks.filter(t=>t.level>0).length>=2);assert.ok(s.training>0);
