@@ -40,18 +40,17 @@ HTML 文件、`localhost`、DSH 面板是不同存储来源，进度互通请用
 ## 玩法
 
 - **任务**：20 个循环任务自动并行生产 Token，升级提高单周期收益；未解锁任务会显示解锁关卡。
-- **军团**：10 家厂商、59 个真实模型型号（各家 5–6 个），按关卡解锁；同厂商共享一个角色，战力按厂商汇总。首发免费 DeepSeek-V4.1-Flash。
-- **羁绊 / 连携**：同系列模型凑齐触发「羁绊」，不同厂商的梗组合触发「连携」；加成直接作用于军团算力与任务收益，在侧栏的「羁绊」「连携」Tab 查看。
+- **军团**：10 家厂商、60 个真实模型型号（每家完整 6 档），按关卡解锁；同厂商共享一个角色，战力按厂商汇总。首发免费 DeepSeek-V4.1-Flash。
+- **羁绊 / 连携**：全部 10 家厂商均有专属「羁绊」（共 11 组），跨厂商与阵营组合触发「连携」（共 18 组）；加成直接作用于军团算力与任务收益，在侧栏的「羁绊」「连携」Tab 查看。
 - **模型 Tab**：按厂商分页，每页一家厂商，页头显示该厂商型号数与已加入数量；同厂商共用一个角色。
 
 ![模型 Tab · 厂商背景 Logo](https://raw.githubusercontent.com/JJJACKsong/dsh-plugin-token-war/main/docs/screenshots/10-models.png)
-- **战斗**：军团自动推进关卡，敌人是无尽 TODO；战场有呼吸浮动、攻击火花、飞向 TODO 状态条的弹道和顶部工作量条，没有最终 Boss。
-- 厂商遭遇负面事件时，对应角色会变灰并显示「暂时受限」，事件结束后自动恢复。
-- **厂商事件 21 个**：包含 DeepSeek「最近在工位玩游戏的太多了」（算力 ×1.45、任务产出 ×0.88）。
+- **战斗**：军团自动推进关卡，关卡目标与每 10 关 Boss 按 AI/程序员梗名轮换；战场有呼吸浮动、攻击火花、飞向状态条的弹道和顶部工作量条，没有最终 Boss。
+- 厂商遭遇事件时，角色头顶会弹出像素风短梗气泡；受限角色自动变灰，事件结束后恢复。
+- **事件池 33 个**（纯本地静态戏仿，同时最多一个）：覆盖全部 10 家厂商与全网行业大事件，含「普天同庆：Anthropic 破发！」「a畜日常：5 小时限额已用尽」「z畜名场面：顺手上传了 repo」「元素周期表又添新元素」「最近在工位玩游戏的太多了」「黄仁勋皮衣发布会」「周五下午五点紧急上线」等。
 
 ![厂商事件 · 暂时受限](https://raw.githubusercontent.com/JJJACKsong/dsh-plugin-token-war/main/docs/screenshots/11-restricted.png)
-- **厂商事件**：20 个本地静态戏仿事件，同时最多一个，自动生效，不做永久惩罚。
-- **蒸馏**：重置本代 Token / 任务等级 / 关卡 / 本代训练，保留模型、任务解锁、累计权重与世代编号；自动蒸馏先用有界试算确认收益。
+- **蒸馏**：重置本代 Token / 任务等级 / 关卡 / 本代训练，保留模型、任务解锁、累计权重与世代编号，并按当前进度与梗组合实时显示只读算力头衔；自动蒸馏先用有界试算确认收益。
 - **离线成长**：切走面板、隐藏页面或关掉再回来，按同一套规则补算（单次最多 30 天）。
 
 所有手动操作都是可选的：升级、训练、招募、暂停、手动蒸馏。默认全自动。
@@ -79,7 +78,7 @@ Agent 完成或等待批准时，顶部会切换为高亮提醒并显示「返�
 | DeepSeek | DeepSeek-V4.1-Flash（首发）· V4-Flash · V4-Flash-GA · V4-Pro · V4-Pro-GA · V4.1-Flash-Economy |
 | OpenAI | GPT-5.6 Luna · Terra · Sol · Sol Pro · GPT-6 Sol · GPT-6 Astra |
 | Anthropic | Claude Haiku 5.5 · Sonnet 5.5 · Opus 5.5 · Fable 5.1 · Sonnet 4.6 · Opus 4.6 |
-| Google | Gemini 3.8 Flash · Gemini 4 Argon · 4 Pro · 4 Flash · 4 Flash-Lite |
+| Google | Gemini 3.8 Flash · Gemini 4 Flash-Lite · 4 Flash · 4 Pro · 4 Argon · 4 Neon |
 | Qwen | Qwen3.8-Flash · Qwen3.8-Max · Max-0902 · 2.4T-A95B · 27B · Qwen3-Coder-Next |
 | ByteDance | Doubao-Seed-2.1-Pro · 2.1-Lite · 2.1-Turbo · 2.0-Lite · 2.0-Mini · Seed-Evolving |
 | Zhipu | GLM-5 · 5.1 · 5.2 · 5.3 · 5.3-Flash · 5.3-FlashX |
@@ -100,24 +99,31 @@ Agent 完成或等待批准时，顶部会切换为高亮提醒并显示「返�
 | 5 | 300–327 | 5,000,000 | 200,000 |
 | 6 | 420–447 | 100,000,000 | 1,800,000 |
 
-- 十家厂商每家 5–6 个型号，分别落在 tier 1–6；同一 tier 内价格/算力一致，厂商之间只做 3 关错峰。Gemini 当前 5 个型号（最高 tier 5）。
+- 十家厂商每家满 6 个型号（共 60 个），分别落在 tier 1–6；同一 tier 内价格/算力一致，厂商之间只做 3 关错峰。
 - tier 越高，单型号基础算力约 7–9 倍增长；实际战力还会叠加训练、权重、厂商事件、羁绊与连携。
 - DeepSeek-V4.1-Flash 是唯一免费首发；其他 tier 1 型号 100 Token。旧存档的型号 id 保留，数值会按新 tier 重新计算。
 
 ## 羁绊与连携
 
-- **同系列羁绊**（真实社媒梗）：DeepSeek「380 磅大只佬」「串子嘉豪培养体系」、Kimi「K3 出分」、Qwen「按天迭代」、MiniMax「刷分怪：速度↑ 收益↓」。
+- **同系列羁绊**（11 组，覆盖全部 10 家厂商）：DeepSeek「380 磅大只佬」「串子嘉豪培养体系」、Claude「a畜的自我修养」、智谱「z畜祖传手艺」、Google「元素周期表集邮」、OpenAI「In the coming weeks」、豆包「厘时代价格战」、Grok「Colossus 十万卡」、Kimi「K3 出分」、Qwen「按天迭代」、MiniMax「刷分怪：速度↑ 收益↓」。
 - **MiniMax 刷分负面羁绊**：凑齐 2 个 MiniMax M3 系列后，算力/推关速度 ×1.12，但任务收益 ×0.82。
-- **跨系列连携**（真实社媒梗）：
+- **跨系列与阵营连携**（18 组）：
+  - **普天同庆：Anthropic 破发**（Claude + DeepSeek + GPT-6：Claude ×0.85、友商加攻、全网收益 ×1.18）
+  - **a畜 × z畜：双向奔赴**（Claude + GLM-5：Claude ×0.92、GLM ×1.15、收益 ×1.12）
   - **Kimi 蒸馏了 Claude**（Kimi K3 + Claude 5.5）
-  - **被 Kimi 当🐶踹飞**（Kimi K3 + DeepSeek V4，DeepSeek 算力 ×0.68，**负面连携**；来源为用户提供的内部群聊截图）
+  - **被 Kimi 当🐶踹飞**（Kimi K3 + DeepSeek V4，DeepSeek 算力 ×0.68，**负面连携**）
   - **问 GLM 你是谁：我是 Claude**（GLM-5 + Claude 5.5）
   - **开源双龙**（Kimi K3 + Qwen3.8）
   - **Arena 刷榜**（GPT-6 + Claude 5.5）
-  - **耽误伟大复兴**（DeepSeek V4 + Qwen3.8，算力 ×0.94、收益 ×1.18）——「别的公司天天打游戏，等着 deepswe 涨了」
+  - **马斯克 vs 奥特曼**（Grok 4 + GPT-6）
+  - **视频生成内卷**（Doubao Seed 2.1 + MiniMax M3）
+  - **价格战打到厘**（DeepSeek + Doubao + Qwen）
+  - **全员 Flash 白嫖团**（Gemini 4 + DeepSeek + Qwen）
+  - **元素炼丹：稀有气体 × 长文本**（Gemini 4 + Kimi K3）
+  - **耽误伟大复兴**（DeepSeek V4 + Qwen3.8，算力 ×0.94、收益 ×1.18）
   - **无卡野人**（国产模型满 10 个，算力 ×0.90、收益 ×1.18）
   - **力大砖飞**（海外模型满 8 个，算力 ×1.18、收益 ×0.94）
-  - **Claude 蒸馏了 Qwen / DeepSeek / Kimi**（三组，收益 ×1.06）——Claude Opus 4.8 被曝自称千问/DeepSeek；蒸馏回旋镖梗
+  - **Claude 蒸馏了 Qwen / DeepSeek / Kimi**（三组，收益 ×1.06）
 - 激活后会分别在「羁绊」「连携」Tab 显示，卡片标明这个技能发出自哪家厂商；加成实时作用于收益与战力，不额外占用操作。旧存档中的旧 id 仍然兼容。
 - 主要来源：[DeepSeek 群聊截图报道](https://www.tmtpost.com/8173268.html)、[微博大肥鱼](https://weibo.com/2/detail/5359694089556913)、[Linux.do ](https://linux.do/t/topic/3070375/8)、[Qwen/Kimi 梗图](https://www.163.com/dy/article/L2ITNLQ705568W0A.html)、[GLM 说自己是 Claude](https://zhuanlan.zhihu.com/p/2005476822993880454)、[Kimi 蒸馏 Claude](https://m.163.com/dy/article_v5/L2AT7RMQ0556BI4K.html)、[Arena 榜单争议](http://mp.weixin.qq.com/s?__biz=Mzg3NzYwMjMxOQ==&mid=2247484582&idx=1&sn=d34efc3e48ef900fd7572dcf9e5b8b96)、[Claude 蒸馏中国模型报道](https://www.c114.net.cn/industry/85669.html)、[蒸馏回旋镖](https://www.bianews.com/news/details?id=238954&type=0)、[MiniMax 刷榜怪讨论](https://linux.do/t/topic/2401857/4)、[MiniMax 刷分/背题疑云](https://cnbeta.stateserver.com/view/1582976.htm)、[员工群串子截图合集（B站，47 万播放）](https://www.bilibili.com/video/BV1jvn46dE2R/)。
 

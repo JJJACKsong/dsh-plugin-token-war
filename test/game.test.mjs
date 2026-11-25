@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {amount,fromLog,format,log,add,subtract,multiply,divide,ratio,compare,valid,seriesCost,affordableLevels} from '../lib/amount.js';
-import {createGame,advance,validateState,totalPower,income,distillGain,distill,canDistill,buyTask,buyModel,buyTraining,taskCost,taskReward,makeSave,readSave,offlineElapsed,MAX_OFFLINE_MS,activeBonds,activeCombos,skillEffects} from '../lib/game.js';
+import {createGame,advance,validateState,totalPower,vendorPowers,income,distillGain,distill,canDistill,buyTask,buyModel,buyTraining,taskCost,taskReward,makeSave,readSave,offlineElapsed,MAX_OFFLINE_MS,activeBonds,activeCombos,skillEffects,eventVendorMultiplier,playerTitle} from '../lib/game.js';
 import {TASKS,ROSTER} from '../lib/config.js';
 const run=(s,t,budget=10000)=>{let result;do{result=advance(s,t,{maxEvents:budget});}while(!result.done);return s;};
 const close=(a,b,tolerance=1e-6)=>{if(!a[0]&&!b[0])return;assert.ok(Math.abs(log(a)-log(b))<tolerance,`${format(a)} != ${format(b)}`);};
@@ -90,6 +90,40 @@ test('faction combos trade power against income',()=>{
 });
 test('negative vendor event only changes its vendor and expires',()=>{
  const s=createGame();s.models.push('dsv2');const baseline=totalPower(s);s.event={id:'ds-busy',until:30000};assert.ok(compare(totalPower(s),baseline)<0);s.auto=false;s.autoDistill=false;run(s,30001);assert.equal(s.event,null);close(totalPower(s),baseline);
+});
+test('new meme bonds and combos activate for Claude, GLM, and Gemini periodic table',()=>{
+ const s=createGame();
+ s.models=['dsv41flash','claude2','sonnet55','glm5','glm5air','gpt4o','gemini42ultra','gemini4flash','gemini4pro','gemini25','gemini4neon'];
+ const bonds=activeBonds(s),combos=activeCombos(s);
+ assert.ok(bonds.some(b=>b.id==='claude-a-chu'));
+ assert.ok(bonds.some(b=>b.id==='glm-z-chu'));
+ assert.ok(bonds.some(b=>b.id==='gemini-periodic-table'&&b.count===5));
+ assert.ok(combos.some(c=>c.id==='a-chu-meets-z-chu'));
+ assert.ok(combos.some(c=>c.id==='celebrate-ant-ipo-break'));
+ assert.equal(playerTitle(s).name,'破发吃瓜首席');
+});
+test('Anthropic IPO break event cuts Claude power while boosting rival vendors and income',()=>{
+ const s=createGame();s.models=['dsv41flash','claude2'];
+ const basePower=vendorPowers(s),baseIncome=income(s);
+ s.event={id:'claude-ipo-break',until:50000};
+ const duringPower=vendorPowers(s),duringIncome=income(s);
+ assert.ok(compare(duringPower.claude,basePower.claude)<0);
+ assert.ok(compare(duringPower.deepseek,basePower.deepseek)>0);
+ assert.ok(compare(duringIncome,baseIncome)>0);
+ s.auto=false;s.autoDistill=false;run(s,50001);
+ assert.equal(s.event,null);
+ close(vendorPowers(s).claude,basePower.claude);
+});
+test('global industry events apply per-vendor multipliers and expire cleanly',()=>{
+ const s=createGame();s.models=['dsv41flash','gpt35'];
+ const base=vendorPowers(s);
+ s.event={id:'all-export-ban',until:40000};
+ const during=vendorPowers(s);
+ assert.ok(compare(during.chatgpt,base.chatgpt)>0);
+ assert.ok(compare(during.deepseek,base.deepseek)<0);
+ assert.equal(eventVendorMultiplier({vendor:'all',powerMultiplier:1.38},'deepseek'),1.38);
+ s.auto=false;s.autoDistill=false;run(s,40001);
+ assert.equal(s.event,null);
 });
 test('save roundtrip resumes same deterministic history',()=>{
  const s=run(createGame(),600000),save=makeSave(s,1000000),loaded=readSave(save);assert.deepEqual(loaded.state,s);assert.equal(loaded.savedAt,1000000);run(s,900000);run(loaded.state,900000);assert.deepEqual(loaded.state,s);

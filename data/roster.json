@@ -119,7 +119,7 @@
       "unlockStage": 309,
       "cost": 5000000,
       "power": 200000,
-      "tag": "前沿推理",
+      "tag": "18号元素 · 前沿推理",
       "apiPrice": null,
       "series": "gemini4",
       "tier": 5
@@ -723,10 +723,22 @@
       "tag": "Agent 入门",
       "apiPrice": null,
       "tier": 1
+    },
+    {
+      "id": "gemini4neon",
+      "name": "Gemini 4 Neon",
+      "vendor": "gemini",
+      "series": "gemini4",
+      "unlockStage": 429,
+      "cost": 100000000,
+      "power": 1800000,
+      "tag": "10号元素 · 稀有气体旗舰",
+      "apiPrice": null,
+      "tier": 6
     }
   ],
   "modelSnapshot": {
-    "checkedAt": "2026-11-09",
+    "checkedAt": "2026-11-25",
     "sources": [
       "https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt",
       "https://platform.claude.com/docs/zh-CN/models/overview",

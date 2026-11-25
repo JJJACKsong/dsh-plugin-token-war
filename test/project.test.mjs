@@ -58,26 +58,29 @@ test('task memes and explicit prototype balance are retained', async () => {
 });
 test('roster uses real model lineups and keeps legacy ids', async () => {
   const roster=await json('../data/roster.json');
-  assert.equal(roster.enabledVendors.length,10);assert.equal(roster.models.length,59);assert.ok(roster.models.every(m=>m.apiPrice===null));
+  assert.equal(roster.enabledVendors.length,10);assert.equal(roster.models.length,60);assert.ok(roster.models.every(m=>m.apiPrice===null));
   assert.equal(roster.models[0].id,'dsv41flash');assert.equal(roster.models[0].name,'DeepSeek-V4.1-Flash');assert.equal(roster.models[0].vendor,'deepseek');
   const originalIds=['gpt35','dsv2','claude2','gemini15','qwen2','dsv41','gpt4o','gemini25','qwen3','fable5'];
   for(const id of originalIds) assert.ok(roster.models.some(m=>m.id===id),`missing original model ${id}`);
-  for(const v of roster.enabledVendors) assert.ok(roster.models.filter(m=>m.vendor===v).length>=5,`${v} should have at least five models`);
+  for(const v of roster.enabledVendors) assert.equal(roster.models.filter(m=>m.vendor===v).length,6,`${v} should have six models`);
   for(const m of roster.models){assert.ok(m.series,`model ${m.id} needs a series for bonds`);assert.ok(Number.isInteger(m.tier)&&m.tier>=1&&m.tier<=6,`model ${m.id} tier`);}
   assert.equal(roster.maxVisibleCharacters,10);
   const events=await json('../data/events.json');
   assert.equal(events.status,'user_supplied_satire_not_verified_news');
   assert.equal(events.maxConcurrent,1);
   for(const v of roster.enabledVendors) assert.ok(events.events.some(e=>e.vendor===v),`missing event for ${v}`);
-  assert.equal(events.events.length,21);
+  assert.ok(events.events.some(e=>e.vendor==='all'),'missing global industry event');
+  assert.equal(new Set(events.events.map(e=>e.name)).size,events.events.length,'duplicate event names');
+  assert.equal(events.events.length,33);
   const skills=await json('../data/skills.json');
-  assert.equal(skills.bonds.length,5);assert.equal(skills.combos.length,11);
+  assert.equal(skills.bonds.length,11);assert.equal(skills.combos.length,18);
+  for(const v of roster.enabledVendors) assert.ok(skills.bonds.some(b=>b.vendor===v),`missing bond for ${v}`);
   for(const b of skills.bonds) assert.ok(b.vendor&&b.desc,`bond ${b.id} needs vendor/desc`);
   for(const c of skills.combos) assert.ok(c.desc&&(c.requires?.length>=2||c.vendors?.length>=2),`combo ${c.id} needs desc/requires`);
   assert.ok(skills.combos.some(c=>c.debuff&&c.vendorPower?.deepseek<1));
   assert.ok(skills.bonds.some(b=>b.debuff&&b.tiers.some(t=>t.income<1&&t.power>1)));
   const series=new Set(roster.models.map(m=>m.series));
-  for(const b of skills.bonds) assert.ok(series.has(b.series),`unknown bond series ${b.series}`);
+  for(const b of skills.bonds) assert.ok(!b.series||series.has(b.series),`unknown bond series ${b.series}`);
   for(const c of skills.combos) assert.ok(c.requires?.length>=2||c.vendors?.length>=2,`combo ${c.id} needs reqs`);
 });
 test('private package and inert host', async () => {

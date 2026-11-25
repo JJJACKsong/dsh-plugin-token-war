@@ -160,6 +160,7 @@
 .tw-gen-line{display:flex;align-items:center;gap:8px;min-width:0}
 .tw-gen{font-size:36px;line-height:1;font-weight:800;letter-spacing:-.02em;color:var(--text);white-space:nowrap}
 .tw-chip{display:inline-flex;align-items:center;height:22px;padding:0 8px;border:1px solid var(--edge);background:var(--surface-2);color:var(--cyan);font-size:10.5px;font-weight:700;letter-spacing:.01em;white-space:nowrap}
+.tw-chip.tw-rank{color:#E9C17A;border-color:#E9C17A88;max-width:100%;overflow:hidden;text-overflow:ellipsis;flex:0 1 auto}
 .tw-kv-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--edge);border-bottom:1px solid var(--edge)}
 .tw-kv-row + .tw-kv-row{border-top:0}
 .tw-kv-cell{display:flex;flex-direction:column;gap:3px;padding:8px 9px;min-width:0}

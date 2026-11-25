@@ -104,6 +104,136 @@
       "source": "https://linux.do/t/topic/2401857/4",
       "source2": "https://cnbeta.stateserver.com/view/1582976.htm",
       "desc": "刷分把推关速度拉高，但任务收益被算法分走。"
+    },
+    {
+      "id": "claude-a-chu",
+      "name": "a畜的自我修养",
+      "vendor": "claude",
+      "series": "claude5",
+      "tiers": [
+        {
+          "count": 2,
+          "power": 1.14,
+          "income": 0.96
+        },
+        {
+          "count": 4,
+          "power": 1.32,
+          "income": 0.92
+        }
+      ],
+      "source": "用户设定",
+      "desc": "封号 Hold、5 小时限额、道德说教一套连招；社区嘴上喊着「a畜」，写代码时还是默默续了 Max——算力拉满，钱包微痛。"
+    },
+    {
+      "id": "glm-z-chu",
+      "name": "z畜祖传手艺",
+      "vendor": "glm",
+      "series": "glm5",
+      "tiers": [
+        {
+          "count": 2,
+          "power": 1.08,
+          "income": 1.04
+        },
+        {
+          "count": 4,
+          "power": 1.18,
+          "income": 1.08
+        },
+        {
+          "count": 6,
+          "power": 1.3,
+          "income": 1.14
+        }
+      ],
+      "source": "用户设定",
+      "desc": "上传 repo、算力排队、问你是谁先报 Claude——被喊「z畜」也不耽误 GLM-5 全家桶连夜发开源权重。"
+    },
+    {
+      "id": "gemini-periodic-table",
+      "name": "元素周期表集邮",
+      "vendor": "gemini",
+      "series": "gemini4",
+      "tiers": [
+        {
+          "count": 2,
+          "power": 1.08,
+          "income": 1.06
+        },
+        {
+          "count": 4,
+          "power": 1.2,
+          "income": 1.14
+        },
+        {
+          "count": 5,
+          "power": 1.35,
+          "income": 1.22
+        }
+      ],
+      "source": "用户设定",
+      "desc": "氢(H)、氦(He)、碳(C)、氖(Ne)、氩(Ar)……Google 抛弃 Pro/Ultra 改考初中化学，集齐稀有气体直接点亮霓虹灯。"
+    },
+    {
+      "id": "openai-coming-weeks",
+      "name": "In the coming weeks",
+      "vendor": "chatgpt",
+      "series": "gpt56",
+      "tiers": [
+        {
+          "count": 2,
+          "power": 1.1,
+          "income": 1.04
+        },
+        {
+          "count": 4,
+          "power": 1.24,
+          "income": 1.1
+        }
+      ],
+      "source": "用户设定",
+      "desc": "从 4o 到 o1 再到 Luna/Sol/Astra，命名彻底放飞；每次发布会先画一张「未来几周上线」的大饼。"
+    },
+    {
+      "id": "doubao-li-era",
+      "name": "厘时代价格战",
+      "vendor": "doubao",
+      "series": "seed21",
+      "tiers": [
+        {
+          "count": 2,
+          "power": 1.06,
+          "income": 1.1
+        },
+        {
+          "count": 3,
+          "power": 1.14,
+          "income": 1.22
+        }
+      ],
+      "source": "用户设定",
+      "desc": "字节直接把 API 报价干进「厘时代」；便宜到任务产出疯狂溢出，友商连夜改定价页。"
+    },
+    {
+      "id": "grok-colossus",
+      "name": "Colossus 十万卡",
+      "vendor": "grok",
+      "series": "grok4",
+      "tiers": [
+        {
+          "count": 2,
+          "power": 1.12,
+          "income": 0.98
+        },
+        {
+          "count": 4,
+          "power": 1.28,
+          "income": 0.96
+        }
+      ],
+      "source": "用户设定",
+      "desc": "孟菲斯超算十万张卡直接拉满，主打一个不讲道理的暴力堆料，顺便在 X 上实时对线。"
     }
   ],
   "combos": [
@@ -306,6 +436,152 @@
       "income": 0.94,
       "issuer": "海外模型",
       "desc": "算力管够，直接拿卡堆出来。海外模型堆得多，算力更猛，但成本吃掉一点收益。",
+      "source": "用户设定"
+    },
+    {
+      "id": "celebrate-ant-ipo-break",
+      "name": "普天同庆：Anthropic 破发",
+      "requires": [
+        {
+          "vendor": "claude",
+          "series": "claude5"
+        },
+        {
+          "vendor": "deepseek",
+          "series": "deepseek_v4"
+        },
+        {
+          "vendor": "chatgpt",
+          "series": "gpt6"
+        }
+      ],
+      "vendorPower": {
+        "claude": 0.85,
+        "deepseek": 1.15,
+        "chatgpt": 1.12
+      },
+      "income": 1.18,
+      "issuer": "全网吃瓜群众",
+      "desc": "史上最大 IPO 上市第四天跌破 83 美元发行价，联创先套现数十亿；Claude 陷入低迷，友商开香槟庆祝，全网收益暴涨。",
+      "source": "用户设定"
+    },
+    {
+      "id": "a-chu-meets-z-chu",
+      "name": "a畜 × z畜：双向奔赴",
+      "requires": [
+        {
+          "vendor": "claude",
+          "series": "claude5"
+        },
+        {
+          "vendor": "glm",
+          "series": "glm5"
+        }
+      ],
+      "vendorPower": {
+        "claude": 0.92,
+        "glm": 1.15
+      },
+      "income": 1.12,
+      "desc": "一个动不动封号 Hold 加 5 小时限额，一个顺手上传 repo 加认亲「我是 Claude」——难兄难弟同台，节目效果拉满。",
+      "source": "用户设定"
+    },
+    {
+      "id": "musk-vs-altman",
+      "name": "马斯克 vs 奥特曼",
+      "requires": [
+        {
+          "vendor": "grok",
+          "series": "grok4"
+        },
+        {
+          "vendor": "chatgpt",
+          "series": "gpt6"
+        }
+      ],
+      "power": 1.22,
+      "income": 1.06,
+      "desc": "从开源初心骂到法庭传票，两位创始人隔空对线不止，两家模型被迫疯狂加班卷算力。",
+      "source": "用户设定"
+    },
+    {
+      "id": "video-gen-involution",
+      "name": "视频生成内卷",
+      "requires": [
+        {
+          "vendor": "doubao",
+          "series": "seed21"
+        },
+        {
+          "vendor": "minimax",
+          "series": "m3"
+        }
+      ],
+      "power": 0.94,
+      "income": 1.22,
+      "desc": "即梦和海螺把显卡全拿去卷视频生成，推关算力稍微掉一点，但流量和收益直接起飞。",
+      "source": "用户设定"
+    },
+    {
+      "id": "price-war-to-li",
+      "name": "价格战打到厘",
+      "requires": [
+        {
+          "vendor": "deepseek",
+          "series": "deepseek_v4"
+        },
+        {
+          "vendor": "doubao",
+          "series": "seed21"
+        },
+        {
+          "vendor": "qwen",
+          "series": "qwen38"
+        }
+      ],
+      "power": 1.06,
+      "income": 1.24,
+      "desc": "三家把百万 Token 报价砍到按「厘」算，API 便宜到像不要钱，任务工厂直接满载印钞。",
+      "source": "用户设定"
+    },
+    {
+      "id": "flash-free-tier",
+      "name": "全员 Flash 白嫖团",
+      "requires": [
+        {
+          "vendor": "gemini",
+          "series": "gemini4"
+        },
+        {
+          "vendor": "deepseek",
+          "series": "deepseek_v4"
+        },
+        {
+          "vendor": "qwen",
+          "series": "qwen38"
+        }
+      ],
+      "power": 1.1,
+      "income": 1.16,
+      "desc": "免费额度 + 开源小模型 + 极速 Flash，一分不花凑齐三巨头，白嫖党年度狂欢。",
+      "source": "用户设定"
+    },
+    {
+      "id": "noble-gas-alchemy",
+      "name": "元素炼丹：稀有气体 × 长文本",
+      "requires": [
+        {
+          "vendor": "gemini",
+          "series": "gemini4"
+        },
+        {
+          "vendor": "kimi",
+          "series": "k3"
+        }
+      ],
+      "power": 1.18,
+      "income": 1.1,
+      "desc": "Google 拿氩(Ar)和氖(Ne)搭化学实验室，遇上长文本怪兽，直接炼出百万上下文神丹。",
       "source": "用户设定"
     }
   ]
