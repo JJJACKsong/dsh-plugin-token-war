@@ -234,6 +234,51 @@
       ],
       "source": "用户设定",
       "desc": "孟菲斯超算十万张卡直接拉满，主打一个不讲道理的暴力堆料，顺便在 X 上实时对线。"
+    },
+    {
+      "id": "ds-troll-culture",
+      "name": "梁文锋的企业精神",
+      "vendor": "deepseek",
+      "series": "deepseek_v4",
+      "tiers": [
+        {
+          "count": 2,
+          "power": 1.04,
+          "income": 1.02
+        },
+        {
+          "count": 4,
+          "power": 1.09,
+          "income": 1.05
+        },
+        {
+          "count": 6,
+          "power": 1.15,
+          "income": 1.08
+        }
+      ],
+      "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
+      "desc": "「我觉得吹捧胖东来的企业精神不如来吹捧梁文锋的企业精神——你上哪找员工都是天天串自己老板的抽象网络巨魔的公司出来。」"
+    },
+    {
+      "id": "ds-not-secret",
+      "name": "注意保密 · 又被截图了",
+      "vendor": "deepseek",
+      "series": "deepseek_v4",
+      "tiers": [
+        {
+          "count": 3,
+          "power": 1.04,
+          "income": 1.03
+        },
+        {
+          "count": 5,
+          "power": 1.1,
+          "income": 1.07
+        }
+      ],
+      "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
+      "desc": "「注意保密」「不传谣不信谣」「网上传言都是真的」「又被截图了」「nm，全开源了还剩啥」——员工群每日保留节目。"
     }
   ],
   "combos": [
@@ -583,6 +628,174 @@
       "income": 1.1,
       "desc": "Google 拿氩(Ar)和氖(Ne)搭化学实验室，遇上长文本怪兽，直接炼出百万上下文神丹。",
       "source": "用户设定"
+    },
+    {
+      "id": "ds-dario-fanclub",
+      "name": "我一直是达里奥粉丝",
+      "requires": [
+        {
+          "vendor": "deepseek",
+          "series": "deepseek_v4"
+        },
+        {
+          "vendor": "claude",
+          "series": "claude5"
+        }
+      ],
+      "vendorPower": {
+        "deepseek": 1.06,
+        "claude": 1.05
+      },
+      "income": 1.06,
+      "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
+      "desc": "DeepSeek 员工群原话：「你知道吗，我一直是达里奥粉丝」——串到敌营头子头上，两家竟然互涨一波热度。"
+    },
+    {
+      "id": "ds-not-troll-kimi",
+      "name": "「不如k3.1」：首先我不是串子",
+      "requires": [
+        {
+          "vendor": "deepseek",
+          "series": "deepseek_v4"
+        },
+        {
+          "vendor": "kimi",
+          "series": "k3"
+        }
+      ],
+      "vendorPower": {
+        "deepseek": 0.95,
+        "kimi": 1.1
+      },
+      "income": 1.07,
+      "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
+      "desc": "顶着「不如k3.1」的群昵称在 DeepSeek 员工群高呼「首先我不是串子」，反串浓度严重超标。"
+    },
+    {
+      "id": "ds-inviting-astra",
+      "name": "唐老师攻破 Astra 了吗？来 DS 进修",
+      "requires": [
+        {
+          "vendor": "deepseek",
+          "series": "deepseek_v4"
+        },
+        {
+          "vendor": "chatgpt",
+          "series": "gpt6"
+        },
+        {
+          "vendor": "glm",
+          "series": "glm5"
+        }
+      ],
+      "vendorPower": {
+        "deepseek": 1.1,
+        "chatgpt": 0.95,
+        "glm": 0.93
+      },
+      "income": 1.08,
+      "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
+      "desc": "员工群暴言：「最后赢的一定不是z处，唐老师攻破astra了吗，要不要来ds进修一下」「d小子集合！」。"
+    },
+    {
+      "id": "reset-bro-replaced",
+      "name": "重置哥换人了：谢谢反重力",
+      "requires": [
+        {
+          "vendor": "chatgpt",
+          "series": "gpt6"
+        },
+        {
+          "vendor": "gemini",
+          "series": "gemini4"
+        }
+      ],
+      "vendorPower": {
+        "chatgpt": 0.93,
+        "gemini": 1.12
+      },
+      "income": 1.07,
+      "source": "用户设定",
+      "desc": "OpenAI 修完计费 Bug 多耗 40% 额度当天，Google 反重力疯狂加送额度，全网刷屏「谢谢 Tibo」「谢谢北美大豆包」。"
+    },
+    {
+      "id": "north-america-doubao",
+      "name": "北美大豆包 × 正宗大豆包",
+      "requires": [
+        {
+          "vendor": "gemini",
+          "series": "gemini4"
+        },
+        {
+          "vendor": "doubao",
+          "series": "seed21"
+        }
+      ],
+      "power": 0.97,
+      "income": 1.12,
+      "source": "用户设定",
+      "desc": "一个高情商秒道歉下次还敢，一个情绪价值拉满露豆脚，东西半球两大「糊弄学大师」梦幻联动。"
+    },
+    {
+      "id": "thunder-overthink",
+      "name": "雷霆大思考 × 12h 吞光额度",
+      "requires": [
+        {
+          "vendor": "glm",
+          "series": "glm5"
+        },
+        {
+          "vendor": "kimi",
+          "series": "k3"
+        }
+      ],
+      "power": 1.12,
+      "income": 0.94,
+      "source": "用户设定",
+      "desc": "一个 LoopTransformer 深度内耗三小时，一个 12 小时吃光整周额度——算力拉满，Token 烧得比心跳快。"
+    },
+    {
+      "id": "essay-vs-interesting",
+      "name": "千字小作文 vs Interesting",
+      "requires": [
+        {
+          "vendor": "claude",
+          "series": "claude5"
+        },
+        {
+          "vendor": "grok",
+          "series": "grok4"
+        }
+      ],
+      "vendorPower": {
+        "claude": 0.95,
+        "grok": 1.12
+      },
+      "income": 1.07,
+      "source": "用户设定",
+      "desc": "Dario 连夜手搓千字声明自辩，网友 P 出两米长手机，马斯克路过只回一词「Interesting」，杀伤力拉满。"
+    },
+    {
+      "id": "riemann-vs-13-eggs",
+      "name": "证得了黎曼猜想，画不出 13 个鸡蛋",
+      "requires": [
+        {
+          "vendor": "claude",
+          "series": "claude5"
+        },
+        {
+          "vendor": "gemini",
+          "series": "gemini4"
+        },
+        {
+          "vendor": "chatgpt",
+          "series": "gpt6"
+        }
+      ],
+      "power": 1.08,
+      "income": 0.96,
+      "source": "用户设定",
+      "desc": "1700 万行 Lean 拿下百年数学圣杯，转头让画 13 个鸡蛋全员画出 14 个——当代 AI 的终极魔幻现实。"
     }
   ]
 }

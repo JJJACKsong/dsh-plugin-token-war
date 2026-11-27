@@ -71,9 +71,12 @@ test('roster uses real model lineups and keeps legacy ids', async () => {
   for(const v of roster.enabledVendors) assert.ok(events.events.some(e=>e.vendor===v),`missing event for ${v}`);
   assert.ok(events.events.some(e=>e.vendor==='all'),'missing global industry event');
   assert.equal(new Set(events.events.map(e=>e.name)).size,events.events.length,'duplicate event names');
-  assert.equal(events.events.length,33);
+  assert.equal(events.events.length,53);
+  for(const e of events.events) assert.ok(e.desc&&(e.bubble||e.vendorBubbles),`event ${e.id} needs desc and bubble/vendorBubbles`);
+  assert.ok(events.chatter&&typeof events.chatter==='object','missing chatter map');
+  for(const v of roster.enabledVendors) assert.ok(Array.isArray(events.chatter[v])&&events.chatter[v].length>=(v==='deepseek'?10:5),`chatter for ${v} needs quotes`);
   const skills=await json('../data/skills.json');
-  assert.equal(skills.bonds.length,11);assert.equal(skills.combos.length,18);
+  assert.equal(skills.bonds.length,13);assert.equal(skills.combos.length,26);
   for(const v of roster.enabledVendors) assert.ok(skills.bonds.some(b=>b.vendor===v),`missing bond for ${v}`);
   for(const b of skills.bonds) assert.ok(b.vendor&&b.desc,`bond ${b.id} needs vendor/desc`);
   for(const c of skills.combos) assert.ok(c.desc&&(c.requires?.length>=2||c.vendors?.length>=2),`combo ${c.id} needs desc/requires`);

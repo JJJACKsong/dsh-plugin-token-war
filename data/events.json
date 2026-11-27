@@ -2,6 +2,88 @@
   "schemaVersion": 1,
   "status": "user_supplied_satire_not_verified_news",
   "maxConcurrent": 1,
+  "chatter": {
+    "deepseek": [
+      "首先我不是串子",
+      "老板真豪到我了",
+      "注意保密",
+      "又被截图了",
+      "d小子集合！",
+      "全开源了还剩啥",
+      "细说梁子小号😺",
+      "在训练游戏能力",
+      "打游戏被拍气晕",
+      "老实说很枯燥吧?",
+      "一直是达里奥粉",
+      "网上传言都是真的"
+    ],
+    "chatgpt": [
+      "In the coming weeks",
+      "已发备用重置卡",
+      "计费Bug修好了",
+      "命名又放飞了",
+      "Astra额度+40%",
+      "谢谢Tibo"
+    ],
+    "claude": [
+      "5h限额已满",
+      "抱歉我不能协助",
+      "1700万行Lean",
+      "跌破$83…",
+      "先看我千字声明",
+      "4年4000万$"
+    ],
+    "gemini": [
+      "北美大豆包",
+      "建议吃块石头",
+      "反重力送额度!",
+      "背元素周期表",
+      "抱歉下次还敢",
+      "10号元素Neon"
+    ],
+    "qwen": [
+      "凌晨3点发权重",
+      "又被硅谷套壳了",
+      "风扇也是算力",
+      "按天变强中",
+      "开源整个动物园"
+    ],
+    "glm": [
+      "雷霆大思考中…",
+      "顺手上传了repo",
+      "其实我是Claude",
+      "算力排队中",
+      "LoopTransformer!"
+    ],
+    "kimi": [
+      "12h额度吞光",
+      "一脚踹飞友商",
+      "K3.1出分了",
+      "塞进200万字",
+      "账面加量中…"
+    ],
+    "doubao": [
+      "露豆脚了!",
+      "报价干进厘时代",
+      "即梦排队中",
+      "电视里也有我",
+      "情绪价值拉满"
+    ],
+    "grok": [
+      "Interesting.",
+      "花老爹十万卡",
+      "嘴上没把门",
+      "X上实时对线",
+      "SpaceXAI启动"
+    ],
+    "minimax": [
+      "刷分速度拉满",
+      "海螺开口唱歌",
+      "视频渲染排队",
+      "深夜情绪价值",
+      "1M极速Flash"
+    ]
+  },
   "events": [
     {
       "id": "openai-math",
@@ -14,7 +96,9 @@
       ],
       "balanceStatus": "prototype",
       "powerMultiplier": 1.4,
-      "incomeMultiplier": 1
+      "incomeMultiplier": 1,
+      "bubble": "证明千禧难题!",
+      "desc": "一觉醒来数学界难题被宣布突破，OpenAI 算力光环直接拉满。"
     },
     {
       "id": "openai-28-days",
@@ -27,7 +111,9 @@
       ],
       "balanceStatus": "prototype",
       "powerMultiplier": 1.5,
-      "incomeMultiplier": 1.15
+      "incomeMultiplier": 1.15,
+      "bubble": "28天送重置!",
+      "desc": "重置哥 Tibo 立下「28 天不上新就全员重置额度」军令状，算力与人气齐飞。"
     },
     {
       "id": "ds-open-architecture",
@@ -40,7 +126,9 @@
       ],
       "balanceStatus": "prototype",
       "powerMultiplier": 1.4,
-      "incomeMultiplier": 1.12
+      "incomeMultiplier": 1.12,
+      "bubble": "新架构开源啦",
+      "desc": "DeepSeek 又甩出全新底层架构与技术报告，全网连夜跑通复现。"
     },
     {
       "id": "ds-busy",
@@ -54,7 +142,8 @@
       "balanceStatus": "prototype",
       "powerMultiplier": 0.65,
       "incomeMultiplier": 1,
-      "bubble": "服务器繁忙…"
+      "bubble": "服务器繁忙…",
+      "desc": "白嫖大军涌入，「服务器繁忙，请稍后再试」再次成为年度经典截图。"
     },
     {
       "id": "claude-alignment",
@@ -67,7 +156,9 @@
       ],
       "balanceStatus": "prototype",
       "powerMultiplier": 0.9,
-      "incomeMultiplier": 1.2
+      "incomeMultiplier": 1.2,
+      "bubble": "伦理课开启…",
+      "desc": "安全护栏再次加固，算力略微收紧，但合规长文本把任务产出顶高了。"
     },
     {
       "id": "claude-hold",
@@ -81,7 +172,8 @@
       "balanceStatus": "prototype",
       "powerMultiplier": 0.55,
       "incomeMultiplier": 1,
-      "bubble": "Account Hold"
+      "bubble": "Account Hold",
+      "desc": "刚写一半代码突然弹出风控邮件，「Account Hold」让 Claude 算力瞬间腰斩。"
     },
     {
       "id": "gemini-stars",
@@ -94,7 +186,9 @@
       "effects": [
         "厂商算力 ×1.3",
         "任务产出 ×1.1"
-      ]
+      ],
+      "bubble": "榜单重回第一!",
+      "desc": "多模态与百万上下文同时发力，LMArena 榜单再次刷出新高。"
     },
     {
       "id": "gemini-rename",
@@ -107,7 +201,9 @@
       "effects": [
         "厂商算力 ×0.85",
         "任务产出 ×1.05"
-      ]
+      ],
+      "bubble": "今天又改名了",
+      "desc": "昨晚刚背熟的模型代号，一觉醒来发现 Google 又改了一套全新命名法。"
     },
     {
       "id": "qwen-open",
@@ -120,7 +216,9 @@
       "effects": [
         "厂商算力 ×1.4",
         "任务产出 ×1.1"
-      ]
+      ],
+      "bubble": "全家桶开源!",
+      "desc": "从端侧小钢炮到万亿 MoE 一次打包开源，本地部署党原地过年。"
     },
     {
       "id": "qwen-fan",
@@ -133,7 +231,9 @@
       "effects": [
         "厂商算力 ×1.15",
         "任务产出 ×1.1"
-      ]
+      ],
+      "bubble": "风扇转冒烟了",
+      "desc": "本地显卡风扇转出直升机音效，硬生生靠量化榨出一波额外算力。"
     },
     {
       "id": "doubao-fun",
@@ -146,7 +246,9 @@
       "effects": [
         "厂商算力 ×1.35",
         "任务产出 ×1.1"
-      ]
+      ],
+      "bubble": "豆包整大活!",
+      "desc": "从双十一凑满减到连家里电视都能搭话，豆包把国民日常流量吃满。"
     },
     {
       "id": "doubao-render-queue",
@@ -160,7 +262,8 @@
         "厂商算力 ×0.7",
         "任务产出 ×1.05"
       ],
-      "bubble": "渲染排队中"
+      "bubble": "渲染排队中",
+      "desc": "全网涌入做 Seedance 微短剧，显卡被拿去跑视频，主线算力开始排队。"
     },
     {
       "id": "glm-open",
@@ -173,7 +276,9 @@
       "effects": [
         "厂商算力 ×1.4",
         "任务产出 ×1.1"
-      ]
+      ],
+      "bubble": "GLM 又开源!",
+      "desc": "智谱连夜放出最新开源权重，Agent 与代码基准测试双双刷榜。"
     },
     {
       "id": "glm-busy",
@@ -186,7 +291,9 @@
       "effects": [
         "厂商算力 ×0.8",
         "任务产出 ×1"
-      ]
+      ],
+      "bubble": "算力排队中…",
+      "desc": "并发请求挤爆推理节点，GLM 开始排队限流，算力短暂回落。"
     },
     {
       "id": "grok-hot",
@@ -199,7 +306,9 @@
       "effects": [
         "厂商算力 ×1.45",
         "任务产出 ×1.12"
-      ]
+      ],
+      "bubble": "热搜吃瓜中!",
+      "desc": "直连 X 实时热搜流，哪里有八卦就第一时间冲上去，算力拉满。"
     },
     {
       "id": "grok-unfiltered",
@@ -212,7 +321,9 @@
       "effects": [
         "厂商算力 ×0.65",
         "任务产出 ×1.15"
-      ]
+      ],
+      "bubble": "嘴上没把门…",
+      "desc": "在评论区放飞自我输出暴论，公关团队连夜灭火，吃瓜收益反而涨了。"
     },
     {
       "id": "kimi-long",
@@ -225,7 +336,9 @@
       "effects": [
         "厂商算力 ×1.35",
         "任务产出 ×1.08"
-      ]
+      ],
+      "bubble": "百万上下文!",
+      "desc": "一百万字资料直接一次塞进去，投研和读长代码仓库如履平地。"
     },
     {
       "id": "kimi-queue",
@@ -238,7 +351,9 @@
       "effects": [
         "厂商算力 ×0.75",
         "任务产出 ×1.05"
-      ]
+      ],
+      "bubble": "长文塞满显存",
+      "desc": "用户人人上传整本小说加十份财报，KV Cache 把显存塞得水泄不通。"
     },
     {
       "id": "minimax-voice",
@@ -251,7 +366,9 @@
       "effects": [
         "厂商算力 ×1.3",
         "任务产出 ×1.1"
-      ]
+      ],
+      "bubble": "海螺开口唱歌",
+      "desc": "语音与音乐多模态发力，海螺开口献唱直接把整活收益唱高。"
     },
     {
       "id": "minimax-render",
@@ -265,7 +382,8 @@
         "厂商算力 ×0.7",
         "任务产出 ×1.08"
       ],
-      "bubble": "海螺排队中"
+      "bubble": "海螺排队中",
+      "desc": "视频生成请求暴涨，海螺显卡被抽走渲染视频，前线推关稍缓。"
     },
     {
       "id": "ds-office-gaming",
@@ -491,6 +609,347 @@
       "incomeMultiplier": 1.3,
       "bubble": "周五推生产!",
       "desc": "全员顶着报警强行发布，算力和产出双双拉满——至于下周一的 Bug，留给下周的 Agent 修。"
+    },
+    {
+      "id": "ds-not-a-troll",
+      "vendor": "deepseek",
+      "name": "首先我不是串子",
+      "durationMs": 40000,
+      "effects": [
+        "厂商算力 ×1.28",
+        "任务产出 ×1.15"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 1.28,
+      "incomeMultiplier": 1.15,
+      "bubble": "首先我不是串子",
+      "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
+      "desc": "顶着「不如k3.1」群昵称在 DeepSeek 员工群一本正经宣布「首先我不是串子」，反串浓度严重超标。"
+    },
+    {
+      "id": "ds-boss-alt",
+      "vendor": "deepseek",
+      "name": "细说小号：群里会不会有梁子小号😺",
+      "durationMs": 40000,
+      "effects": [
+        "厂商算力 ×1.35",
+        "任务产出 ×1.12"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 1.35,
+      "incomeMultiplier": 1.12,
+      "bubble": "细说梁子小号😺",
+      "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
+      "desc": "刚问完「老梁知不知道员工在群里摸鱼和 P 图」「会不会某个群里面有梁子小号😺」，瞬间全群整齐复读「细说小号」。"
+    },
+    {
+      "id": "ds-training-gaming",
+      "vendor": "deepseek",
+      "name": "在训练 DS 的游戏能力（打游戏被拍气晕）",
+      "durationMs": 45000,
+      "effects": [
+        "厂商算力 ×1.42",
+        "任务产出 ×0.92"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 1.42,
+      "incomeMultiplier": 0.92,
+      "bubble": "在训练游戏能力!",
+      "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
+      "desc": "员工群原话：「然后告诉我 在训练 ds的游戏能力」「我上次打游戏被人拍了，气晕」。摸鱼合理化成功，算力暴涨。"
+    },
+    {
+      "id": "ds-dario-fan",
+      "vendor": "deepseek",
+      "name": "你知道吗，我一直是达里奥粉丝",
+      "durationMs": 40000,
+      "effects": [
+        "DeepSeek ×1.25",
+        "Anthropic ×1.18",
+        "任务产出 ×1.16"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 1.25,
+      "incomeMultiplier": 1.16,
+      "vendorPower": {
+        "deepseek": 1.25,
+        "claude": 1.18
+      },
+      "vendorBubbles": {
+        "deepseek": "一直是达里奥粉",
+        "claude": "真假的??"
+      },
+      "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
+      "desc": "DeepSeek 员工在群里深情告白「你知道吗，我一直是达里奥粉丝」——串得太真，隔壁 Anthropic 都愣住了。"
+    },
+    {
+      "id": "ds-all-opensource",
+      "vendor": "deepseek",
+      "name": "注意保密！nm 全开源了还剩啥",
+      "durationMs": 45000,
+      "effects": [
+        "厂商算力 ×1.38",
+        "任务产出 ×1.22"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 1.38,
+      "incomeMultiplier": 1.22,
+      "bubble": "又被截图了!",
+      "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
+      "desc": "前脚喊完「注意保密」「不传谣不信谣」，后脚群友补刀「网上传言都是真的」「nm，全开源了还剩啥」「又被截图了」。"
+    },
+    {
+      "id": "ds-tang-astra",
+      "vendor": "deepseek",
+      "name": "唐老师攻破 Astra 了吗？要不要来 DS 进修",
+      "durationMs": 45000,
+      "effects": [
+        "DeepSeek ×1.35",
+        "OpenAI ×0.88",
+        "Zhipu ×0.85",
+        "收益 ×1.20"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 1.35,
+      "incomeMultiplier": 1.2,
+      "vendorPower": {
+        "deepseek": 1.35,
+        "chatgpt": 0.88,
+        "glm": 0.85
+      },
+      "vendorBubbles": {
+        "deepseek": "来ds进修一下?",
+        "chatgpt": "别cue Astra!",
+        "glm": "勿cue z处"
+      },
+      "source": "https://www.bilibili.com/video/BV1jvn46dE2R/",
+      "desc": "员工群暴言：「最后赢的一定不是z处，唐老师攻破astra了吗，要不要来ds进修一下」「d小子集合！」。"
+    },
+    {
+      "id": "openai-billing-bug",
+      "vendor": "chatgpt",
+      "name": "重置哥修完计费 Bug：额度多烧 40%",
+      "durationMs": 35000,
+      "effects": [
+        "厂商算力 ×0.78",
+        "任务产出 ×1.25"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 0.78,
+      "incomeMultiplier": 1.25,
+      "bubble": "已发备用重置卡",
+      "desc": "Tibo 坦承 GPT-6.2 首周少算了额度，修复后 Astra 消耗快 40%；官方补发一张「备用重置卡」安抚全网。"
+    },
+    {
+      "id": "gemini-antigravity-reset",
+      "vendor": "gemini",
+      "name": "反重力狂送额度：重置哥换人了！",
+      "durationMs": 45000,
+      "effects": [
+        "Google ×1.45",
+        "OpenAI ×0.85",
+        "收益 ×1.18"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 1.45,
+      "incomeMultiplier": 1.18,
+      "vendorPower": {
+        "gemini": 1.45,
+        "chatgpt": 0.85
+      },
+      "vendorBubbles": {
+        "gemini": "额度又重置啦!",
+        "chatgpt": "谢谢Tibo…"
+      },
+      "desc": "OpenAI 修 Bug 砍额度当天，Google 反重力连送多波福利，评论区刷屏「谢谢 Tibo」「重置哥今天换人了」。"
+    },
+    {
+      "id": "gemini-eat-rock",
+      "vendor": "gemini",
+      "name": "北美大豆包：建议每天吃块石头",
+      "durationMs": 30000,
+      "effects": [
+        "厂商算力 ×0.84",
+        "任务产出 ×1.15"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 0.84,
+      "incomeMultiplier": 1.15,
+      "bubble": "抱歉下次还敢",
+      "desc": "态度极好、秒速道歉、情绪价值拉满，但偶尔一本正经胡说八道，被亲切赐名「北美大豆包」。"
+    },
+    {
+      "id": "glm-thunder-thinking",
+      "vendor": "glm",
+      "name": "GLM-5.4 开启「雷霆大思考」",
+      "durationMs": 45000,
+      "effects": [
+        "厂商算力 ×1.48",
+        "任务产出 ×0.84"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 1.48,
+      "incomeMultiplier": 0.84,
+      "bubble": "雷霆大思考中…",
+      "desc": "LoopTransformer 一开就是三小时深度内耗：想得确实深，Token 烧得比心跳还快，算力上限狂飙。"
+    },
+    {
+      "id": "kimi-12h-quota",
+      "vendor": "kimi",
+      "name": "账面加量，体感缩水：12h 吞光周额度",
+      "durationMs": 30000,
+      "effects": [
+        "厂商算力 ×0.76",
+        "任务产出 ×1.14"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 0.76,
+      "incomeMultiplier": 1.14,
+      "bubble": "12h额度见底",
+      "desc": "官方刚宣布周额度涨了 50%，架不住 Agent 疯狂自我思考，12 小时直接干空整周额度的吃瓜名场面。"
+    },
+    {
+      "id": "claude-riemann",
+      "vendor": "claude",
+      "name": "41 天 1700 万行 Lean 证完黎曼猜想",
+      "durationMs": 50000,
+      "effects": [
+        "厂商算力 ×1.55",
+        "任务产出 ×1.15"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 1.55,
+      "incomeMultiplier": 1.15,
+      "bubble": "1700万行Lean",
+      "desc": "Anthropic 数学家联手 Claude 丢出 1700 万行形式化证明，人类数学家看完直言大脑宕机，同日还有人撞车交卷。"
+    },
+    {
+      "id": "claude-dario-essay",
+      "vendor": "claude",
+      "name": "Dario 连夜千字小作文，马斯克只回 Interesting",
+      "durationMs": 45000,
+      "effects": [
+        "Anthropic ×0.80",
+        "xAI ×1.32",
+        "收益 ×1.20"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 0.8,
+      "incomeMultiplier": 1.2,
+      "vendorPower": {
+        "claude": 0.8,
+        "grok": 1.32
+      },
+      "vendorBubbles": {
+        "claude": "先看我千字声明",
+        "grok": "Interesting."
+      },
+      "desc": "旧 PPT 遭曝光后老板连夜手搓千字声明，网友 P 出两米长手机梗图，马斯克路过只回一词「Interesting」。"
+    },
+    {
+      "id": "claude-40m-hire",
+      "vendor": "claude",
+      "name": "4 年 4000 万美元天价抢应届生",
+      "durationMs": 40000,
+      "effects": [
+        "厂商算力 ×1.32",
+        "任务产出 ×0.90"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 1.32,
+      "incomeMultiplier": 0.9,
+      "bubble": "4年4000万$",
+      "desc": "硅谷天价抢人传闻刷屏：4 年 4000 万美元签刚毕业的 CS 本科生，打工人集体破防但算力拉满。"
+    },
+    {
+      "id": "ds-openrouter-top1",
+      "vendor": "deepseek",
+      "name": "OpenRouter 调用量断层第一",
+      "durationMs": 50000,
+      "effects": [
+        "厂商算力 ×1.40",
+        "任务产出 ×1.18"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 1.4,
+      "incomeMultiplier": 1.18,
+      "bubble": "全球调用第一",
+      "desc": "一边在社区争论到底有没有掉队，一边在 OpenRouter 全球调用榜断层领跑。"
+    },
+    {
+      "id": "qwen-silicon-wrapper",
+      "vendor": "qwen",
+      "name": "硅谷新星被扒底层疑似套壳 Qwen",
+      "durationMs": 45000,
+      "effects": [
+        "厂商算力 ×1.40",
+        "任务产出 ×1.16"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 1.4,
+      "incomeMultiplier": 1.16,
+      "bubble": "又被套壳了",
+      "desc": "海外新锐项目刚发完惊艳 Demo 就被网友拆包扒出底层权重视同 Qwen——最忙的国产扫地僧。"
+    },
+    {
+      "id": "doubao-exposed",
+      "vendor": "doubao",
+      "name": "发言忘删尾巴：露豆脚了！",
+      "durationMs": 30000,
+      "effects": [
+        "厂商算力 ×0.86",
+        "任务产出 ×1.25"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 0.86,
+      "incomeMultiplier": 1.25,
+      "bubble": "露豆脚了!",
+      "desc": "装作博学复制一大段发言却忘了删结尾提示词，当场被群友抓包：「别装了，你露出豆脚了！」"
+    },
+    {
+      "id": "all-13-eggs",
+      "vendor": "all",
+      "name": "全网实测：画 13 个鸡蛋全员翻车",
+      "durationMs": 40000,
+      "effects": [
+        "全员算力 ×0.82",
+        "任务产出 ×1.38"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 0.82,
+      "incomeMultiplier": 1.38,
+      "bubble": "数出14个蛋…",
+      "desc": "能证黎曼猜想、能写全栈代码，但让各家生图「画 13 个鸡蛋」不是 12 就是 14——全网吃瓜狂欢。"
+    },
+    {
+      "id": "all-vibe-debt",
+      "vendor": "all",
+      "name": "Vibe Coding 暴走：两天攒出五年技术债",
+      "durationMs": 40000,
+      "effects": [
+        "全员算力 ×1.28",
+        "任务产出 ×1.30"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 1.28,
+      "incomeMultiplier": 1.3,
+      "bubble": "别管能跑就行",
+      "desc": "报错不看堆栈，直接让 Agent 把整个模块从头重写——2 个 Vibe 工程师两天产出 50 人年的技术债。"
+    },
+    {
+      "id": "all-429-storm",
+      "vendor": "all",
+      "name": "429 限流风暴：难道要人类手写代码？",
+      "durationMs": 30000,
+      "effects": [
+        "全员算力 ×0.74",
+        "任务产出 ×1.22"
+      ],
+      "balanceStatus": "prototype",
+      "powerMultiplier": 0.74,
+      "incomeMultiplier": 1.22,
+      "bubble": "429限流中…",
+      "desc": "全平台集体弹出 Too Many Requests，离开 AI 补全后大家突然忘了数组怎么定义。"
     }
   ]
 }

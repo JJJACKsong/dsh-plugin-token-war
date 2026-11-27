@@ -30,12 +30,12 @@
     },
     {
       "id": "gpt35",
-      "name": "GPT-5.6 Luna",
+      "name": "GPT-6 Luna",
       "vendor": "chatgpt",
       "unlockStage": 3,
       "cost": 100,
       "power": 40,
-      "tag": "早期低价 · 快模型",
+      "tag": "入门轻量 · 快模型",
       "apiPrice": null,
       "series": "gpt56",
       "tier": 1
@@ -71,7 +71,7 @@
       "unlockStage": 9,
       "cost": 100,
       "power": 40,
-      "tag": "高吞吐 · 长上下文",
+      "tag": "高吞吐 · 北美大豆包",
       "apiPrice": null,
       "series": "gemini38",
       "tier": 1
@@ -102,12 +102,12 @@
     },
     {
       "id": "gpt4o",
-      "name": "GPT-6 Astra",
+      "name": "GPT-6.2 Astra",
       "vendor": "chatgpt",
       "unlockStage": 423,
       "cost": 100000000,
       "power": 1800000,
-      "tag": "前沿旗舰",
+      "tag": "顶配旗舰 · 计费+40%",
       "apiPrice": null,
       "series": "gpt6",
       "tier": 6
@@ -138,7 +138,7 @@
     },
     {
       "id": "fable5",
-      "name": "Claude Fable 5.1",
+      "name": "Claude Fable 5.2",
       "vendor": "claude",
       "unlockStage": 426,
       "cost": 100000000,
@@ -150,7 +150,7 @@
     },
     {
       "id": "gpt56turbo",
-      "name": "GPT-5.6 Terra",
+      "name": "GPT-6.1 Terra",
       "vendor": "chatgpt",
       "unlockStage": 63,
       "cost": 1200,
@@ -162,12 +162,12 @@
     },
     {
       "id": "gpt6nova",
-      "name": "GPT-6 Sol",
+      "name": "GPT-6.2 Sol",
       "vendor": "chatgpt",
       "unlockStage": 303,
       "cost": 5000000,
       "power": 200000,
-      "tag": "推理旗舰",
+      "tag": "推理旗舰 · 计费+25%",
       "apiPrice": null,
       "series": "gpt6",
       "tier": 5
@@ -215,31 +215,31 @@
       "unlockStage": 306,
       "cost": 5000000,
       "power": 200000,
-      "tag": "深度推理",
+      "tag": "深度推理 · 黎曼猜想",
       "apiPrice": null,
       "series": "claude5",
       "tier": 5
     },
     {
       "id": "gemini4pro",
-      "name": "Gemini 4 Pro",
+      "name": "Gemini 4 Carbon",
       "vendor": "gemini",
       "unlockStage": 209,
       "cost": 250000,
       "power": 22000,
-      "tag": "多模态旗舰",
+      "tag": "6号元素 · 均衡全能",
       "apiPrice": null,
       "series": "gemini4",
       "tier": 4
     },
     {
       "id": "gemini42ultra",
-      "name": "Gemini 4 Flash-Lite",
+      "name": "Gemini 4 Hydrogen",
       "vendor": "gemini",
       "unlockStage": 69,
       "cost": 1200,
       "power": 300,
-      "tag": "超长上下文",
+      "tag": "1号元素 · 极速轻量",
       "apiPrice": null,
       "series": "gemini4",
       "tier": 2
@@ -258,12 +258,12 @@
     },
     {
       "id": "qwen4preview",
-      "name": "Qwen3.8-Max-0902",
+      "name": "Qwen3.8-2.4T-A95B",
       "vendor": "qwen",
       "unlockStage": 312,
       "cost": 5000000,
       "power": 200000,
-      "tag": "下一代开源",
+      "tag": "开源 2.4T MoE",
       "apiPrice": null,
       "series": "qwen38",
       "tier": 5
@@ -275,7 +275,7 @@
       "unlockStage": 315,
       "cost": 5000000,
       "power": 200000,
-      "tag": "中文创作 · 低价",
+      "tag": "中文创作 · 厘时代低价",
       "apiPrice": null,
       "series": "seed21",
       "tier": 5
@@ -299,7 +299,7 @@
       "unlockStage": 135,
       "cost": 15000,
       "power": 2500,
-      "tag": "原生多模态旗舰",
+      "tag": "原生多模态 · Seedance 2.0",
       "apiPrice": null,
       "series": "seed21",
       "tier": 3
@@ -354,12 +354,12 @@
     },
     {
       "id": "glm6",
-      "name": "GLM-5.3",
+      "name": "GLM-5.4",
       "vendor": "glm",
       "unlockStage": 438,
       "cost": 100000000,
       "power": 1800000,
-      "tag": "下一代旗舰",
+      "tag": "LoopTransformer · 雷霆大思考",
       "apiPrice": null,
       "series": "glm5",
       "tier": 6
@@ -371,7 +371,7 @@
       "unlockStage": 441,
       "cost": 100000000,
       "power": 1800000,
-      "tag": "实时信息",
+      "tag": "SpaceXAI 旗舰 · 代码",
       "apiPrice": null,
       "series": "grok4",
       "tier": 6
@@ -414,12 +414,12 @@
     },
     {
       "id": "kimik3",
-      "name": "Kimi K3.1 Pro Highspeed",
+      "name": "Kimi K3.1 Pro Prime",
       "vendor": "kimi",
       "unlockStage": 324,
       "cost": 5000000,
       "power": 200000,
-      "tag": "长文本",
+      "tag": "极速 Prime · 长文本",
       "apiPrice": null,
       "series": "k3",
       "tier": 5
@@ -431,7 +431,7 @@
       "unlockStage": 444,
       "cost": 100000000,
       "power": 1800000,
-      "tag": "长上下文 · 快速",
+      "tag": "3T 开源旗舰 · 1M 上下文",
       "apiPrice": null,
       "series": "k3",
       "tier": 6
@@ -467,7 +467,7 @@
       "unlockStage": 447,
       "cost": 100000000,
       "power": 1800000,
-      "tag": "性价比",
+      "tag": "推理旗舰 · 性价比",
       "apiPrice": null,
       "series": "m3",
       "tier": 6
@@ -479,7 +479,7 @@
       "unlockStage": 327,
       "cost": 5000000,
       "power": 200000,
-      "tag": "多模态",
+      "tag": "1M 上下文 · 极速低价",
       "apiPrice": null,
       "series": "m3",
       "tier": 5
@@ -510,7 +510,7 @@
     },
     {
       "id": "gpt56sol",
-      "name": "GPT-5.6 Sol",
+      "name": "GPT-6.1 Sol",
       "vendor": "chatgpt",
       "series": "gpt56",
       "unlockStage": 123,
@@ -522,13 +522,13 @@
     },
     {
       "id": "gpt56solpro",
-      "name": "GPT-5.6 Sol Pro",
+      "name": "GPT-6 Astra",
       "vendor": "chatgpt",
       "series": "gpt56",
       "unlockStage": 203,
       "cost": 250000,
       "power": 22000,
-      "tag": "Pro 档 · 长任务",
+      "tag": "前沿均衡 · 通用",
       "apiPrice": null,
       "tier": 4
     },
@@ -564,7 +564,7 @@
       "unlockStage": 420,
       "cost": 100000000,
       "power": 1800000,
-      "tag": "正式版旗舰",
+      "tag": "1.6T 正式版旗舰 · 开源",
       "apiPrice": null,
       "tier": 6
     },
@@ -576,19 +576,19 @@
       "unlockStage": 129,
       "cost": 15000,
       "power": 2500,
-      "tag": "高吞吐",
+      "tag": "高吞吐 · 反重力主力",
       "apiPrice": null,
       "tier": 3
     },
     {
       "id": "qwen38a95b",
-      "name": "Qwen3.8-2.4T-A95B",
+      "name": "Qwen4-Max",
       "vendor": "qwen",
       "series": "qwen38",
       "unlockStage": 432,
       "cost": 100000000,
       "power": 1800000,
-      "tag": "开源 2.4T MoE",
+      "tag": "2.4T · 1M 上下文旗舰",
       "apiPrice": null,
       "tier": 6
     },
@@ -642,13 +642,13 @@
     },
     {
       "id": "glm53flashx",
-      "name": "GLM-5.3-FlashX",
+      "name": "GLM-5.3",
       "vendor": "glm",
       "series": "glm5",
       "unlockStage": 318,
       "cost": 5000000,
       "power": 200000,
-      "tag": "高速多模态",
+      "tag": "高速多模态 · 开源",
       "apiPrice": null,
       "tier": 5
     },
@@ -660,7 +660,7 @@
       "unlockStage": 221,
       "cost": 250000,
       "power": 22000,
-      "tag": "1M 上下文",
+      "tag": "1M 上下文 · 双变体",
       "apiPrice": null,
       "tier": 4
     },
@@ -738,7 +738,7 @@
     }
   ],
   "modelSnapshot": {
-    "checkedAt": "2026-11-25",
+    "checkedAt": "2026-11-28",
     "sources": [
       "https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt",
       "https://platform.claude.com/docs/zh-CN/models/overview",

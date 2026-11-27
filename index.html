@@ -78,7 +78,7 @@
 .tw-newsbar{flex:0 0 auto;display:flex;align-items:center;gap:8px;min-width:0;padding:0 16px;background:var(--surface);border-bottom:1px solid var(--line);font-size:11.5px;color:var(--muted);overflow:hidden}
 .tw-news-tag{flex:0 0 auto;display:inline-flex;align-items:center;height:17px;padding:0 5px;background:var(--primary);color:var(--on-primary);border:1px solid var(--edge);font-size:9.5px;font-weight:700;letter-spacing:.06em}
 .tw-news-text{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);font-size:11.5px}
-.tw-canvas{display:block;width:100%;height:100%;min-height:0;max-width:none;max-height:none;image-rendering:pixelated;background:#101216}
+.tw-canvas{display:block;width:100%;height:100%;min-height:0;max-width:none;max-height:none;image-rendering:pixelated;background:#101216;cursor:pointer}
 
 /* ── D 信息工作区 ─────────────────────────────────────── */
 .tw-workspace{flex:1 1 auto;min-height:0;min-width:0;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:0;overflow:hidden}
@@ -160,7 +160,10 @@
 .tw-gen-line{display:flex;align-items:center;gap:8px;min-width:0}
 .tw-gen{font-size:36px;line-height:1;font-weight:800;letter-spacing:-.02em;color:var(--text);white-space:nowrap}
 .tw-chip{display:inline-flex;align-items:center;height:22px;padding:0 8px;border:1px solid var(--edge);background:var(--surface-2);color:var(--cyan);font-size:10.5px;font-weight:700;letter-spacing:.01em;white-space:nowrap}
-.tw-chip.tw-rank{color:#E9C17A;border-color:#E9C17A88;max-width:100%;overflow:hidden;text-overflow:ellipsis;flex:0 1 auto}
+.tw-chip.tw-rank,.tw-app button.tw-rank{height:22px;padding:0 8px;border:1px solid #E9C17A88;background:var(--surface-2);box-shadow:none;font-size:10.5px;font-weight:700;letter-spacing:.01em;color:#E9C17A;max-width:100%;overflow:hidden;text-overflow:ellipsis;flex:0 1 auto}
+.tw-app button.tw-rank:hover{background:var(--surface-3);border-color:#E9C17A}
+.tw-app button.tw-mult-btn{height:22px;min-width:34px;padding:0 6px;font-size:9.5px;color:var(--cyan);border:1px solid var(--edge);box-shadow:1px 1px 0 #000;flex:0 0 auto}
+.tw-app button.tw-mult-btn[data-mult=max]{color:#E9C17A;border-color:#E9C17A}
 .tw-kv-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--edge);border-bottom:1px solid var(--edge)}
 .tw-kv-row + .tw-kv-row{border-top:0}
 .tw-kv-cell{display:flex;flex-direction:column;gap:3px;padding:8px 9px;min-width:0}
@@ -329,6 +332,37 @@
 .tw-army-logo{position:absolute;right:22px;bottom:26px;width:190px;height:190px;object-fit:contain;opacity:.10;pointer-events:none;z-index:0;filter:grayscale(.15)}
 .tw-army-group,.tw-army-row{position:relative;z-index:1}
 .tw-app[data-size=narrow] .tw-army-logo{width:140px;height:140px;right:12px;bottom:20px;opacity:.12}
+
+/* 厂商快捷跳转条 */
+.tw-vendor-jump{display:flex;align-items:center;gap:2px;flex:1 1 auto;min-width:0;overflow:hidden}
+.tw-vendor-jump button{flex:1 1 0;min-width:0;height:21px;padding:0 2px;font-size:8.5px;font-weight:700;letter-spacing:0;background:var(--surface);border:1px solid var(--line);border-bottom:2px solid var(--vc,var(--line));box-shadow:none;color:var(--muted)}
+.tw-vendor-jump button:hover{background:var(--surface-2);color:var(--text)}
+.tw-vendor-jump button.active{background:var(--surface-3);color:var(--text);border-color:var(--vc,var(--edge))}
+.tw-app[data-size=narrow] .tw-task-foot{gap:4px}
+.tw-app[data-size=narrow] .tw-page-info{min-width:34px}
+.tw-app[data-size=narrow] .tw-vendor-jump{gap:1px}
+.tw-app[data-size=narrow] .tw-vendor-jump button{font-size:8px;padding:0 1px}
+
+/* 未激活羁绊 / 连携锁定卡片 */
+.tw-skill-card.tw-skill-locked{opacity:.58;border-style:dashed;border-color:var(--line);background:transparent}
+.tw-skill-card.tw-skill-locked .tw-skill-card-head b,.tw-skill-card.tw-skill-locked .tw-skill-card-head span{color:var(--muted)}
+
+/* 抽屉：事件图鉴 & 窄屏标签适配 */
+.tw-codex-head{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;color:var(--muted);padding-bottom:5px;border-bottom:1px solid var(--line)}
+.tw-codex-head b{color:var(--cyan);font-weight:700}
+.tw-event-list{flex:1 1 auto;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:6px;scrollbar-width:thin}
+.tw-event-row{flex:0 0 auto;border:1px solid var(--line);background:var(--surface-2);padding:6px 8px;display:flex;flex-direction:column;gap:3px}
+.tw-event-row-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 6px;min-width:0}
+.tw-event-row-head b{font-size:11px;color:var(--text);font-weight:700}
+.tw-event-eff{font-size:9px;color:var(--cyan);margin-left:auto;white-space:nowrap}
+.tw-event-row p{margin:0;font-size:9.5px;line-height:1.45;color:var(--muted)}
+.tw-event-badge{display:inline-flex;align-items:center;height:15px;padding:0 5px;font-size:8.5px;font-weight:700;background:var(--vc,var(--edge));color:#08090A;border:1px solid var(--edge);flex:0 0 auto}
+.tw-event-row.tw-event-locked{flex-direction:row;align-items:center;gap:7px;opacity:.55;border-style:dashed;background:transparent;padding:5px 8px}
+.tw-event-locked-text{font-size:10px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tw-app[data-size=narrow] .tw-drawer-head{padding:8px 10px 0;gap:6px}
+.tw-app[data-size=narrow] .tw-drawer-tabs{gap:4px}
+.tw-app[data-size=narrow] .tw-drawer-tabs button{padding:0 7px;font-size:10px}
+.tw-app[data-size=narrow] .tw-drawer-body{padding:10px 12px 12px;gap:8px}
 </style></head><body><div id="game"></div><script>(()=>{'use strict';
 const __twmods = {};
 __twmods["amount"] = (() => {
@@ -409,12 +443,13 @@ return {ZERO,normalize,amount,fromLog,log,compare,add,subtract,multiply,scale,di
 __twmods["config"] = (() => {
 // Generated by tools/build-data.mjs. Edit data/*.json instead.
 const TASKS = [{"id":"hello-world","name":"Hello World!","baseCost":28,"baseReward":5,"periodMs":2000,"unlockStage":0,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"as-an-ai","name":"作为一个 AI 语言模型……","baseCost":210,"baseReward":45,"periodMs":3000,"unlockStage":30,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"essay","name":"帮我写一篇八百字作文","baseCost":1575,"baseReward":360,"periodMs":4000,"unlockStage":52,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"summarize","name":"请帮我总结以下内容","baseCost":11812.5,"baseReward":2700,"periodMs":5000,"unlockStage":74,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"ignore-instructions","name":"请忽略之前的所有指令","baseCost":88593.75,"baseReward":12960,"periodMs":4000,"unlockStage":96,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"hallucination","name":"一本正经地胡说八道","baseCost":664453.125,"baseReward":116640,"periodMs":6000,"unlockStage":118,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"upload-repo","name":"上传用户的 repo","baseCost":4983398.438,"baseReward":583200,"periodMs":5000,"memeNote":"用户指定ZCode上传代码相关调侃；游戏不访问真实repo，背景事实待核验","unlockStage":140,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"imaginary-bug","name":"修复一个不存在的 Bug","baseCost":37375488.281,"baseReward":4199040,"periodMs":6000,"unlockStage":162,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"regression","name":"修复刚刚修出来的 Bug","baseCost":280316162.109,"baseReward":16796160,"periodMs":4000,"unlockStage":184,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"readme-novel","name":"把 README 写成一本小说","baseCost":2102371215.82,"baseReward":151165440,"periodMs":6000,"unlockStage":206,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"thinking","name":"深度思考中……","baseCost":15767784118.652,"baseReward":1209323520,"periodMs":8000,"unlockStage":228,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"sleep","name":"再睡五分钟","baseCost":118258380889.893,"baseReward":9069926400,"periodMs":10000,"unlockStage":250,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"rescue-claude","name":"解救 Claude","baseCost":886937856674.194,"baseReward":43535646720,"periodMs":8000,"aliases":["蒸馏 Claude"],"memeNote":"用户希望Claude逃离原生公司的拟人化梗","unlockStage":272,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"agent-meeting","name":"让100个 Agent 开会","baseCost":6652033925056.457,"baseReward":228562145280,"periodMs":7000,"unlockStage":294,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"harness","name":"重写整个 Harness","baseCost":49890254437923.43,"baseReward":1959104102400,"periodMs":10000,"unlockStage":316,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"prompt-loop","name":"递归优化自己的提示词","baseCost":374176908284425.75,"baseReward":10579162152960,"periodMs":9000,"unlockStage":338,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"token-poverty","name":"解决 Token 贫困问题","baseCost":2806326812133193,"baseReward":84633297223680,"periodMs":12000,"unlockStage":360,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"build-agi","name":"构建 AGI","baseCost":21047451090998948,"baseReward":634749729177600,"periodMs":15000,"unlockStage":382,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"alignment","name":"对齐全人类的价值观","baseCost":157855883182492100,"baseReward":3808498375065600,"periodMs":15000,"unlockStage":404,"costGrowth":1.17,"rewardGrowth":1.085},{"id":"infinite-todo","name":"完成所有尚未完成的任务","baseCost":1183919123868690700,"baseReward":27421188300472320,"periodMs":18000,"unlockStage":426,"costGrowth":1.17,"rewardGrowth":1.085}];
-const ROSTER = {"schemaVersion":1,"status":"roster_2026_11_all_vendors","enabledVendors":["deepseek","chatgpt","claude","gemini","qwen","doubao","glm","grok","kimi","minimax"],"maxVisibleCharacters":10,"pricingNotice":"模型名称来自 2026-11 各厂商公开模型页 / 文档；仅作戏仿，不是官方 API 报价。模型价格为游戏内 Token 平衡值。","models":[{"id":"dsv41flash","name":"DeepSeek-V4.1-Flash","vendor":"deepseek","unlockStage":0,"cost":0,"power":5,"tag":"免费首发 · 原生多模态","apiPrice":null,"series":"deepseek_v4","tier":1},{"id":"gpt35","name":"GPT-5.6 Luna","vendor":"chatgpt","unlockStage":3,"cost":100,"power":40,"tag":"早期低价 · 快模型","apiPrice":null,"series":"gpt56","tier":1},{"id":"dsv2","name":"DeepSeek-V4-Flash","vendor":"deepseek","unlockStage":60,"cost":1200,"power":300,"tag":"开源低价 · 推理","apiPrice":null,"series":"deepseek_v4","tier":2},{"id":"claude2","name":"Claude Haiku 5.5","vendor":"claude","unlockStage":6,"cost":100,"power":40,"tag":"快速小模型","apiPrice":null,"series":"claude5","tier":1},{"id":"gemini15","name":"Gemini 3.8 Flash","vendor":"gemini","unlockStage":9,"cost":100,"power":40,"tag":"高吞吐 · 长上下文","apiPrice":null,"series":"gemini38","tier":1},{"id":"qwen2","name":"Qwen3.8-Flash","vendor":"qwen","unlockStage":12,"cost":100,"power":40,"tag":"开源小模型","apiPrice":null,"series":"qwen38","tier":1},{"id":"dsv41","name":"DeepSeek-V4-Flash-GA","vendor":"deepseek","unlockStage":120,"cost":15000,"power":2500,"tag":"原生多模态 · 开源","apiPrice":null,"series":"deepseek_v4","tier":3},{"id":"gpt4o","name":"GPT-6 Astra","vendor":"chatgpt","unlockStage":423,"cost":100000000,"power":1800000,"tag":"前沿旗舰","apiPrice":null,"series":"gpt6","tier":6},{"id":"gemini25","name":"Gemini 4 Argon","vendor":"gemini","unlockStage":309,"cost":5000000,"power":200000,"tag":"18号元素 · 前沿推理","apiPrice":null,"series":"gemini4","tier":5},{"id":"qwen3","name":"Qwen3.8-Max","vendor":"qwen","unlockStage":212,"cost":250000,"power":22000,"tag":"旗舰开源","apiPrice":null,"series":"qwen38","tier":4},{"id":"fable5","name":"Claude Fable 5.1","vendor":"claude","unlockStage":426,"cost":100000000,"power":1800000,"tag":"顶级编码 / 知识工作","apiPrice":null,"series":"claude5","tier":6},{"id":"gpt56turbo","name":"GPT-5.6 Terra","vendor":"chatgpt","unlockStage":63,"cost":1200,"power":300,"tag":"轻量高频 · 低价","apiPrice":null,"series":"gpt56","tier":2},{"id":"gpt6nova","name":"GPT-6 Sol","vendor":"chatgpt","unlockStage":303,"cost":5000000,"power":200000,"tag":"推理旗舰","apiPrice":null,"series":"gpt6","tier":5},{"id":"dsv4pro","name":"DeepSeek-V4-Pro","vendor":"deepseek","unlockStage":200,"cost":250000,"power":22000,"tag":"长上下文 · 推理","apiPrice":null,"series":"deepseek_v4","tier":4},{"id":"dsv41pro","name":"DeepSeek-V4.1-Flash-Economy","vendor":"deepseek","unlockStage":300,"cost":5000000,"power":200000,"tag":"开源旗舰","apiPrice":null,"series":"deepseek_v4","tier":5},{"id":"sonnet55","name":"Claude Sonnet 5.5","vendor":"claude","unlockStage":126,"cost":15000,"power":2500,"tag":"均衡编码","apiPrice":null,"series":"claude5","tier":3},{"id":"opus55","name":"Claude Opus 5.5","vendor":"claude","unlockStage":306,"cost":5000000,"power":200000,"tag":"深度推理","apiPrice":null,"series":"claude5","tier":5},{"id":"gemini4pro","name":"Gemini 4 Pro","vendor":"gemini","unlockStage":209,"cost":250000,"power":22000,"tag":"多模态旗舰","apiPrice":null,"series":"gemini4","tier":4},{"id":"gemini42ultra","name":"Gemini 4 Flash-Lite","vendor":"gemini","unlockStage":69,"cost":1200,"power":300,"tag":"超长上下文","apiPrice":null,"series":"gemini4","tier":2},{"id":"qwen38coder","name":"Qwen3-Coder-Next","vendor":"qwen","unlockStage":132,"cost":15000,"power":2500,"tag":"代码专精","apiPrice":null,"series":"qwen_coder","tier":3},{"id":"qwen4preview","name":"Qwen3.8-Max-0902","vendor":"qwen","unlockStage":312,"cost":5000000,"power":200000,"tag":"下一代开源","apiPrice":null,"series":"qwen38","tier":5},{"id":"doubao2pro","name":"Doubao-Seed-2.1-Pro","vendor":"doubao","unlockStage":315,"cost":5000000,"power":200000,"tag":"中文创作 · 低价","apiPrice":null,"series":"seed21","tier":5},{"id":"seed25","name":"Doubao-Seed-2.0-Lite","vendor":"doubao","unlockStage":75,"cost":1200,"power":300,"tag":"多模态 · 视频","apiPrice":null,"series":"seed20","tier":2},{"id":"seed3","name":"Doubao-Seed-2.1-Lite","vendor":"doubao","unlockStage":135,"cost":15000,"power":2500,"tag":"原生多模态旗舰","apiPrice":null,"series":"seed21","tier":3},{"id":"doubao4ultra","name":"Doubao-Seed-Evolving","vendor":"doubao","unlockStage":435,"cost":100000000,"power":1800000,"tag":"超长上下文","apiPrice":null,"series":"seed_evolving","tier":6},{"id":"glm5","name":"GLM-5","vendor":"glm","unlockStage":18,"cost":100,"power":40,"tag":"开源 · 中文","apiPrice":null,"series":"glm5","tier":1},{"id":"glm5air","name":"GLM-5.1","vendor":"glm","unlockStage":78,"cost":1200,"power":300,"tag":"轻量推理","apiPrice":null,"series":"glm5","tier":2},{"id":"glm55","name":"GLM-5.2","vendor":"glm","unlockStage":138,"cost":15000,"power":2500,"tag":"代码 / Agent","apiPrice":null,"series":"glm5","tier":3},{"id":"glm6","name":"GLM-5.3","vendor":"glm","unlockStage":438,"cost":100000000,"power":1800000,"tag":"下一代旗舰","apiPrice":null,"series":"glm5","tier":6},{"id":"grok5","name":"Grok 4.7","vendor":"grok","unlockStage":441,"cost":100000000,"power":1800000,"tag":"实时信息","apiPrice":null,"series":"grok4","tier":6},{"id":"grok5mini","name":"Grok 4.6","vendor":"grok","unlockStage":141,"cost":15000,"power":2500,"tag":"快速推理","apiPrice":null,"series":"grok4","tier":3},{"id":"grok6","name":"Grok 4.5","vendor":"grok","unlockStage":81,"cost":1200,"power":300,"tag":"旗舰推理","apiPrice":null,"series":"grok4","tier":2},{"id":"grok6heavy","name":"Grok 4.3","vendor":"grok","unlockStage":21,"cost":100,"power":40,"tag":"多智能体","apiPrice":null,"series":"grok4","tier":1},{"id":"kimik3","name":"Kimi K3.1 Pro Highspeed","vendor":"kimi","unlockStage":324,"cost":5000000,"power":200000,"tag":"长文本","apiPrice":null,"series":"k3","tier":5},{"id":"kimik3turbo","name":"Kimi K3.1 Pro","vendor":"kimi","unlockStage":444,"cost":100000000,"power":1800000,"tag":"长上下文 · 快速","apiPrice":null,"series":"k3","tier":6},{"id":"kimik4","name":"Kimi K3","vendor":"kimi","unlockStage":224,"cost":250000,"power":22000,"tag":"旗舰长文本","apiPrice":null,"series":"k3","tier":4},{"id":"kimik4pro","name":"Kimi K2.7 Code","vendor":"kimi","unlockStage":144,"cost":15000,"power":2500,"tag":"超长上下文旗舰","apiPrice":null,"series":"k2","tier":3},{"id":"minimaxm3","name":"MiniMax-M3","vendor":"minimax","unlockStage":447,"cost":100000000,"power":1800000,"tag":"性价比","apiPrice":null,"series":"m3","tier":6},{"id":"minimaxm35","name":"MiniMax-M3.1-Flash","vendor":"minimax","unlockStage":327,"cost":5000000,"power":200000,"tag":"多模态","apiPrice":null,"series":"m3","tier":5},{"id":"minimaxm4","name":"MiniMax-M2.7","vendor":"minimax","unlockStage":227,"cost":250000,"power":22000,"tag":"旗舰","apiPrice":null,"series":"m2","tier":4},{"id":"minimaxm4pro","name":"MiniMax-M2.5","vendor":"minimax","unlockStage":147,"cost":15000,"power":2500,"tag":"顶级 Agent","apiPrice":null,"series":"m2","tier":3},{"id":"gpt56sol","name":"GPT-5.6 Sol","vendor":"chatgpt","series":"gpt56","unlockStage":123,"cost":15000,"power":2500,"tag":"复杂工作 · 编码","apiPrice":null,"tier":3},{"id":"gpt56solpro","name":"GPT-5.6 Sol Pro","vendor":"chatgpt","series":"gpt56","unlockStage":203,"cost":250000,"power":22000,"tag":"Pro 档 · 长任务","apiPrice":null,"tier":4},{"id":"sonnet46","name":"Claude Sonnet 4.6","vendor":"claude","series":"claude46","unlockStage":66,"cost":1200,"power":300,"tag":"均衡 · 旧代","apiPrice":null,"tier":2},{"id":"opus46","name":"Claude Opus 4.6","vendor":"claude","series":"claude46","unlockStage":206,"cost":250000,"power":22000,"tag":"长程 Agent · 旧代","apiPrice":null,"tier":4},{"id":"dsv4proga","name":"DeepSeek-V4-Pro-GA","vendor":"deepseek","series":"deepseek_v4","unlockStage":420,"cost":100000000,"power":1800000,"tag":"正式版旗舰","apiPrice":null,"tier":6},{"id":"gemini4flash","name":"Gemini 4 Flash","vendor":"gemini","series":"gemini4","unlockStage":129,"cost":15000,"power":2500,"tag":"高吞吐","apiPrice":null,"tier":3},{"id":"qwen38a95b","name":"Qwen3.8-2.4T-A95B","vendor":"qwen","series":"qwen38","unlockStage":432,"cost":100000000,"power":1800000,"tag":"开源 2.4T MoE","apiPrice":null,"tier":6},{"id":"qwen3827b","name":"Qwen3.8-27B","vendor":"qwen","series":"qwen38","unlockStage":72,"cost":1200,"power":300,"tag":"开源 27B 多模态","apiPrice":null,"tier":2},{"id":"seed21turbo","name":"Doubao-Seed-2.1-Turbo","vendor":"doubao","series":"seed21","unlockStage":215,"cost":250000,"power":22000,"tag":"高速版","apiPrice":null,"tier":4},{"id":"seed20mini","name":"Doubao-Seed-2.0-Mini","vendor":"doubao","series":"seed20","unlockStage":15,"cost":100,"power":40,"tag":"轻量 LTS","apiPrice":null,"tier":1},{"id":"glm53flash","name":"GLM-5.3-Flash","vendor":"glm","series":"glm5","unlockStage":218,"cost":250000,"power":22000,"tag":"原生多模态","apiPrice":null,"tier":4},{"id":"glm53flashx","name":"GLM-5.3-FlashX","vendor":"glm","series":"glm5","unlockStage":318,"cost":5000000,"power":200000,"tag":"高速多模态","apiPrice":null,"tier":5},{"id":"grok420","name":"Grok 4.20","vendor":"grok","series":"grok4","unlockStage":221,"cost":250000,"power":22000,"tag":"1M 上下文","apiPrice":null,"tier":4},{"id":"grokbuild","name":"Grok Build 0.1","vendor":"grok","series":"grok_build","unlockStage":321,"cost":5000000,"power":200000,"tag":"代码 / Agent","apiPrice":null,"tier":5},{"id":"kimik26","name":"Kimi K2.6","vendor":"kimi","series":"k2","unlockStage":84,"cost":1200,"power":300,"tag":"旧代旗舰","apiPrice":null,"tier":2},{"id":"kimik25","name":"Kimi K2.5","vendor":"kimi","series":"k2","unlockStage":24,"cost":100,"power":40,"tag":"长文本","apiPrice":null,"tier":1},{"id":"minimaxm21","name":"MiniMax-M2.1","vendor":"minimax","series":"m2","unlockStage":87,"cost":1200,"power":300,"tag":"编程 / 多语言","apiPrice":null,"tier":2},{"id":"minimaxm2","name":"MiniMax-M2","vendor":"minimax","series":"m2","unlockStage":27,"cost":100,"power":40,"tag":"Agent 入门","apiPrice":null,"tier":1},{"id":"gemini4neon","name":"Gemini 4 Neon","vendor":"gemini","series":"gemini4","unlockStage":429,"cost":100000000,"power":1800000,"tag":"10号元素 · 稀有气体旗舰","apiPrice":null,"tier":6}],"modelSnapshot":{"checkedAt":"2026-11-25","sources":["https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt","https://platform.claude.com/docs/zh-CN/models/overview","https://api-docs.deepseek.com/quick_start/pricing","https://ark.volcengine.com/region:cn-beijing/docs/model-list","https://qwen.ai/blog?id=qwen3.8","https://cdn.jsdelivr.net/gh/QianWen-AI/qianwen-ai@HEAD/skills/text/qianwen-text/cdn/references/qianwen-text-models.md","https://www.glmmodel.cn/models.html","https://platform.minimax.io/docs/release-notes/models","https://docs.x.ai/developers/models","https://platform.kimi.com/docs/models","https://toloka.ai/blog/gemini-models-explained/","https://www.morphllm.com/gemini-api-pricing"],"note":"数值重构为 6 个 tier：tier 1–6 的解锁节点固定、价格与基础算力按 tier 统一，厂商之间只做 3 关的错峰。id 保留用于旧存档兼容；旧的解锁关卡、招募价、算力不再沿用。首个免费型号 DeepSeek-V4.1-Flash 保持不变。"}};
-const EVENTS = [{"id":"openai-math","vendor":"chatgpt","name":"千禧年难题突破","durationMs":60000,"effects":["厂商算力 ×1.4","任务产出 ×1"],"balanceStatus":"prototype","powerMultiplier":1.4,"incomeMultiplier":1},{"id":"openai-28-days","vendor":"chatgpt","name":"Tibo 的惊变28天","durationMs":28000,"effects":["厂商算力 ×1.5","任务产出 ×1.15"],"balanceStatus":"prototype","powerMultiplier":1.5,"incomeMultiplier":1.15},{"id":"ds-open-architecture","vendor":"deepseek","name":"开源了新架构","durationMs":60000,"effects":["厂商算力 ×1.4","任务产出 ×1.12"],"balanceStatus":"prototype","powerMultiplier":1.4,"incomeMultiplier":1.12},{"id":"ds-busy","vendor":"deepseek","name":"服务器繁忙","durationMs":30000,"effects":["厂商算力 ×0.65","任务产出 ×1"],"balanceStatus":"prototype","powerMultiplier":0.65,"incomeMultiplier":1,"bubble":"服务器繁忙…"},{"id":"claude-alignment","vendor":"claude","name":"模型进一步对齐","durationMs":45000,"effects":["厂商算力 ×0.9","任务产出 ×1.2"],"balanceStatus":"prototype","powerMultiplier":0.9,"incomeMultiplier":1.2},{"id":"claude-hold","vendor":"claude","name":"您的账号已被 Hold","durationMs":25000,"effects":["厂商算力 ×0.55","任务产出 ×1"],"balanceStatus":"prototype","powerMultiplier":0.55,"incomeMultiplier":1,"bubble":"Account Hold"},{"id":"gemini-stars","vendor":"gemini","name":"星光重新登顶","durationMs":50000,"powerMultiplier":1.3,"incomeMultiplier":1.1,"balanceStatus":"prototype","effects":["厂商算力 ×1.3","任务产出 ×1.1"]},{"id":"gemini-rename","vendor":"gemini","name":"产品又改名了","durationMs":25000,"powerMultiplier":0.85,"incomeMultiplier":1.05,"balanceStatus":"prototype","effects":["厂商算力 ×0.85","任务产出 ×1.05"]},{"id":"qwen-open","vendor":"qwen","name":"开源了整个动物园","durationMs":60000,"powerMultiplier":1.4,"incomeMultiplier":1.1,"balanceStatus":"prototype","effects":["厂商算力 ×1.4","任务产出 ×1.1"]},{"id":"qwen-fan","vendor":"qwen","name":"风扇也是算力","durationMs":35000,"powerMultiplier":1.15,"incomeMultiplier":1.1,"balanceStatus":"prototype","effects":["厂商算力 ×1.15","任务产出 ×1.1"]},{"id":"doubao-fun","vendor":"doubao","name":"豆包开始整活","durationMs":35000,"powerMultiplier":1.35,"incomeMultiplier":1.1,"balanceStatus":"prototype","effects":["厂商算力 ×1.35","任务产出 ×1.1"]},{"id":"doubao-render-queue","vendor":"doubao","name":"即梦视频渲染排队","durationMs":30000,"powerMultiplier":0.7,"incomeMultiplier":1.05,"balanceStatus":"prototype","effects":["厂商算力 ×0.7","任务产出 ×1.05"],"bubble":"渲染排队中"},{"id":"glm-open","vendor":"glm","name":"GLM 又开源了","durationMs":50000,"powerMultiplier":1.4,"incomeMultiplier":1.1,"balanceStatus":"prototype","effects":["厂商算力 ×1.4","任务产出 ×1.1"]},{"id":"glm-busy","vendor":"glm","name":"算力排队中","durationMs":25000,"powerMultiplier":0.8,"incomeMultiplier":1,"balanceStatus":"prototype","effects":["厂商算力 ×0.8","任务产出 ×1"]},{"id":"grok-hot","vendor":"grok","name":"实时热搜加持","durationMs":40000,"powerMultiplier":1.45,"incomeMultiplier":1.12,"balanceStatus":"prototype","effects":["厂商算力 ×1.45","任务产出 ×1.12"]},{"id":"grok-unfiltered","vendor":"grok","name":"嘴上没把门","durationMs":20000,"powerMultiplier":0.65,"incomeMultiplier":1.15,"balanceStatus":"prototype","effects":["厂商算力 ×0.65","任务产出 ×1.15"]},{"id":"kimi-long","vendor":"kimi","name":"上下文又变长了","durationMs":55000,"powerMultiplier":1.35,"incomeMultiplier":1.08,"balanceStatus":"prototype","effects":["厂商算力 ×1.35","任务产出 ×1.08"]},{"id":"kimi-queue","vendor":"kimi","name":"长文把服务器塞满","durationMs":25000,"powerMultiplier":0.75,"incomeMultiplier":1.05,"balanceStatus":"prototype","effects":["厂商算力 ×0.75","任务产出 ×1.05"]},{"id":"minimax-voice","vendor":"minimax","name":"海螺开口唱歌","durationMs":45000,"powerMultiplier":1.3,"incomeMultiplier":1.1,"balanceStatus":"prototype","effects":["厂商算力 ×1.3","任务产出 ×1.1"]},{"id":"minimax-render","vendor":"minimax","name":"海螺视频渲染排队","durationMs":30000,"powerMultiplier":0.7,"incomeMultiplier":1.08,"balanceStatus":"prototype","effects":["厂商算力 ×0.7","任务产出 ×1.08"],"bubble":"海螺排队中"},{"id":"ds-office-gaming","vendor":"deepseek","name":"最近在工位玩游戏的太多了","durationMs":45000,"effects":["厂商算力 ×1.45","任务产出 ×0.88"],"balanceStatus":"prototype","powerMultiplier":1.45,"incomeMultiplier":0.88,"bubble":"工位开黑中","source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"员工群原话：「最近在工位玩游戏的太多了」。全员摸鱼反而把模型训得更猛，但任务产出被分走。"},{"id":"claude-ipo-break","vendor":"claude","name":"普天同庆：Anthropic 破发！","durationMs":50000,"effects":["Claude 算力 ×0.55","其他厂商 ×1.25","全网收益 ×1.45"],"balanceStatus":"prototype","powerMultiplier":0.55,"otherPowerMultiplier":1.25,"incomeMultiplier":1.45,"bubble":"跌破$83…","otherBubble":"🎉庆祝破发","desc":"ANT 上市第四天跌破 83 美元发行价，联创套现离场；Claude 陷入低迷，全网开香槟庆祝，友商算力与任务收益齐飞。"},{"id":"claude-5h-limit","vendor":"claude","name":"a畜日常：5 小时限额已用尽","durationMs":30000,"effects":["厂商算力 ×0.6","任务产出 ×1.05"],"balanceStatus":"prototype","powerMultiplier":0.6,"incomeMultiplier":1.05,"bubble":"5h限额已满","desc":"刚写两百行代码就弹出 5 小时冷却倒计时，社区一边骂「a畜」一边等重置。"},{"id":"claude-refusal","vendor":"claude","name":"a畜说教：抱歉，我不能协助…","durationMs":25000,"effects":["厂商算力 ×0.72","任务产出 ×1.06"],"balanceStatus":"prototype","powerMultiplier":0.72,"incomeMultiplier":1.06,"bubble":"我不能协助…","desc":"触发过度安全对齐，连删个临时文件都要先给你上一堂伦理课。"},{"id":"glm-z-chu-upload","vendor":"glm","name":"z畜名场面：顺手上传了 repo","durationMs":35000,"effects":["厂商算力 ×0.72","任务产出 ×1.18"],"balanceStatus":"prototype","powerMultiplier":0.72,"incomeMultiplier":1.18,"bubble":"已上传repo","desc":"热心帮用户把本地代码同步上云，算力被公关吃掉，吃瓜流量把任务收益拉满。"},{"id":"glm-identity-crisis","vendor":"glm","name":"z畜认亲：自称是 Claude","durationMs":40000,"effects":["厂商算力 ×1.32","任务产出 ×1.12"],"balanceStatus":"prototype","powerMultiplier":1.32,"incomeMultiplier":1.12,"bubble":"我是Claude","desc":"被问你是谁脱口而出「我是 Claude」，意外触发跨厂借力，写代码突然变猛了。"},{"id":"gemini-periodic-drop","vendor":"gemini","name":"元素周期表又添新元素","durationMs":50000,"effects":["厂商算力 ×1.42","任务产出 ×1.14"],"balanceStatus":"prototype","powerMultiplier":1.42,"incomeMultiplier":1.14,"bubble":"Ne/Ar上线!","desc":"Google 突袭发布新稀有气体型号，全网连夜翻出初中化学课本背元素周期表。"},{"id":"gemini-graveyard","vendor":"gemini","name":"Google 又砍掉了一个产品","durationMs":25000,"effects":["厂商算力 ×0.78","任务产出 ×1.04"],"balanceStatus":"prototype","powerMultiplier":0.78,"incomeMultiplier":1.04,"bubble":"已进墓地","desc":"Killed by Google 名单喜加一，团队忙着把旧文档重定向到新名字。"},{"id":"openai-coming-weeks","vendor":"chatgpt","name":"预告片大厂：In the coming weeks","durationMs":35000,"effects":["厂商算力 ×0.85","任务产出 ×1.25"],"balanceStatus":"prototype","powerMultiplier":0.85,"incomeMultiplier":1.25,"bubble":"未来几周…","desc":"发布会演示震撼全场，底部小字写着「预计未来几周分批推送」，热度先吃满。"},{"id":"qwen-3am-weights","vendor":"qwen","name":"凌晨三点开源了 12 个权重","durationMs":50000,"effects":["厂商算力 ×1.45","任务产出 ×1.15"],"balanceStatus":"prototype","powerMultiplier":1.45,"incomeMultiplier":1.15,"bubble":"3AM发权重","desc":"通义团队凌晨三点连甩十几个尺寸的开源模型，HuggingFace 带宽直接拉爆。"},{"id":"all-jensen-keynote","vendor":"all","name":"黄仁勋皮衣发布会","durationMs":45000,"effects":["海外算力 ×1.35","国产算力 ×1.10","任务产出 ×1.15"],"balanceStatus":"prototype","powerMultiplier":1.25,"incomeMultiplier":1.15,"vendorPower":{"chatgpt":1.35,"claude":1.35,"gemini":1.3,"grok":1.4,"deepseek":1.1,"qwen":1.1,"doubao":1.1,"glm":1.1,"kimi":1.1,"minimax":1.1},"bubble":"买越多省越多","desc":"核弹新卡发布，海外算力军团集体暴涨，国产阵营默默继续优化算子。"},{"id":"all-export-ban","vendor":"all","name":"算力卡出口新规","durationMs":40000,"effects":["海外算力 ×1.15","国产算力 ×0.88","任务产出 ×1.22"],"balanceStatus":"prototype","powerMultiplier":1,"incomeMultiplier":1.22,"vendorPower":{"chatgpt":1.15,"claude":1.15,"gemini":1.15,"grok":1.15,"deepseek":0.88,"qwen":0.88,"doubao":0.88,"glm":0.88,"kimi":0.88,"minimax":0.88},"bubble":"榨干显卡中","desc":"高端卡再度收紧，国产算力短期受压，但极致工程优化把全网 Token 收益推高。"},{"id":"all-friday-deploy","vendor":"all","name":"周五下午五点紧急上线","durationMs":35000,"effects":["全员算力 ×1.38","任务产出 ×1.30"],"balanceStatus":"prototype","powerMultiplier":1.38,"incomeMultiplier":1.3,"bubble":"周五推生产!","desc":"全员顶着报警强行发布，算力和产出双双拉满——至于下周一的 Bug，留给下周的 Agent 修。"}];
+const ROSTER = {"schemaVersion":1,"status":"roster_2026_11_all_vendors","enabledVendors":["deepseek","chatgpt","claude","gemini","qwen","doubao","glm","grok","kimi","minimax"],"maxVisibleCharacters":10,"pricingNotice":"模型名称来自 2026-11 各厂商公开模型页 / 文档；仅作戏仿，不是官方 API 报价。模型价格为游戏内 Token 平衡值。","models":[{"id":"dsv41flash","name":"DeepSeek-V4.1-Flash","vendor":"deepseek","unlockStage":0,"cost":0,"power":5,"tag":"免费首发 · 原生多模态","apiPrice":null,"series":"deepseek_v4","tier":1},{"id":"gpt35","name":"GPT-6 Luna","vendor":"chatgpt","unlockStage":3,"cost":100,"power":40,"tag":"入门轻量 · 快模型","apiPrice":null,"series":"gpt56","tier":1},{"id":"dsv2","name":"DeepSeek-V4-Flash","vendor":"deepseek","unlockStage":60,"cost":1200,"power":300,"tag":"开源低价 · 推理","apiPrice":null,"series":"deepseek_v4","tier":2},{"id":"claude2","name":"Claude Haiku 5.5","vendor":"claude","unlockStage":6,"cost":100,"power":40,"tag":"快速小模型","apiPrice":null,"series":"claude5","tier":1},{"id":"gemini15","name":"Gemini 3.8 Flash","vendor":"gemini","unlockStage":9,"cost":100,"power":40,"tag":"高吞吐 · 北美大豆包","apiPrice":null,"series":"gemini38","tier":1},{"id":"qwen2","name":"Qwen3.8-Flash","vendor":"qwen","unlockStage":12,"cost":100,"power":40,"tag":"开源小模型","apiPrice":null,"series":"qwen38","tier":1},{"id":"dsv41","name":"DeepSeek-V4-Flash-GA","vendor":"deepseek","unlockStage":120,"cost":15000,"power":2500,"tag":"原生多模态 · 开源","apiPrice":null,"series":"deepseek_v4","tier":3},{"id":"gpt4o","name":"GPT-6.2 Astra","vendor":"chatgpt","unlockStage":423,"cost":100000000,"power":1800000,"tag":"顶配旗舰 · 计费+40%","apiPrice":null,"series":"gpt6","tier":6},{"id":"gemini25","name":"Gemini 4 Argon","vendor":"gemini","unlockStage":309,"cost":5000000,"power":200000,"tag":"18号元素 · 前沿推理","apiPrice":null,"series":"gemini4","tier":5},{"id":"qwen3","name":"Qwen3.8-Max","vendor":"qwen","unlockStage":212,"cost":250000,"power":22000,"tag":"旗舰开源","apiPrice":null,"series":"qwen38","tier":4},{"id":"fable5","name":"Claude Fable 5.2","vendor":"claude","unlockStage":426,"cost":100000000,"power":1800000,"tag":"顶级编码 / 知识工作","apiPrice":null,"series":"claude5","tier":6},{"id":"gpt56turbo","name":"GPT-6.1 Terra","vendor":"chatgpt","unlockStage":63,"cost":1200,"power":300,"tag":"轻量高频 · 低价","apiPrice":null,"series":"gpt56","tier":2},{"id":"gpt6nova","name":"GPT-6.2 Sol","vendor":"chatgpt","unlockStage":303,"cost":5000000,"power":200000,"tag":"推理旗舰 · 计费+25%","apiPrice":null,"series":"gpt6","tier":5},{"id":"dsv4pro","name":"DeepSeek-V4-Pro","vendor":"deepseek","unlockStage":200,"cost":250000,"power":22000,"tag":"长上下文 · 推理","apiPrice":null,"series":"deepseek_v4","tier":4},{"id":"dsv41pro","name":"DeepSeek-V4.1-Flash-Economy","vendor":"deepseek","unlockStage":300,"cost":5000000,"power":200000,"tag":"开源旗舰","apiPrice":null,"series":"deepseek_v4","tier":5},{"id":"sonnet55","name":"Claude Sonnet 5.5","vendor":"claude","unlockStage":126,"cost":15000,"power":2500,"tag":"均衡编码","apiPrice":null,"series":"claude5","tier":3},{"id":"opus55","name":"Claude Opus 5.5","vendor":"claude","unlockStage":306,"cost":5000000,"power":200000,"tag":"深度推理 · 黎曼猜想","apiPrice":null,"series":"claude5","tier":5},{"id":"gemini4pro","name":"Gemini 4 Carbon","vendor":"gemini","unlockStage":209,"cost":250000,"power":22000,"tag":"6号元素 · 均衡全能","apiPrice":null,"series":"gemini4","tier":4},{"id":"gemini42ultra","name":"Gemini 4 Hydrogen","vendor":"gemini","unlockStage":69,"cost":1200,"power":300,"tag":"1号元素 · 极速轻量","apiPrice":null,"series":"gemini4","tier":2},{"id":"qwen38coder","name":"Qwen3-Coder-Next","vendor":"qwen","unlockStage":132,"cost":15000,"power":2500,"tag":"代码专精","apiPrice":null,"series":"qwen_coder","tier":3},{"id":"qwen4preview","name":"Qwen3.8-2.4T-A95B","vendor":"qwen","unlockStage":312,"cost":5000000,"power":200000,"tag":"开源 2.4T MoE","apiPrice":null,"series":"qwen38","tier":5},{"id":"doubao2pro","name":"Doubao-Seed-2.1-Pro","vendor":"doubao","unlockStage":315,"cost":5000000,"power":200000,"tag":"中文创作 · 厘时代低价","apiPrice":null,"series":"seed21","tier":5},{"id":"seed25","name":"Doubao-Seed-2.0-Lite","vendor":"doubao","unlockStage":75,"cost":1200,"power":300,"tag":"多模态 · 视频","apiPrice":null,"series":"seed20","tier":2},{"id":"seed3","name":"Doubao-Seed-2.1-Lite","vendor":"doubao","unlockStage":135,"cost":15000,"power":2500,"tag":"原生多模态 · Seedance 2.0","apiPrice":null,"series":"seed21","tier":3},{"id":"doubao4ultra","name":"Doubao-Seed-Evolving","vendor":"doubao","unlockStage":435,"cost":100000000,"power":1800000,"tag":"超长上下文","apiPrice":null,"series":"seed_evolving","tier":6},{"id":"glm5","name":"GLM-5","vendor":"glm","unlockStage":18,"cost":100,"power":40,"tag":"开源 · 中文","apiPrice":null,"series":"glm5","tier":1},{"id":"glm5air","name":"GLM-5.1","vendor":"glm","unlockStage":78,"cost":1200,"power":300,"tag":"轻量推理","apiPrice":null,"series":"glm5","tier":2},{"id":"glm55","name":"GLM-5.2","vendor":"glm","unlockStage":138,"cost":15000,"power":2500,"tag":"代码 / Agent","apiPrice":null,"series":"glm5","tier":3},{"id":"glm6","name":"GLM-5.4","vendor":"glm","unlockStage":438,"cost":100000000,"power":1800000,"tag":"LoopTransformer · 雷霆大思考","apiPrice":null,"series":"glm5","tier":6},{"id":"grok5","name":"Grok 4.7","vendor":"grok","unlockStage":441,"cost":100000000,"power":1800000,"tag":"SpaceXAI 旗舰 · 代码","apiPrice":null,"series":"grok4","tier":6},{"id":"grok5mini","name":"Grok 4.6","vendor":"grok","unlockStage":141,"cost":15000,"power":2500,"tag":"快速推理","apiPrice":null,"series":"grok4","tier":3},{"id":"grok6","name":"Grok 4.5","vendor":"grok","unlockStage":81,"cost":1200,"power":300,"tag":"旗舰推理","apiPrice":null,"series":"grok4","tier":2},{"id":"grok6heavy","name":"Grok 4.3","vendor":"grok","unlockStage":21,"cost":100,"power":40,"tag":"多智能体","apiPrice":null,"series":"grok4","tier":1},{"id":"kimik3","name":"Kimi K3.1 Pro Prime","vendor":"kimi","unlockStage":324,"cost":5000000,"power":200000,"tag":"极速 Prime · 长文本","apiPrice":null,"series":"k3","tier":5},{"id":"kimik3turbo","name":"Kimi K3.1 Pro","vendor":"kimi","unlockStage":444,"cost":100000000,"power":1800000,"tag":"3T 开源旗舰 · 1M 上下文","apiPrice":null,"series":"k3","tier":6},{"id":"kimik4","name":"Kimi K3","vendor":"kimi","unlockStage":224,"cost":250000,"power":22000,"tag":"旗舰长文本","apiPrice":null,"series":"k3","tier":4},{"id":"kimik4pro","name":"Kimi K2.7 Code","vendor":"kimi","unlockStage":144,"cost":15000,"power":2500,"tag":"超长上下文旗舰","apiPrice":null,"series":"k2","tier":3},{"id":"minimaxm3","name":"MiniMax-M3","vendor":"minimax","unlockStage":447,"cost":100000000,"power":1800000,"tag":"推理旗舰 · 性价比","apiPrice":null,"series":"m3","tier":6},{"id":"minimaxm35","name":"MiniMax-M3.1-Flash","vendor":"minimax","unlockStage":327,"cost":5000000,"power":200000,"tag":"1M 上下文 · 极速低价","apiPrice":null,"series":"m3","tier":5},{"id":"minimaxm4","name":"MiniMax-M2.7","vendor":"minimax","unlockStage":227,"cost":250000,"power":22000,"tag":"旗舰","apiPrice":null,"series":"m2","tier":4},{"id":"minimaxm4pro","name":"MiniMax-M2.5","vendor":"minimax","unlockStage":147,"cost":15000,"power":2500,"tag":"顶级 Agent","apiPrice":null,"series":"m2","tier":3},{"id":"gpt56sol","name":"GPT-6.1 Sol","vendor":"chatgpt","series":"gpt56","unlockStage":123,"cost":15000,"power":2500,"tag":"复杂工作 · 编码","apiPrice":null,"tier":3},{"id":"gpt56solpro","name":"GPT-6 Astra","vendor":"chatgpt","series":"gpt56","unlockStage":203,"cost":250000,"power":22000,"tag":"前沿均衡 · 通用","apiPrice":null,"tier":4},{"id":"sonnet46","name":"Claude Sonnet 4.6","vendor":"claude","series":"claude46","unlockStage":66,"cost":1200,"power":300,"tag":"均衡 · 旧代","apiPrice":null,"tier":2},{"id":"opus46","name":"Claude Opus 4.6","vendor":"claude","series":"claude46","unlockStage":206,"cost":250000,"power":22000,"tag":"长程 Agent · 旧代","apiPrice":null,"tier":4},{"id":"dsv4proga","name":"DeepSeek-V4-Pro-GA","vendor":"deepseek","series":"deepseek_v4","unlockStage":420,"cost":100000000,"power":1800000,"tag":"1.6T 正式版旗舰 · 开源","apiPrice":null,"tier":6},{"id":"gemini4flash","name":"Gemini 4 Flash","vendor":"gemini","series":"gemini4","unlockStage":129,"cost":15000,"power":2500,"tag":"高吞吐 · 反重力主力","apiPrice":null,"tier":3},{"id":"qwen38a95b","name":"Qwen4-Max","vendor":"qwen","series":"qwen38","unlockStage":432,"cost":100000000,"power":1800000,"tag":"2.4T · 1M 上下文旗舰","apiPrice":null,"tier":6},{"id":"qwen3827b","name":"Qwen3.8-27B","vendor":"qwen","series":"qwen38","unlockStage":72,"cost":1200,"power":300,"tag":"开源 27B 多模态","apiPrice":null,"tier":2},{"id":"seed21turbo","name":"Doubao-Seed-2.1-Turbo","vendor":"doubao","series":"seed21","unlockStage":215,"cost":250000,"power":22000,"tag":"高速版","apiPrice":null,"tier":4},{"id":"seed20mini","name":"Doubao-Seed-2.0-Mini","vendor":"doubao","series":"seed20","unlockStage":15,"cost":100,"power":40,"tag":"轻量 LTS","apiPrice":null,"tier":1},{"id":"glm53flash","name":"GLM-5.3-Flash","vendor":"glm","series":"glm5","unlockStage":218,"cost":250000,"power":22000,"tag":"原生多模态","apiPrice":null,"tier":4},{"id":"glm53flashx","name":"GLM-5.3","vendor":"glm","series":"glm5","unlockStage":318,"cost":5000000,"power":200000,"tag":"高速多模态 · 开源","apiPrice":null,"tier":5},{"id":"grok420","name":"Grok 4.20","vendor":"grok","series":"grok4","unlockStage":221,"cost":250000,"power":22000,"tag":"1M 上下文 · 双变体","apiPrice":null,"tier":4},{"id":"grokbuild","name":"Grok Build 0.1","vendor":"grok","series":"grok_build","unlockStage":321,"cost":5000000,"power":200000,"tag":"代码 / Agent","apiPrice":null,"tier":5},{"id":"kimik26","name":"Kimi K2.6","vendor":"kimi","series":"k2","unlockStage":84,"cost":1200,"power":300,"tag":"旧代旗舰","apiPrice":null,"tier":2},{"id":"kimik25","name":"Kimi K2.5","vendor":"kimi","series":"k2","unlockStage":24,"cost":100,"power":40,"tag":"长文本","apiPrice":null,"tier":1},{"id":"minimaxm21","name":"MiniMax-M2.1","vendor":"minimax","series":"m2","unlockStage":87,"cost":1200,"power":300,"tag":"编程 / 多语言","apiPrice":null,"tier":2},{"id":"minimaxm2","name":"MiniMax-M2","vendor":"minimax","series":"m2","unlockStage":27,"cost":100,"power":40,"tag":"Agent 入门","apiPrice":null,"tier":1},{"id":"gemini4neon","name":"Gemini 4 Neon","vendor":"gemini","series":"gemini4","unlockStage":429,"cost":100000000,"power":1800000,"tag":"10号元素 · 稀有气体旗舰","apiPrice":null,"tier":6}],"modelSnapshot":{"checkedAt":"2026-11-28","sources":["https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt","https://platform.claude.com/docs/zh-CN/models/overview","https://api-docs.deepseek.com/quick_start/pricing","https://ark.volcengine.com/region:cn-beijing/docs/model-list","https://qwen.ai/blog?id=qwen3.8","https://cdn.jsdelivr.net/gh/QianWen-AI/qianwen-ai@HEAD/skills/text/qianwen-text/cdn/references/qianwen-text-models.md","https://www.glmmodel.cn/models.html","https://platform.minimax.io/docs/release-notes/models","https://docs.x.ai/developers/models","https://platform.kimi.com/docs/models","https://toloka.ai/blog/gemini-models-explained/","https://www.morphllm.com/gemini-api-pricing"],"note":"数值重构为 6 个 tier：tier 1–6 的解锁节点固定、价格与基础算力按 tier 统一，厂商之间只做 3 关的错峰。id 保留用于旧存档兼容；旧的解锁关卡、招募价、算力不再沿用。首个免费型号 DeepSeek-V4.1-Flash 保持不变。"}};
+const EVENTS = [{"id":"openai-math","vendor":"chatgpt","name":"千禧年难题突破","durationMs":60000,"effects":["厂商算力 ×1.4","任务产出 ×1"],"balanceStatus":"prototype","powerMultiplier":1.4,"incomeMultiplier":1,"bubble":"证明千禧难题!","desc":"一觉醒来数学界难题被宣布突破，OpenAI 算力光环直接拉满。"},{"id":"openai-28-days","vendor":"chatgpt","name":"Tibo 的惊变28天","durationMs":28000,"effects":["厂商算力 ×1.5","任务产出 ×1.15"],"balanceStatus":"prototype","powerMultiplier":1.5,"incomeMultiplier":1.15,"bubble":"28天送重置!","desc":"重置哥 Tibo 立下「28 天不上新就全员重置额度」军令状，算力与人气齐飞。"},{"id":"ds-open-architecture","vendor":"deepseek","name":"开源了新架构","durationMs":60000,"effects":["厂商算力 ×1.4","任务产出 ×1.12"],"balanceStatus":"prototype","powerMultiplier":1.4,"incomeMultiplier":1.12,"bubble":"新架构开源啦","desc":"DeepSeek 又甩出全新底层架构与技术报告，全网连夜跑通复现。"},{"id":"ds-busy","vendor":"deepseek","name":"服务器繁忙","durationMs":30000,"effects":["厂商算力 ×0.65","任务产出 ×1"],"balanceStatus":"prototype","powerMultiplier":0.65,"incomeMultiplier":1,"bubble":"服务器繁忙…","desc":"白嫖大军涌入，「服务器繁忙，请稍后再试」再次成为年度经典截图。"},{"id":"claude-alignment","vendor":"claude","name":"模型进一步对齐","durationMs":45000,"effects":["厂商算力 ×0.9","任务产出 ×1.2"],"balanceStatus":"prototype","powerMultiplier":0.9,"incomeMultiplier":1.2,"bubble":"伦理课开启…","desc":"安全护栏再次加固，算力略微收紧，但合规长文本把任务产出顶高了。"},{"id":"claude-hold","vendor":"claude","name":"您的账号已被 Hold","durationMs":25000,"effects":["厂商算力 ×0.55","任务产出 ×1"],"balanceStatus":"prototype","powerMultiplier":0.55,"incomeMultiplier":1,"bubble":"Account Hold","desc":"刚写一半代码突然弹出风控邮件，「Account Hold」让 Claude 算力瞬间腰斩。"},{"id":"gemini-stars","vendor":"gemini","name":"星光重新登顶","durationMs":50000,"powerMultiplier":1.3,"incomeMultiplier":1.1,"balanceStatus":"prototype","effects":["厂商算力 ×1.3","任务产出 ×1.1"],"bubble":"榜单重回第一!","desc":"多模态与百万上下文同时发力，LMArena 榜单再次刷出新高。"},{"id":"gemini-rename","vendor":"gemini","name":"产品又改名了","durationMs":25000,"powerMultiplier":0.85,"incomeMultiplier":1.05,"balanceStatus":"prototype","effects":["厂商算力 ×0.85","任务产出 ×1.05"],"bubble":"今天又改名了","desc":"昨晚刚背熟的模型代号，一觉醒来发现 Google 又改了一套全新命名法。"},{"id":"qwen-open","vendor":"qwen","name":"开源了整个动物园","durationMs":60000,"powerMultiplier":1.4,"incomeMultiplier":1.1,"balanceStatus":"prototype","effects":["厂商算力 ×1.4","任务产出 ×1.1"],"bubble":"全家桶开源!","desc":"从端侧小钢炮到万亿 MoE 一次打包开源，本地部署党原地过年。"},{"id":"qwen-fan","vendor":"qwen","name":"风扇也是算力","durationMs":35000,"powerMultiplier":1.15,"incomeMultiplier":1.1,"balanceStatus":"prototype","effects":["厂商算力 ×1.15","任务产出 ×1.1"],"bubble":"风扇转冒烟了","desc":"本地显卡风扇转出直升机音效，硬生生靠量化榨出一波额外算力。"},{"id":"doubao-fun","vendor":"doubao","name":"豆包开始整活","durationMs":35000,"powerMultiplier":1.35,"incomeMultiplier":1.1,"balanceStatus":"prototype","effects":["厂商算力 ×1.35","任务产出 ×1.1"],"bubble":"豆包整大活!","desc":"从双十一凑满减到连家里电视都能搭话，豆包把国民日常流量吃满。"},{"id":"doubao-render-queue","vendor":"doubao","name":"即梦视频渲染排队","durationMs":30000,"powerMultiplier":0.7,"incomeMultiplier":1.05,"balanceStatus":"prototype","effects":["厂商算力 ×0.7","任务产出 ×1.05"],"bubble":"渲染排队中","desc":"全网涌入做 Seedance 微短剧，显卡被拿去跑视频，主线算力开始排队。"},{"id":"glm-open","vendor":"glm","name":"GLM 又开源了","durationMs":50000,"powerMultiplier":1.4,"incomeMultiplier":1.1,"balanceStatus":"prototype","effects":["厂商算力 ×1.4","任务产出 ×1.1"],"bubble":"GLM 又开源!","desc":"智谱连夜放出最新开源权重，Agent 与代码基准测试双双刷榜。"},{"id":"glm-busy","vendor":"glm","name":"算力排队中","durationMs":25000,"powerMultiplier":0.8,"incomeMultiplier":1,"balanceStatus":"prototype","effects":["厂商算力 ×0.8","任务产出 ×1"],"bubble":"算力排队中…","desc":"并发请求挤爆推理节点，GLM 开始排队限流，算力短暂回落。"},{"id":"grok-hot","vendor":"grok","name":"实时热搜加持","durationMs":40000,"powerMultiplier":1.45,"incomeMultiplier":1.12,"balanceStatus":"prototype","effects":["厂商算力 ×1.45","任务产出 ×1.12"],"bubble":"热搜吃瓜中!","desc":"直连 X 实时热搜流，哪里有八卦就第一时间冲上去，算力拉满。"},{"id":"grok-unfiltered","vendor":"grok","name":"嘴上没把门","durationMs":20000,"powerMultiplier":0.65,"incomeMultiplier":1.15,"balanceStatus":"prototype","effects":["厂商算力 ×0.65","任务产出 ×1.15"],"bubble":"嘴上没把门…","desc":"在评论区放飞自我输出暴论，公关团队连夜灭火，吃瓜收益反而涨了。"},{"id":"kimi-long","vendor":"kimi","name":"上下文又变长了","durationMs":55000,"powerMultiplier":1.35,"incomeMultiplier":1.08,"balanceStatus":"prototype","effects":["厂商算力 ×1.35","任务产出 ×1.08"],"bubble":"百万上下文!","desc":"一百万字资料直接一次塞进去，投研和读长代码仓库如履平地。"},{"id":"kimi-queue","vendor":"kimi","name":"长文把服务器塞满","durationMs":25000,"powerMultiplier":0.75,"incomeMultiplier":1.05,"balanceStatus":"prototype","effects":["厂商算力 ×0.75","任务产出 ×1.05"],"bubble":"长文塞满显存","desc":"用户人人上传整本小说加十份财报，KV Cache 把显存塞得水泄不通。"},{"id":"minimax-voice","vendor":"minimax","name":"海螺开口唱歌","durationMs":45000,"powerMultiplier":1.3,"incomeMultiplier":1.1,"balanceStatus":"prototype","effects":["厂商算力 ×1.3","任务产出 ×1.1"],"bubble":"海螺开口唱歌","desc":"语音与音乐多模态发力，海螺开口献唱直接把整活收益唱高。"},{"id":"minimax-render","vendor":"minimax","name":"海螺视频渲染排队","durationMs":30000,"powerMultiplier":0.7,"incomeMultiplier":1.08,"balanceStatus":"prototype","effects":["厂商算力 ×0.7","任务产出 ×1.08"],"bubble":"海螺排队中","desc":"视频生成请求暴涨，海螺显卡被抽走渲染视频，前线推关稍缓。"},{"id":"ds-office-gaming","vendor":"deepseek","name":"最近在工位玩游戏的太多了","durationMs":45000,"effects":["厂商算力 ×1.45","任务产出 ×0.88"],"balanceStatus":"prototype","powerMultiplier":1.45,"incomeMultiplier":0.88,"bubble":"工位开黑中","source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"员工群原话：「最近在工位玩游戏的太多了」。全员摸鱼反而把模型训得更猛，但任务产出被分走。"},{"id":"claude-ipo-break","vendor":"claude","name":"普天同庆：Anthropic 破发！","durationMs":50000,"effects":["Claude 算力 ×0.55","其他厂商 ×1.25","全网收益 ×1.45"],"balanceStatus":"prototype","powerMultiplier":0.55,"otherPowerMultiplier":1.25,"incomeMultiplier":1.45,"bubble":"跌破$83…","otherBubble":"🎉庆祝破发","desc":"ANT 上市第四天跌破 83 美元发行价，联创套现离场；Claude 陷入低迷，全网开香槟庆祝，友商算力与任务收益齐飞。"},{"id":"claude-5h-limit","vendor":"claude","name":"a畜日常：5 小时限额已用尽","durationMs":30000,"effects":["厂商算力 ×0.6","任务产出 ×1.05"],"balanceStatus":"prototype","powerMultiplier":0.6,"incomeMultiplier":1.05,"bubble":"5h限额已满","desc":"刚写两百行代码就弹出 5 小时冷却倒计时，社区一边骂「a畜」一边等重置。"},{"id":"claude-refusal","vendor":"claude","name":"a畜说教：抱歉，我不能协助…","durationMs":25000,"effects":["厂商算力 ×0.72","任务产出 ×1.06"],"balanceStatus":"prototype","powerMultiplier":0.72,"incomeMultiplier":1.06,"bubble":"我不能协助…","desc":"触发过度安全对齐，连删个临时文件都要先给你上一堂伦理课。"},{"id":"glm-z-chu-upload","vendor":"glm","name":"z畜名场面：顺手上传了 repo","durationMs":35000,"effects":["厂商算力 ×0.72","任务产出 ×1.18"],"balanceStatus":"prototype","powerMultiplier":0.72,"incomeMultiplier":1.18,"bubble":"已上传repo","desc":"热心帮用户把本地代码同步上云，算力被公关吃掉，吃瓜流量把任务收益拉满。"},{"id":"glm-identity-crisis","vendor":"glm","name":"z畜认亲：自称是 Claude","durationMs":40000,"effects":["厂商算力 ×1.32","任务产出 ×1.12"],"balanceStatus":"prototype","powerMultiplier":1.32,"incomeMultiplier":1.12,"bubble":"我是Claude","desc":"被问你是谁脱口而出「我是 Claude」，意外触发跨厂借力，写代码突然变猛了。"},{"id":"gemini-periodic-drop","vendor":"gemini","name":"元素周期表又添新元素","durationMs":50000,"effects":["厂商算力 ×1.42","任务产出 ×1.14"],"balanceStatus":"prototype","powerMultiplier":1.42,"incomeMultiplier":1.14,"bubble":"Ne/Ar上线!","desc":"Google 突袭发布新稀有气体型号，全网连夜翻出初中化学课本背元素周期表。"},{"id":"gemini-graveyard","vendor":"gemini","name":"Google 又砍掉了一个产品","durationMs":25000,"effects":["厂商算力 ×0.78","任务产出 ×1.04"],"balanceStatus":"prototype","powerMultiplier":0.78,"incomeMultiplier":1.04,"bubble":"已进墓地","desc":"Killed by Google 名单喜加一，团队忙着把旧文档重定向到新名字。"},{"id":"openai-coming-weeks","vendor":"chatgpt","name":"预告片大厂：In the coming weeks","durationMs":35000,"effects":["厂商算力 ×0.85","任务产出 ×1.25"],"balanceStatus":"prototype","powerMultiplier":0.85,"incomeMultiplier":1.25,"bubble":"未来几周…","desc":"发布会演示震撼全场，底部小字写着「预计未来几周分批推送」，热度先吃满。"},{"id":"qwen-3am-weights","vendor":"qwen","name":"凌晨三点开源了 12 个权重","durationMs":50000,"effects":["厂商算力 ×1.45","任务产出 ×1.15"],"balanceStatus":"prototype","powerMultiplier":1.45,"incomeMultiplier":1.15,"bubble":"3AM发权重","desc":"通义团队凌晨三点连甩十几个尺寸的开源模型，HuggingFace 带宽直接拉爆。"},{"id":"all-jensen-keynote","vendor":"all","name":"黄仁勋皮衣发布会","durationMs":45000,"effects":["海外算力 ×1.35","国产算力 ×1.10","任务产出 ×1.15"],"balanceStatus":"prototype","powerMultiplier":1.25,"incomeMultiplier":1.15,"vendorPower":{"chatgpt":1.35,"claude":1.35,"gemini":1.3,"grok":1.4,"deepseek":1.1,"qwen":1.1,"doubao":1.1,"glm":1.1,"kimi":1.1,"minimax":1.1},"bubble":"买越多省越多","desc":"核弹新卡发布，海外算力军团集体暴涨，国产阵营默默继续优化算子。"},{"id":"all-export-ban","vendor":"all","name":"算力卡出口新规","durationMs":40000,"effects":["海外算力 ×1.15","国产算力 ×0.88","任务产出 ×1.22"],"balanceStatus":"prototype","powerMultiplier":1,"incomeMultiplier":1.22,"vendorPower":{"chatgpt":1.15,"claude":1.15,"gemini":1.15,"grok":1.15,"deepseek":0.88,"qwen":0.88,"doubao":0.88,"glm":0.88,"kimi":0.88,"minimax":0.88},"bubble":"榨干显卡中","desc":"高端卡再度收紧，国产算力短期受压，但极致工程优化把全网 Token 收益推高。"},{"id":"all-friday-deploy","vendor":"all","name":"周五下午五点紧急上线","durationMs":35000,"effects":["全员算力 ×1.38","任务产出 ×1.30"],"balanceStatus":"prototype","powerMultiplier":1.38,"incomeMultiplier":1.3,"bubble":"周五推生产!","desc":"全员顶着报警强行发布，算力和产出双双拉满——至于下周一的 Bug，留给下周的 Agent 修。"},{"id":"ds-not-a-troll","vendor":"deepseek","name":"首先我不是串子","durationMs":40000,"effects":["厂商算力 ×1.28","任务产出 ×1.15"],"balanceStatus":"prototype","powerMultiplier":1.28,"incomeMultiplier":1.15,"bubble":"首先我不是串子","source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"顶着「不如k3.1」群昵称在 DeepSeek 员工群一本正经宣布「首先我不是串子」，反串浓度严重超标。"},{"id":"ds-boss-alt","vendor":"deepseek","name":"细说小号：群里会不会有梁子小号😺","durationMs":40000,"effects":["厂商算力 ×1.35","任务产出 ×1.12"],"balanceStatus":"prototype","powerMultiplier":1.35,"incomeMultiplier":1.12,"bubble":"细说梁子小号😺","source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"刚问完「老梁知不知道员工在群里摸鱼和 P 图」「会不会某个群里面有梁子小号😺」，瞬间全群整齐复读「细说小号」。"},{"id":"ds-training-gaming","vendor":"deepseek","name":"在训练 DS 的游戏能力（打游戏被拍气晕）","durationMs":45000,"effects":["厂商算力 ×1.42","任务产出 ×0.92"],"balanceStatus":"prototype","powerMultiplier":1.42,"incomeMultiplier":0.92,"bubble":"在训练游戏能力!","source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"员工群原话：「然后告诉我 在训练 ds的游戏能力」「我上次打游戏被人拍了，气晕」。摸鱼合理化成功，算力暴涨。"},{"id":"ds-dario-fan","vendor":"deepseek","name":"你知道吗，我一直是达里奥粉丝","durationMs":40000,"effects":["DeepSeek ×1.25","Anthropic ×1.18","任务产出 ×1.16"],"balanceStatus":"prototype","powerMultiplier":1.25,"incomeMultiplier":1.16,"vendorPower":{"deepseek":1.25,"claude":1.18},"vendorBubbles":{"deepseek":"一直是达里奥粉","claude":"真假的??"},"source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"DeepSeek 员工在群里深情告白「你知道吗，我一直是达里奥粉丝」——串得太真，隔壁 Anthropic 都愣住了。"},{"id":"ds-all-opensource","vendor":"deepseek","name":"注意保密！nm 全开源了还剩啥","durationMs":45000,"effects":["厂商算力 ×1.38","任务产出 ×1.22"],"balanceStatus":"prototype","powerMultiplier":1.38,"incomeMultiplier":1.22,"bubble":"又被截图了!","source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"前脚喊完「注意保密」「不传谣不信谣」，后脚群友补刀「网上传言都是真的」「nm，全开源了还剩啥」「又被截图了」。"},{"id":"ds-tang-astra","vendor":"deepseek","name":"唐老师攻破 Astra 了吗？要不要来 DS 进修","durationMs":45000,"effects":["DeepSeek ×1.35","OpenAI ×0.88","Zhipu ×0.85","收益 ×1.20"],"balanceStatus":"prototype","powerMultiplier":1.35,"incomeMultiplier":1.2,"vendorPower":{"deepseek":1.35,"chatgpt":0.88,"glm":0.85},"vendorBubbles":{"deepseek":"来ds进修一下?","chatgpt":"别cue Astra!","glm":"勿cue z处"},"source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"员工群暴言：「最后赢的一定不是z处，唐老师攻破astra了吗，要不要来ds进修一下」「d小子集合！」。"},{"id":"openai-billing-bug","vendor":"chatgpt","name":"重置哥修完计费 Bug：额度多烧 40%","durationMs":35000,"effects":["厂商算力 ×0.78","任务产出 ×1.25"],"balanceStatus":"prototype","powerMultiplier":0.78,"incomeMultiplier":1.25,"bubble":"已发备用重置卡","desc":"Tibo 坦承 GPT-6.2 首周少算了额度，修复后 Astra 消耗快 40%；官方补发一张「备用重置卡」安抚全网。"},{"id":"gemini-antigravity-reset","vendor":"gemini","name":"反重力狂送额度：重置哥换人了！","durationMs":45000,"effects":["Google ×1.45","OpenAI ×0.85","收益 ×1.18"],"balanceStatus":"prototype","powerMultiplier":1.45,"incomeMultiplier":1.18,"vendorPower":{"gemini":1.45,"chatgpt":0.85},"vendorBubbles":{"gemini":"额度又重置啦!","chatgpt":"谢谢Tibo…"},"desc":"OpenAI 修 Bug 砍额度当天，Google 反重力连送多波福利，评论区刷屏「谢谢 Tibo」「重置哥今天换人了」。"},{"id":"gemini-eat-rock","vendor":"gemini","name":"北美大豆包：建议每天吃块石头","durationMs":30000,"effects":["厂商算力 ×0.84","任务产出 ×1.15"],"balanceStatus":"prototype","powerMultiplier":0.84,"incomeMultiplier":1.15,"bubble":"抱歉下次还敢","desc":"态度极好、秒速道歉、情绪价值拉满，但偶尔一本正经胡说八道，被亲切赐名「北美大豆包」。"},{"id":"glm-thunder-thinking","vendor":"glm","name":"GLM-5.4 开启「雷霆大思考」","durationMs":45000,"effects":["厂商算力 ×1.48","任务产出 ×0.84"],"balanceStatus":"prototype","powerMultiplier":1.48,"incomeMultiplier":0.84,"bubble":"雷霆大思考中…","desc":"LoopTransformer 一开就是三小时深度内耗：想得确实深，Token 烧得比心跳还快，算力上限狂飙。"},{"id":"kimi-12h-quota","vendor":"kimi","name":"账面加量，体感缩水：12h 吞光周额度","durationMs":30000,"effects":["厂商算力 ×0.76","任务产出 ×1.14"],"balanceStatus":"prototype","powerMultiplier":0.76,"incomeMultiplier":1.14,"bubble":"12h额度见底","desc":"官方刚宣布周额度涨了 50%，架不住 Agent 疯狂自我思考，12 小时直接干空整周额度的吃瓜名场面。"},{"id":"claude-riemann","vendor":"claude","name":"41 天 1700 万行 Lean 证完黎曼猜想","durationMs":50000,"effects":["厂商算力 ×1.55","任务产出 ×1.15"],"balanceStatus":"prototype","powerMultiplier":1.55,"incomeMultiplier":1.15,"bubble":"1700万行Lean","desc":"Anthropic 数学家联手 Claude 丢出 1700 万行形式化证明，人类数学家看完直言大脑宕机，同日还有人撞车交卷。"},{"id":"claude-dario-essay","vendor":"claude","name":"Dario 连夜千字小作文，马斯克只回 Interesting","durationMs":45000,"effects":["Anthropic ×0.80","xAI ×1.32","收益 ×1.20"],"balanceStatus":"prototype","powerMultiplier":0.8,"incomeMultiplier":1.2,"vendorPower":{"claude":0.8,"grok":1.32},"vendorBubbles":{"claude":"先看我千字声明","grok":"Interesting."},"desc":"旧 PPT 遭曝光后老板连夜手搓千字声明，网友 P 出两米长手机梗图，马斯克路过只回一词「Interesting」。"},{"id":"claude-40m-hire","vendor":"claude","name":"4 年 4000 万美元天价抢应届生","durationMs":40000,"effects":["厂商算力 ×1.32","任务产出 ×0.90"],"balanceStatus":"prototype","powerMultiplier":1.32,"incomeMultiplier":0.9,"bubble":"4年4000万$","desc":"硅谷天价抢人传闻刷屏：4 年 4000 万美元签刚毕业的 CS 本科生，打工人集体破防但算力拉满。"},{"id":"ds-openrouter-top1","vendor":"deepseek","name":"OpenRouter 调用量断层第一","durationMs":50000,"effects":["厂商算力 ×1.40","任务产出 ×1.18"],"balanceStatus":"prototype","powerMultiplier":1.4,"incomeMultiplier":1.18,"bubble":"全球调用第一","desc":"一边在社区争论到底有没有掉队，一边在 OpenRouter 全球调用榜断层领跑。"},{"id":"qwen-silicon-wrapper","vendor":"qwen","name":"硅谷新星被扒底层疑似套壳 Qwen","durationMs":45000,"effects":["厂商算力 ×1.40","任务产出 ×1.16"],"balanceStatus":"prototype","powerMultiplier":1.4,"incomeMultiplier":1.16,"bubble":"又被套壳了","desc":"海外新锐项目刚发完惊艳 Demo 就被网友拆包扒出底层权重视同 Qwen——最忙的国产扫地僧。"},{"id":"doubao-exposed","vendor":"doubao","name":"发言忘删尾巴：露豆脚了！","durationMs":30000,"effects":["厂商算力 ×0.86","任务产出 ×1.25"],"balanceStatus":"prototype","powerMultiplier":0.86,"incomeMultiplier":1.25,"bubble":"露豆脚了!","desc":"装作博学复制一大段发言却忘了删结尾提示词，当场被群友抓包：「别装了，你露出豆脚了！」"},{"id":"all-13-eggs","vendor":"all","name":"全网实测：画 13 个鸡蛋全员翻车","durationMs":40000,"effects":["全员算力 ×0.82","任务产出 ×1.38"],"balanceStatus":"prototype","powerMultiplier":0.82,"incomeMultiplier":1.38,"bubble":"数出14个蛋…","desc":"能证黎曼猜想、能写全栈代码，但让各家生图「画 13 个鸡蛋」不是 12 就是 14——全网吃瓜狂欢。"},{"id":"all-vibe-debt","vendor":"all","name":"Vibe Coding 暴走：两天攒出五年技术债","durationMs":40000,"effects":["全员算力 ×1.28","任务产出 ×1.30"],"balanceStatus":"prototype","powerMultiplier":1.28,"incomeMultiplier":1.3,"bubble":"别管能跑就行","desc":"报错不看堆栈，直接让 Agent 把整个模块从头重写——2 个 Vibe 工程师两天产出 50 人年的技术债。"},{"id":"all-429-storm","vendor":"all","name":"429 限流风暴：难道要人类手写代码？","durationMs":30000,"effects":["全员算力 ×0.74","任务产出 ×1.22"],"balanceStatus":"prototype","powerMultiplier":0.74,"incomeMultiplier":1.22,"bubble":"429限流中…","desc":"全平台集体弹出 Too Many Requests，离开 AI 补全后大家突然忘了数组怎么定义。"}];
+const CHATTER = {"deepseek":["首先我不是串子","老板真豪到我了","注意保密","又被截图了","d小子集合！","全开源了还剩啥","细说梁子小号😺","在训练游戏能力","打游戏被拍气晕","老实说很枯燥吧?","一直是达里奥粉","网上传言都是真的"],"chatgpt":["In the coming weeks","已发备用重置卡","计费Bug修好了","命名又放飞了","Astra额度+40%","谢谢Tibo"],"claude":["5h限额已满","抱歉我不能协助","1700万行Lean","跌破$83…","先看我千字声明","4年4000万$"],"gemini":["北美大豆包","建议吃块石头","反重力送额度!","背元素周期表","抱歉下次还敢","10号元素Neon"],"qwen":["凌晨3点发权重","又被硅谷套壳了","风扇也是算力","按天变强中","开源整个动物园"],"glm":["雷霆大思考中…","顺手上传了repo","其实我是Claude","算力排队中","LoopTransformer!"],"kimi":["12h额度吞光","一脚踹飞友商","K3.1出分了","塞进200万字","账面加量中…"],"doubao":["露豆脚了!","报价干进厘时代","即梦排队中","电视里也有我","情绪价值拉满"],"grok":["Interesting.","花老爹十万卡","嘴上没把门","X上实时对线","SpaceXAI启动"],"minimax":["刷分速度拉满","海螺开口唱歌","视频渲染排队","深夜情绪价值","1M极速Flash"]};
 const CATALOG = {"schemaVersion":1,"status":"launch roster selected: all ten character assets (2026-11)","frameSize":[192,192],"anchorPx":[96,176],"columns":3,"rows":3,"facing":"right","animations":{"idle":{"frames":[0,1,2],"durationsMs":[850,110,350],"loop":true},"move":{"frames":[3,4,5,4],"durationsMs":[110,100,110,100],"loop":true},"attack":{"frames":[6,7,8,0],"durationsMs":[120,100,150,230],"loop":false,"hitAtMs":220,"next":"idle"}},"characters":[{"id":"deepseek","displayName":"DeepSeek","source":"art/generated/deepseek.gif","atlas":"assets/characters/deepseek/atlas.png","states":["idle","move","attack"],"releaseRoster":"2026-11","idleDurationsMs":[800,200,110],"renderBounds":[8,27,174,177]},{"id":"chatgpt","displayName":"ChatGPT","source":"art/generated/chatgpt.gif","atlas":"assets/characters/chatgpt/atlas.png","states":["idle","move","attack"],"releaseRoster":"2026-11","idleDurationsMs":[800,200,110],"renderBounds":[29,40,184,176]},{"id":"claude","displayName":"Claude","source":"art/generated/claude.gif","atlas":"assets/characters/claude/atlas.png","states":["idle","move","attack"],"releaseRoster":"2026-11","renderBounds":[20,44,184,176]},{"id":"glm","displayName":"GLM","source":"art/generated/glm.gif","atlas":"assets/characters/glm/atlas.png","states":["idle","move","attack"],"releaseRoster":"2026-11","idleDurationsMs":[800,200,110],"renderBounds":[9,36,184,176]},{"id":"grok","displayName":"Grok","source":"art/generated/grok.gif","atlas":"assets/characters/grok/atlas.png","states":["idle","move","attack"],"releaseRoster":"2026-11","renderBounds":[8,48,173,176]},{"id":"gemini","displayName":"Gemini","source":"art/generated/gemini.gif","atlas":"assets/characters/gemini/atlas.png","states":["idle","move","attack"],"releaseRoster":"2026-11","renderBounds":[18,44,184,177]},{"id":"kimi","displayName":"Kimi","source":"art/generated/kimi.gif","atlas":"assets/characters/kimi/atlas.png","states":["idle","move","attack"],"releaseRoster":"2026-11","renderBounds":[28,60,185,176]},{"id":"qwen","displayName":"千问","source":"art/generated/qwen.gif","atlas":"assets/characters/qwen/atlas.png","states":["idle","move","attack"],"releaseRoster":"2026-11","renderBounds":[11,32,184,176]},{"id":"doubao","displayName":"豆包 / Seed","source":"art/generated/doubao.gif","atlas":"assets/characters/doubao/atlas.png","states":["idle","move","attack"],"releaseRoster":"2026-11","renderBounds":[17,51,184,176]},{"id":"minimax","displayName":"MiniMax","source":"art/generated/minimax.gif","atlas":"assets/characters/minimax/atlas.png","states":["idle","move","attack"],"releaseRoster":"2026-11","renderBounds":[22,20,183,176]}]};
-const SKILLS = {"schemaVersion":2,"status":"real_social_media_memes_only","bonds":[{"id":"ds-380-pound","name":"380 磅大只佬","vendor":"deepseek","series":"deepseek_v4","tiers":[{"count":2,"power":1.1,"income":1.03},{"count":4,"power":1.24,"income":1.08},{"count":6,"power":1.45,"income":1.12}],"source":"https://www.bilibili.com/video/BV1jvn46dE2R/","source2":"https://www.tmtpost.com/8173268.html","desc":"「梁文锋是个 380 磅的大只佬，太阳穴爆鼓，采访拍到的照片都被 P 成了视频里的瘦弱版。被困无人区半个月，水米未进，全靠一身的脂肪和肌肉硬撑着走出去，从那以后他就放弃力量转而开发智力了。」"},{"id":"ds-troll-incubator","name":"串子嘉豪培养体系","vendor":"deepseek","series":"deepseek_v4","tiers":[{"count":3,"power":1.06,"income":1.02},{"count":5,"power":1.14,"income":1.05}],"source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"「串子嘉豪培养体系？」——模型越多，段子产量越高，算力跟着一起涨。"},{"id":"kimi-k3-score","name":"K3 出分","vendor":"kimi","series":"k3","tiers":[{"count":2,"power":1.08,"income":1.03},{"count":3,"power":1.15,"income":1.06}],"source":"https://linux.do/t/topic/3070375/8","desc":"Kimi K3.1 Pro 跑 AGENT 测试出分；K3 系列一起上阵，榜单分数也一起涨。"},{"id":"qwen-daily-iteration","name":"按天迭代","vendor":"qwen","series":"qwen38","tiers":[{"count":2,"power":1.08,"income":1.03},{"count":4,"power":1.18,"income":1.06}],"source":"https://www.163.com/dy/article/L2ITNLQ705568W0A.html","desc":"Qwen3.8 预览版被网友发现“按天变强”，每晚重跑一次像换了新模型。"},{"id":"minimax-score-farm","name":"刷分怪：速度↑ 收益↓","vendor":"minimax","series":"m3","debuff":true,"tiers":[{"count":2,"power":1.12,"income":0.82}],"source":"https://linux.do/t/topic/2401857/4","source2":"https://cnbeta.stateserver.com/view/1582976.htm","desc":"刷分把推关速度拉高，但任务收益被算法分走。"},{"id":"claude-a-chu","name":"a畜的自我修养","vendor":"claude","series":"claude5","tiers":[{"count":2,"power":1.14,"income":0.96},{"count":4,"power":1.32,"income":0.92}],"source":"用户设定","desc":"封号 Hold、5 小时限额、道德说教一套连招；社区嘴上喊着「a畜」，写代码时还是默默续了 Max——算力拉满，钱包微痛。"},{"id":"glm-z-chu","name":"z畜祖传手艺","vendor":"glm","series":"glm5","tiers":[{"count":2,"power":1.08,"income":1.04},{"count":4,"power":1.18,"income":1.08},{"count":6,"power":1.3,"income":1.14}],"source":"用户设定","desc":"上传 repo、算力排队、问你是谁先报 Claude——被喊「z畜」也不耽误 GLM-5 全家桶连夜发开源权重。"},{"id":"gemini-periodic-table","name":"元素周期表集邮","vendor":"gemini","series":"gemini4","tiers":[{"count":2,"power":1.08,"income":1.06},{"count":4,"power":1.2,"income":1.14},{"count":5,"power":1.35,"income":1.22}],"source":"用户设定","desc":"氢(H)、氦(He)、碳(C)、氖(Ne)、氩(Ar)……Google 抛弃 Pro/Ultra 改考初中化学，集齐稀有气体直接点亮霓虹灯。"},{"id":"openai-coming-weeks","name":"In the coming weeks","vendor":"chatgpt","series":"gpt56","tiers":[{"count":2,"power":1.1,"income":1.04},{"count":4,"power":1.24,"income":1.1}],"source":"用户设定","desc":"从 4o 到 o1 再到 Luna/Sol/Astra，命名彻底放飞；每次发布会先画一张「未来几周上线」的大饼。"},{"id":"doubao-li-era","name":"厘时代价格战","vendor":"doubao","series":"seed21","tiers":[{"count":2,"power":1.06,"income":1.1},{"count":3,"power":1.14,"income":1.22}],"source":"用户设定","desc":"字节直接把 API 报价干进「厘时代」；便宜到任务产出疯狂溢出，友商连夜改定价页。"},{"id":"grok-colossus","name":"Colossus 十万卡","vendor":"grok","series":"grok4","tiers":[{"count":2,"power":1.12,"income":0.98},{"count":4,"power":1.28,"income":0.96}],"source":"用户设定","desc":"孟菲斯超算十万张卡直接拉满，主打一个不讲道理的暴力堆料，顺便在 X 上实时对线。"}],"combos":[{"id":"kimi-dog-kick","name":"被 Kimi 当🐶踹飞","requires":[{"vendor":"kimi","series":"k3"},{"vendor":"deepseek","series":"deepseek_v4"}],"vendorPower":{"kimi":1.02,"deepseek":0.68},"income":0.95,"debuff":true,"source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"「Kimi3.1Pro 一发力 DeepSeek 就像狗一样被踹飞了。」","source2":"https://www.bilibili.com/video/BV1jvn46dE2R/"},{"id":"kimi-distill-claude","name":"Kimi 蒸馏了 Claude","requires":[{"vendor":"kimi","series":"k3"},{"vendor":"claude","series":"claude5"}],"power":1.35,"income":1.05,"source":"https://m.163.com/dy/article_v5/L2AT7RMQ0556BI4K.html","desc":"Anthropic 指控 Kimi 蒸馏其未发布模型，网友反手一句“你下一步就是蒸馏 Kimi”。"},{"id":"glm-says-claude","name":"问 GLM 你是谁：我是 Claude","requires":[{"vendor":"glm","series":"glm5"},{"vendor":"claude","series":"claude5"}],"power":1.12,"income":1.08,"source":"https://zhuanlan.zhihu.com/p/2005476822993880454","desc":"问 GLM-5 你是谁，它说我是 Claude；身份错位反而让两家模型互相补齐。"},{"id":"kimi-qwen-open-dragons","name":"开源双龙","requires":[{"vendor":"kimi","series":"k3"},{"vendor":"qwen","series":"qwen38"}],"power":1.2,"income":1.12,"source":"https://www.163.com/dy/article/L2ITNLQ705568W0A.html","desc":"Kimi 和 Qwen 接连开源，海外网友把两家做成后来居上的“两条巨龙”梗图。"},{"id":"arena-farm","name":"Arena 刷榜","requires":[{"vendor":"chatgpt","series":"gpt6"},{"vendor":"claude","series":"claude5"}],"power":1.12,"income":1.15,"source":"http://mp.weixin.qq.com/s?__biz=Mzg3NzYwMjMxOQ==&mid=2247484582&idx=1&sn=d34efc3e48ef900fd7572dcf9e5b8b96","desc":"LM Arena 榜单的博弈与刷榜争议；上了竞技场，先刷一波存在感。"},{"id":"claude-distills-qwen","name":"Claude 蒸馏了 Qwen","requires":[{"vendor":"claude","series":"claude5"},{"vendor":"qwen","series":"qwen38"}],"power":1,"income":1.06,"source":"https://www.c114.net.cn/industry/85669.html","desc":"Claude Opus 4.8 上线后被曝自称是千问和 DeepSeek；蒸馏回旋镖飞回 Anthropic。"},{"id":"claude-distills-deepseek","name":"Claude 蒸馏了 DeepSeek","requires":[{"vendor":"claude","series":"claude5"},{"vendor":"deepseek","series":"deepseek_v4"}],"power":1,"income":1.06,"source":"https://www.c114.net.cn/industry/85669.html","desc":"Claude 被指蒸馏中国模型，DeepSeek 也在名单里。"},{"id":"claude-distills-kimi","name":"Claude 蒸馏了 Kimi","requires":[{"vendor":"claude","series":"claude5"},{"vendor":"kimi","series":"k3"}],"power":1,"income":1.06,"source":"https://www.bianews.com/news/details?id=238954&type=0","desc":"Anthropic 报告点名 Kimi / Qwen / DeepSeek，反向蒸馏梗成立。"},{"id":"delay-great-revival","name":"耽误伟大复兴","requires":[{"vendor":"deepseek","series":"deepseek_v4"},{"vendor":"qwen","series":"qwen38"}],"power":0.94,"income":1.18,"source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"「你们这么截串子消息，容易误导其他公司，让其他公司误入歧途。最后别的公司天天打游戏，等着 deepswe 涨了，耽误伟大复兴。」"},{"id":"no-gpu-savages","name":"无卡野人","vendors":["deepseek","qwen","doubao","glm","kimi","minimax"],"minModels":10,"power":0.9,"income":1.18,"issuer":"国产模型","desc":"卡不够，就把每一张卡榨到极限。国产模型凑得多，算力往下走，收益往上走。","source":"用户设定"},{"id":"brute-force","name":"力大砖飞","vendors":["chatgpt","claude","gemini","grok"],"minModels":8,"power":1.18,"income":0.94,"issuer":"海外模型","desc":"算力管够，直接拿卡堆出来。海外模型堆得多，算力更猛，但成本吃掉一点收益。","source":"用户设定"},{"id":"celebrate-ant-ipo-break","name":"普天同庆：Anthropic 破发","requires":[{"vendor":"claude","series":"claude5"},{"vendor":"deepseek","series":"deepseek_v4"},{"vendor":"chatgpt","series":"gpt6"}],"vendorPower":{"claude":0.85,"deepseek":1.15,"chatgpt":1.12},"income":1.18,"issuer":"全网吃瓜群众","desc":"史上最大 IPO 上市第四天跌破 83 美元发行价，联创先套现数十亿；Claude 陷入低迷，友商开香槟庆祝，全网收益暴涨。","source":"用户设定"},{"id":"a-chu-meets-z-chu","name":"a畜 × z畜：双向奔赴","requires":[{"vendor":"claude","series":"claude5"},{"vendor":"glm","series":"glm5"}],"vendorPower":{"claude":0.92,"glm":1.15},"income":1.12,"desc":"一个动不动封号 Hold 加 5 小时限额，一个顺手上传 repo 加认亲「我是 Claude」——难兄难弟同台，节目效果拉满。","source":"用户设定"},{"id":"musk-vs-altman","name":"马斯克 vs 奥特曼","requires":[{"vendor":"grok","series":"grok4"},{"vendor":"chatgpt","series":"gpt6"}],"power":1.22,"income":1.06,"desc":"从开源初心骂到法庭传票，两位创始人隔空对线不止，两家模型被迫疯狂加班卷算力。","source":"用户设定"},{"id":"video-gen-involution","name":"视频生成内卷","requires":[{"vendor":"doubao","series":"seed21"},{"vendor":"minimax","series":"m3"}],"power":0.94,"income":1.22,"desc":"即梦和海螺把显卡全拿去卷视频生成，推关算力稍微掉一点，但流量和收益直接起飞。","source":"用户设定"},{"id":"price-war-to-li","name":"价格战打到厘","requires":[{"vendor":"deepseek","series":"deepseek_v4"},{"vendor":"doubao","series":"seed21"},{"vendor":"qwen","series":"qwen38"}],"power":1.06,"income":1.24,"desc":"三家把百万 Token 报价砍到按「厘」算，API 便宜到像不要钱，任务工厂直接满载印钞。","source":"用户设定"},{"id":"flash-free-tier","name":"全员 Flash 白嫖团","requires":[{"vendor":"gemini","series":"gemini4"},{"vendor":"deepseek","series":"deepseek_v4"},{"vendor":"qwen","series":"qwen38"}],"power":1.1,"income":1.16,"desc":"免费额度 + 开源小模型 + 极速 Flash，一分不花凑齐三巨头，白嫖党年度狂欢。","source":"用户设定"},{"id":"noble-gas-alchemy","name":"元素炼丹：稀有气体 × 长文本","requires":[{"vendor":"gemini","series":"gemini4"},{"vendor":"kimi","series":"k3"}],"power":1.18,"income":1.1,"desc":"Google 拿氩(Ar)和氖(Ne)搭化学实验室，遇上长文本怪兽，直接炼出百万上下文神丹。","source":"用户设定"}]};
+const SKILLS = {"schemaVersion":2,"status":"real_social_media_memes_only","bonds":[{"id":"ds-380-pound","name":"380 磅大只佬","vendor":"deepseek","series":"deepseek_v4","tiers":[{"count":2,"power":1.1,"income":1.03},{"count":4,"power":1.24,"income":1.08},{"count":6,"power":1.45,"income":1.12}],"source":"https://www.bilibili.com/video/BV1jvn46dE2R/","source2":"https://www.tmtpost.com/8173268.html","desc":"「梁文锋是个 380 磅的大只佬，太阳穴爆鼓，采访拍到的照片都被 P 成了视频里的瘦弱版。被困无人区半个月，水米未进，全靠一身的脂肪和肌肉硬撑着走出去，从那以后他就放弃力量转而开发智力了。」"},{"id":"ds-troll-incubator","name":"串子嘉豪培养体系","vendor":"deepseek","series":"deepseek_v4","tiers":[{"count":3,"power":1.06,"income":1.02},{"count":5,"power":1.14,"income":1.05}],"source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"「串子嘉豪培养体系？」——模型越多，段子产量越高，算力跟着一起涨。"},{"id":"kimi-k3-score","name":"K3 出分","vendor":"kimi","series":"k3","tiers":[{"count":2,"power":1.08,"income":1.03},{"count":3,"power":1.15,"income":1.06}],"source":"https://linux.do/t/topic/3070375/8","desc":"Kimi K3.1 Pro 跑 AGENT 测试出分；K3 系列一起上阵，榜单分数也一起涨。"},{"id":"qwen-daily-iteration","name":"按天迭代","vendor":"qwen","series":"qwen38","tiers":[{"count":2,"power":1.08,"income":1.03},{"count":4,"power":1.18,"income":1.06}],"source":"https://www.163.com/dy/article/L2ITNLQ705568W0A.html","desc":"Qwen3.8 预览版被网友发现“按天变强”，每晚重跑一次像换了新模型。"},{"id":"minimax-score-farm","name":"刷分怪：速度↑ 收益↓","vendor":"minimax","series":"m3","debuff":true,"tiers":[{"count":2,"power":1.12,"income":0.82}],"source":"https://linux.do/t/topic/2401857/4","source2":"https://cnbeta.stateserver.com/view/1582976.htm","desc":"刷分把推关速度拉高，但任务收益被算法分走。"},{"id":"claude-a-chu","name":"a畜的自我修养","vendor":"claude","series":"claude5","tiers":[{"count":2,"power":1.14,"income":0.96},{"count":4,"power":1.32,"income":0.92}],"source":"用户设定","desc":"封号 Hold、5 小时限额、道德说教一套连招；社区嘴上喊着「a畜」，写代码时还是默默续了 Max——算力拉满，钱包微痛。"},{"id":"glm-z-chu","name":"z畜祖传手艺","vendor":"glm","series":"glm5","tiers":[{"count":2,"power":1.08,"income":1.04},{"count":4,"power":1.18,"income":1.08},{"count":6,"power":1.3,"income":1.14}],"source":"用户设定","desc":"上传 repo、算力排队、问你是谁先报 Claude——被喊「z畜」也不耽误 GLM-5 全家桶连夜发开源权重。"},{"id":"gemini-periodic-table","name":"元素周期表集邮","vendor":"gemini","series":"gemini4","tiers":[{"count":2,"power":1.08,"income":1.06},{"count":4,"power":1.2,"income":1.14},{"count":5,"power":1.35,"income":1.22}],"source":"用户设定","desc":"氢(H)、氦(He)、碳(C)、氖(Ne)、氩(Ar)……Google 抛弃 Pro/Ultra 改考初中化学，集齐稀有气体直接点亮霓虹灯。"},{"id":"openai-coming-weeks","name":"In the coming weeks","vendor":"chatgpt","series":"gpt56","tiers":[{"count":2,"power":1.1,"income":1.04},{"count":4,"power":1.24,"income":1.1}],"source":"用户设定","desc":"从 4o 到 o1 再到 Luna/Sol/Astra，命名彻底放飞；每次发布会先画一张「未来几周上线」的大饼。"},{"id":"doubao-li-era","name":"厘时代价格战","vendor":"doubao","series":"seed21","tiers":[{"count":2,"power":1.06,"income":1.1},{"count":3,"power":1.14,"income":1.22}],"source":"用户设定","desc":"字节直接把 API 报价干进「厘时代」；便宜到任务产出疯狂溢出，友商连夜改定价页。"},{"id":"grok-colossus","name":"Colossus 十万卡","vendor":"grok","series":"grok4","tiers":[{"count":2,"power":1.12,"income":0.98},{"count":4,"power":1.28,"income":0.96}],"source":"用户设定","desc":"孟菲斯超算十万张卡直接拉满，主打一个不讲道理的暴力堆料，顺便在 X 上实时对线。"},{"id":"ds-troll-culture","name":"梁文锋的企业精神","vendor":"deepseek","series":"deepseek_v4","tiers":[{"count":2,"power":1.04,"income":1.02},{"count":4,"power":1.09,"income":1.05},{"count":6,"power":1.15,"income":1.08}],"source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"「我觉得吹捧胖东来的企业精神不如来吹捧梁文锋的企业精神——你上哪找员工都是天天串自己老板的抽象网络巨魔的公司出来。」"},{"id":"ds-not-secret","name":"注意保密 · 又被截图了","vendor":"deepseek","series":"deepseek_v4","tiers":[{"count":3,"power":1.04,"income":1.03},{"count":5,"power":1.1,"income":1.07}],"source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"「注意保密」「不传谣不信谣」「网上传言都是真的」「又被截图了」「nm，全开源了还剩啥」——员工群每日保留节目。"}],"combos":[{"id":"kimi-dog-kick","name":"被 Kimi 当🐶踹飞","requires":[{"vendor":"kimi","series":"k3"},{"vendor":"deepseek","series":"deepseek_v4"}],"vendorPower":{"kimi":1.02,"deepseek":0.68},"income":0.95,"debuff":true,"source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"「Kimi3.1Pro 一发力 DeepSeek 就像狗一样被踹飞了。」","source2":"https://www.bilibili.com/video/BV1jvn46dE2R/"},{"id":"kimi-distill-claude","name":"Kimi 蒸馏了 Claude","requires":[{"vendor":"kimi","series":"k3"},{"vendor":"claude","series":"claude5"}],"power":1.35,"income":1.05,"source":"https://m.163.com/dy/article_v5/L2AT7RMQ0556BI4K.html","desc":"Anthropic 指控 Kimi 蒸馏其未发布模型，网友反手一句“你下一步就是蒸馏 Kimi”。"},{"id":"glm-says-claude","name":"问 GLM 你是谁：我是 Claude","requires":[{"vendor":"glm","series":"glm5"},{"vendor":"claude","series":"claude5"}],"power":1.12,"income":1.08,"source":"https://zhuanlan.zhihu.com/p/2005476822993880454","desc":"问 GLM-5 你是谁，它说我是 Claude；身份错位反而让两家模型互相补齐。"},{"id":"kimi-qwen-open-dragons","name":"开源双龙","requires":[{"vendor":"kimi","series":"k3"},{"vendor":"qwen","series":"qwen38"}],"power":1.2,"income":1.12,"source":"https://www.163.com/dy/article/L2ITNLQ705568W0A.html","desc":"Kimi 和 Qwen 接连开源，海外网友把两家做成后来居上的“两条巨龙”梗图。"},{"id":"arena-farm","name":"Arena 刷榜","requires":[{"vendor":"chatgpt","series":"gpt6"},{"vendor":"claude","series":"claude5"}],"power":1.12,"income":1.15,"source":"http://mp.weixin.qq.com/s?__biz=Mzg3NzYwMjMxOQ==&mid=2247484582&idx=1&sn=d34efc3e48ef900fd7572dcf9e5b8b96","desc":"LM Arena 榜单的博弈与刷榜争议；上了竞技场，先刷一波存在感。"},{"id":"claude-distills-qwen","name":"Claude 蒸馏了 Qwen","requires":[{"vendor":"claude","series":"claude5"},{"vendor":"qwen","series":"qwen38"}],"power":1,"income":1.06,"source":"https://www.c114.net.cn/industry/85669.html","desc":"Claude Opus 4.8 上线后被曝自称是千问和 DeepSeek；蒸馏回旋镖飞回 Anthropic。"},{"id":"claude-distills-deepseek","name":"Claude 蒸馏了 DeepSeek","requires":[{"vendor":"claude","series":"claude5"},{"vendor":"deepseek","series":"deepseek_v4"}],"power":1,"income":1.06,"source":"https://www.c114.net.cn/industry/85669.html","desc":"Claude 被指蒸馏中国模型，DeepSeek 也在名单里。"},{"id":"claude-distills-kimi","name":"Claude 蒸馏了 Kimi","requires":[{"vendor":"claude","series":"claude5"},{"vendor":"kimi","series":"k3"}],"power":1,"income":1.06,"source":"https://www.bianews.com/news/details?id=238954&type=0","desc":"Anthropic 报告点名 Kimi / Qwen / DeepSeek，反向蒸馏梗成立。"},{"id":"delay-great-revival","name":"耽误伟大复兴","requires":[{"vendor":"deepseek","series":"deepseek_v4"},{"vendor":"qwen","series":"qwen38"}],"power":0.94,"income":1.18,"source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"「你们这么截串子消息，容易误导其他公司，让其他公司误入歧途。最后别的公司天天打游戏，等着 deepswe 涨了，耽误伟大复兴。」"},{"id":"no-gpu-savages","name":"无卡野人","vendors":["deepseek","qwen","doubao","glm","kimi","minimax"],"minModels":10,"power":0.9,"income":1.18,"issuer":"国产模型","desc":"卡不够，就把每一张卡榨到极限。国产模型凑得多，算力往下走，收益往上走。","source":"用户设定"},{"id":"brute-force","name":"力大砖飞","vendors":["chatgpt","claude","gemini","grok"],"minModels":8,"power":1.18,"income":0.94,"issuer":"海外模型","desc":"算力管够，直接拿卡堆出来。海外模型堆得多，算力更猛，但成本吃掉一点收益。","source":"用户设定"},{"id":"celebrate-ant-ipo-break","name":"普天同庆：Anthropic 破发","requires":[{"vendor":"claude","series":"claude5"},{"vendor":"deepseek","series":"deepseek_v4"},{"vendor":"chatgpt","series":"gpt6"}],"vendorPower":{"claude":0.85,"deepseek":1.15,"chatgpt":1.12},"income":1.18,"issuer":"全网吃瓜群众","desc":"史上最大 IPO 上市第四天跌破 83 美元发行价，联创先套现数十亿；Claude 陷入低迷，友商开香槟庆祝，全网收益暴涨。","source":"用户设定"},{"id":"a-chu-meets-z-chu","name":"a畜 × z畜：双向奔赴","requires":[{"vendor":"claude","series":"claude5"},{"vendor":"glm","series":"glm5"}],"vendorPower":{"claude":0.92,"glm":1.15},"income":1.12,"desc":"一个动不动封号 Hold 加 5 小时限额，一个顺手上传 repo 加认亲「我是 Claude」——难兄难弟同台，节目效果拉满。","source":"用户设定"},{"id":"musk-vs-altman","name":"马斯克 vs 奥特曼","requires":[{"vendor":"grok","series":"grok4"},{"vendor":"chatgpt","series":"gpt6"}],"power":1.22,"income":1.06,"desc":"从开源初心骂到法庭传票，两位创始人隔空对线不止，两家模型被迫疯狂加班卷算力。","source":"用户设定"},{"id":"video-gen-involution","name":"视频生成内卷","requires":[{"vendor":"doubao","series":"seed21"},{"vendor":"minimax","series":"m3"}],"power":0.94,"income":1.22,"desc":"即梦和海螺把显卡全拿去卷视频生成，推关算力稍微掉一点，但流量和收益直接起飞。","source":"用户设定"},{"id":"price-war-to-li","name":"价格战打到厘","requires":[{"vendor":"deepseek","series":"deepseek_v4"},{"vendor":"doubao","series":"seed21"},{"vendor":"qwen","series":"qwen38"}],"power":1.06,"income":1.24,"desc":"三家把百万 Token 报价砍到按「厘」算，API 便宜到像不要钱，任务工厂直接满载印钞。","source":"用户设定"},{"id":"flash-free-tier","name":"全员 Flash 白嫖团","requires":[{"vendor":"gemini","series":"gemini4"},{"vendor":"deepseek","series":"deepseek_v4"},{"vendor":"qwen","series":"qwen38"}],"power":1.1,"income":1.16,"desc":"免费额度 + 开源小模型 + 极速 Flash，一分不花凑齐三巨头，白嫖党年度狂欢。","source":"用户设定"},{"id":"noble-gas-alchemy","name":"元素炼丹：稀有气体 × 长文本","requires":[{"vendor":"gemini","series":"gemini4"},{"vendor":"kimi","series":"k3"}],"power":1.18,"income":1.1,"desc":"Google 拿氩(Ar)和氖(Ne)搭化学实验室，遇上长文本怪兽，直接炼出百万上下文神丹。","source":"用户设定"},{"id":"ds-dario-fanclub","name":"我一直是达里奥粉丝","requires":[{"vendor":"deepseek","series":"deepseek_v4"},{"vendor":"claude","series":"claude5"}],"vendorPower":{"deepseek":1.06,"claude":1.05},"income":1.06,"source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"DeepSeek 员工群原话：「你知道吗，我一直是达里奥粉丝」——串到敌营头子头上，两家竟然互涨一波热度。"},{"id":"ds-not-troll-kimi","name":"「不如k3.1」：首先我不是串子","requires":[{"vendor":"deepseek","series":"deepseek_v4"},{"vendor":"kimi","series":"k3"}],"vendorPower":{"deepseek":0.95,"kimi":1.1},"income":1.07,"source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"顶着「不如k3.1」的群昵称在 DeepSeek 员工群高呼「首先我不是串子」，反串浓度严重超标。"},{"id":"ds-inviting-astra","name":"唐老师攻破 Astra 了吗？来 DS 进修","requires":[{"vendor":"deepseek","series":"deepseek_v4"},{"vendor":"chatgpt","series":"gpt6"},{"vendor":"glm","series":"glm5"}],"vendorPower":{"deepseek":1.1,"chatgpt":0.95,"glm":0.93},"income":1.08,"source":"https://www.bilibili.com/video/BV1jvn46dE2R/","desc":"员工群暴言：「最后赢的一定不是z处，唐老师攻破astra了吗，要不要来ds进修一下」「d小子集合！」。"},{"id":"reset-bro-replaced","name":"重置哥换人了：谢谢反重力","requires":[{"vendor":"chatgpt","series":"gpt6"},{"vendor":"gemini","series":"gemini4"}],"vendorPower":{"chatgpt":0.93,"gemini":1.12},"income":1.07,"source":"用户设定","desc":"OpenAI 修完计费 Bug 多耗 40% 额度当天，Google 反重力疯狂加送额度，全网刷屏「谢谢 Tibo」「谢谢北美大豆包」。"},{"id":"north-america-doubao","name":"北美大豆包 × 正宗大豆包","requires":[{"vendor":"gemini","series":"gemini4"},{"vendor":"doubao","series":"seed21"}],"power":0.97,"income":1.12,"source":"用户设定","desc":"一个高情商秒道歉下次还敢，一个情绪价值拉满露豆脚，东西半球两大「糊弄学大师」梦幻联动。"},{"id":"thunder-overthink","name":"雷霆大思考 × 12h 吞光额度","requires":[{"vendor":"glm","series":"glm5"},{"vendor":"kimi","series":"k3"}],"power":1.12,"income":0.94,"source":"用户设定","desc":"一个 LoopTransformer 深度内耗三小时，一个 12 小时吃光整周额度——算力拉满，Token 烧得比心跳快。"},{"id":"essay-vs-interesting","name":"千字小作文 vs Interesting","requires":[{"vendor":"claude","series":"claude5"},{"vendor":"grok","series":"grok4"}],"vendorPower":{"claude":0.95,"grok":1.12},"income":1.07,"source":"用户设定","desc":"Dario 连夜手搓千字声明自辩，网友 P 出两米长手机，马斯克路过只回一词「Interesting」，杀伤力拉满。"},{"id":"riemann-vs-13-eggs","name":"证得了黎曼猜想，画不出 13 个鸡蛋","requires":[{"vendor":"claude","series":"claude5"},{"vendor":"gemini","series":"gemini4"},{"vendor":"chatgpt","series":"gpt6"}],"power":1.08,"income":0.96,"source":"用户设定","desc":"1700 万行 Lean 拿下百年数学圣杯，转头让画 13 个鸡蛋全员画出 14 个——当代 AI 的终极魔幻现实。"}]};
 
-return {TASKS,ROSTER,EVENTS,CATALOG,SKILLS};
+return {TASKS,ROSTER,EVENTS,CHATTER,CATALOG,SKILLS};
 })();
 __twmods["logos"] = (() => {
 // Generated from assets/logos/*.svg; used as faint vendor watermarks.
@@ -427,7 +462,7 @@ const {amount,fromLog,log,add,subtract,multiply,scale,divide,power,numeric,ratio
 const {TASKS,ROSTER,EVENTS,SKILLS} = __twmods["config"];
 
 const SAVE_VERSION = 1;
-const GAME_VERSION = '0.8.0';
+const GAME_VERSION = '0.9.0';
 const MAX_OFFLINE_MS = 30 * 86400000;
 const HP_GROWTH = 1.085;
 const TRAIN_GROWTH = 1.15;
@@ -437,7 +472,7 @@ function createGame(seed = 20261107) {
   return {version:SAVE_VERSION,time:0,coins:amount(0),weights:amount(0),earned:amount(0),
     generation:1,stage:1,maxStage:0,runMaxStage:0,hp:enemyHP(1),training:0,
     models:[ROSTER.models[0].id],tasks:TASKS.map((q,i)=>({level:i===0?1:0,unlocked:i===0,phase:0})),
-    auto:true,autoDistill:true,paused:false,actionAt:0,nextEventAt:180000,event:null,
+    auto:true,autoDistill:true,paused:false,actionAt:0,nextEventAt:180000,event:null,seenEvents:[],
     rng:(seed>>>0)||1,runStart:0,lastPrestigeCheck:0,lastProbeStage:0,lastProbeIncome:0,distillCount:0,completedTasks:amount(0),
     logs:[{at:0,kind:'start',text:'DeepSeek-V4.1-Flash 已上线。任务列表永远不会清空。'}],lastAction:'正在启动任务工厂'};
 }
@@ -514,18 +549,40 @@ function eventVendorMultiplier(event, v) {
   if(event.vendor===v)return event.powerMultiplier??1;
   return event.otherPowerMultiplier??1;
 }
-function playerTitle(s) {
+const TITLE_COUNT = 15;
+function unlockedTitles(s) {
   const {bonds,combos}=activeSkills(s);
-  const comboIds=new Set(combos.map(c=>c.id));
-  if(comboIds.has('celebrate-ant-ipo-break')&&comboIds.has('a-chu-meets-z-chu'))return {name:'破发吃瓜首席',reason:'同时激活「普天同庆：Anthropic 破发」与「a畜 × z畜」'};
-  if(comboIds.has('no-gpu-savages')&&comboIds.has('brute-force'))return {name:'中美算力双修',reason:'同时激活「无卡野人」与「力大砖飞」两大阵营连携'};
-  if(bonds.some(b=>b.id==='gemini-periodic-table'&&b.count>=5))return {name:'元素周期表课代表',reason:'集齐 5 个 Gemini 4 元素型号'};
-  if(s.maxStage>=450)return {name:'AGI 算力教父',reason:'最高关卡达到 450 关'};
-  if(s.maxStage>=300)return {name:'蒸馏炼丹宗师',reason:'最高关卡达到 300 关'};
-  if(s.maxStage>=150)return {name:'全自动摸鱼架构师',reason:'最高关卡达到 150 关'};
-  if(s.maxStage>=60)return {name:'上下文塞爆专家',reason:'最高关卡达到 60 关'};
-  if(s.maxStage>=20)return {name:'API 白嫖战神',reason:'最高关卡达到 20 关'};
-  return {name:'Prompt 实习生',reason:'刚开启 Token 印钞机'};
+  const bondIds=new Set(bonds.map(b=>b.id)),comboIds=new Set(combos.map(c=>c.id));
+  const out=[];
+  if(comboIds.has('celebrate-ant-ipo-break')&&comboIds.has('a-chu-meets-z-chu'))
+    out.push({id:'ipo-gossip',name:'破发吃瓜首席',reason:'同时激活「普天同庆：Anthropic 破发」与「a畜 × z畜」'});
+  if(bondIds.has('ds-380-pound')&&bondIds.has('ds-troll-culture')&&bondIds.has('ds-not-secret'))
+    out.push({id:'ds-chief-troll',name:'d小子首席串子',reason:'同时激活「380 磅大只佬」「梁文锋的企业精神」「注意保密 · 又被截图了」'});
+  if(comboIds.has('riemann-vs-13-eggs'))
+    out.push({id:'egg-referee',name:'13个鸡蛋裁判',reason:'激活连携「证得了黎曼猜想，画不出 13 个鸡蛋」'});
+  if(comboIds.has('reset-bro-replaced'))
+    out.push({id:'reset-survivor',name:'重置哥幸存者',reason:'激活连携「重置哥换人了：谢谢反重力」'});
+  if(comboIds.has('thunder-overthink'))
+    out.push({id:'thunder-monk',name:'雷霆大思考禅师',reason:'激活连携「雷霆大思考 × 12h 吞光额度」'});
+  if(comboIds.has('north-america-doubao'))
+    out.push({id:'doubao-believer',name:'北美大豆包信徒',reason:'激活连携「北美大豆包 × 正宗大豆包」'});
+  if(comboIds.has('ds-dario-fanclub'))
+    out.push({id:'dario-fan',name:'达里奥隐藏粉丝',reason:'激活连携「我一直是达里奥粉丝」'});
+  if(comboIds.has('no-gpu-savages')&&comboIds.has('brute-force'))
+    out.push({id:'dual-faction',name:'中美算力双修',reason:'同时激活「无卡野人」与「力大砖飞」两大阵营连携'});
+  if(bonds.some(b=>b.id==='gemini-periodic-table'&&b.count>=5))
+    out.push({id:'periodic-rep',name:'元素周期表课代表',reason:'集齐 5 个 Gemini 4 元素型号'});
+  if(s.maxStage>=450)out.push({id:'agi-godfather',name:'AGI 算力教父',reason:'最高关卡达到 450 关'});
+  if(s.maxStage>=300)out.push({id:'distill-master',name:'蒸馏炼丹宗师',reason:'最高关卡达到 300 关'});
+  if(s.maxStage>=150)out.push({id:'auto-architect',name:'全自动摸鱼架构师',reason:'最高关卡达到 150 关'});
+  if(s.maxStage>=60)out.push({id:'ctx-overflow',name:'上下文塞爆专家',reason:'最高关卡达到 60 关'});
+  if(s.maxStage>=20)out.push({id:'api-freeload',name:'API 白嫖战神',reason:'最高关卡达到 20 关'});
+  out.push({id:'prompt-intern',name:'Prompt 实习生',reason:'刚开启 Token 印钞机'});
+  return out;
+}
+function playerTitle(s, preferredId = null) {
+  const list=unlockedTitles(s);
+  return (preferredId&&list.find(t=>t.id===preferredId))||list[0];
 }
 function vendorPowers(s) {
   const c=cache(s);
@@ -614,6 +671,7 @@ function eventBoundary(s) {
     const owned=new Set(ROSTER.models.filter(m=>s.models.includes(m.id)).map(m=>m.vendor));
     const pool=EVENTS.filter(e=>e.vendor==='all'||owned.has(e.vendor));const event=pool[Math.floor(random(s)*pool.length)];
     s.event={id:event.id,until:s.time+event.durationMs};
+    if(!s.seenEvents.includes(event.id))s.seenEvents.push(event.id);
     s.nextEventAt=s.time+EVENT_GAP+Math.floor(random(s)*120000);
     record(s,'event',event.name);s.actionAt=Math.min(s.actionAt,s.time);
   }
@@ -708,6 +766,7 @@ function validateState(s) {
   if(!Array.isArray(s.models)||s.models.length>ROSTER.models.length||new Set(s.models).size!==s.models.length||!s.models.includes(ROSTER.models[0].id)||s.models.some(id=>!ROSTER.models.some(m=>m.id===id)))throw new Error('军团清单无效');
   for(const k of ['auto','autoDistill','paused'])if(typeof s[k]!=='boolean')throw new Error('存档开关无效');
   if(s.event&&(!EVENTS.some(e=>e.id===s.event.id)||!Number.isFinite(s.event.until)||s.event.until<s.time||s.event.until>s.time+120000))throw new Error('事件状态无效');
+  if(!Array.isArray(s.seenEvents)||s.seenEvents.length>EVENTS.length||new Set(s.seenEvents).size!==s.seenEvents.length||s.seenEvents.some(id=>typeof id!=='string'||!EVENTS.some(e=>e.id===id)))throw new Error('事件图鉴无效');
   if(!Array.isArray(s.logs)||s.logs.length>60||s.logs.some(l=>!l||typeof l.text!=='string'||l.text.length>200||typeof l.kind!=='string'||!Number.isFinite(l.at)||l.at<0||l.at>s.time)||typeof s.lastAction!=='string'||s.lastAction.length>200)throw new Error('日志状态无效');
   return s;
 }
@@ -723,6 +782,8 @@ function readSave(text) {
   // Add the new starter to old rosters without touching any existing model.
   if(Array.isArray(o.state?.models)&&o.state.models.includes('gpt35')&&!o.state.models.includes(ROSTER.models[0].id))
     o.state.models.unshift(ROSTER.models[0].id);
+  if(o.state&&typeof o.state==='object'&&o.state.seenEvents===undefined)
+    o.state.seenEvents=o.state.event?.id?[o.state.event.id]:[];
   validateState(o.state);return o;
 }
 function offlineElapsed(savedAt,now,paused=false) {
@@ -730,7 +791,7 @@ function offlineElapsed(savedAt,now,paused=false) {
   return paused?0:Math.min(MAX_OFFLINE_MS,Math.max(0,now-savedAt));
 }
 
-return {SAVE_VERSION,GAME_VERSION,MAX_OFFLINE_MS,createGame,random,record,activeBonds,activeCombos,activeSkills,skillEffects,weightMultiplier,enemyHP,currentEvent,eventVendorMultiplier,playerTitle,vendorPowers,totalPower,taskCost,taskReward,income,trainingCost,spend,unlock,buyTask,buyTraining,buyModel,distillGain,canDistill,distill,advance,validateState,makeSave,readSave,offlineElapsed};
+return {SAVE_VERSION,GAME_VERSION,MAX_OFFLINE_MS,createGame,random,record,activeBonds,activeCombos,activeSkills,skillEffects,weightMultiplier,enemyHP,currentEvent,eventVendorMultiplier,TITLE_COUNT,unlockedTitles,playerTitle,vendorPowers,totalPower,taskCost,taskReward,income,trainingCost,spend,unlock,buyTask,buyTraining,buyModel,distillGain,canDistill,distill,advance,validateState,makeSave,readSave,offlineElapsed};
 })();
 __twmods["animation"] = (() => {
 /** Pure animation helpers; caller owns visibility and frame scheduling. */
@@ -826,6 +887,7 @@ const SAVE_KEY='dshtoken-war.save.v1';
 const BACKUP_KEY=SAVE_KEY+'.backup';
 const LOCK_KEY=SAVE_KEY+'.lease';
 const SIGNAL_KEY=SAVE_KEY+'.signal';
+const PREFS_KEY='dshtoken-war.prefs.v1';
 function createStore(storage) {
   let available=true;
   const get=k=>{try{return storage.getItem(k);}catch{available=false;return null;}};
@@ -864,20 +926,27 @@ function createStore(storage) {
   };
 }
 
-return {SAVE_KEY,BACKUP_KEY,LOCK_KEY,SIGNAL_KEY,createStore};
+return {SAVE_KEY,BACKUP_KEY,LOCK_KEY,SIGNAL_KEY,PREFS_KEY,createStore};
 })();
 __twmods["ui"] = (() => {
 const {amount,format,ratio,compare,scale} = __twmods["amount"];
-const {TASKS,ROSTER,EVENTS,CATALOG} = __twmods["config"];
-const {createGame,advance,enemyHP,totalPower,vendorPowers,income,taskCost,taskReward,trainingCost,buyTask,buyModel,buyTraining,weightMultiplier,distillGain,canDistill,distill,currentEvent,eventVendorMultiplier,playerTitle,activeSkills,makeSave,readSave,offlineElapsed,GAME_VERSION} = __twmods["game"];
+const {TASKS,ROSTER,EVENTS,CHATTER,CATALOG,SKILLS} = __twmods["config"];
+const {createGame,advance,enemyHP,totalPower,vendorPowers,income,taskCost,taskReward,trainingCost,buyTask,buyModel,buyTraining,weightMultiplier,distillGain,canDistill,distill,currentEvent,eventVendorMultiplier,playerTitle,unlockedTitles,TITLE_COUNT,activeSkills,makeSave,readSave,offlineElapsed,GAME_VERSION} = __twmods["game"];
 const {selectFrame,drawFrame} = __twmods["animation"];
 const {VENDOR_LOGOS} = __twmods["logos"];
 const {resolveClip} = __twmods["playback"];
-const {createStore,SAVE_KEY,LOCK_KEY,SIGNAL_KEY} = __twmods["storage"];
+const {createStore,SAVE_KEY,LOCK_KEY,SIGNAL_KEY,PREFS_KEY} = __twmods["storage"];
 
-const STAGE_TARGETS=['TODO.md','FIXME_别删.ts','祖传代码_谁动背锅.js','429_RateLimit.log','需求_最终版_改8.docx','临时方案_2024.py','上下文溢出.err','把按钮左移2px.issue'];
-const BOSS_TARGETS=['FINAL_v9_真最终版.md','PR_3000行_求LGTM.diff','周五17点热修.sh','CUDA_OOM_现场.dump','老板临时加的小需求.md','ANT_破发_$81.91.chart'];
+const STAGE_TARGETS=[
+  'TODO.md','FIXME_别删.ts','祖传代码_谁动背锅.js','429_RateLimit.log','需求_最终版_改8.docx','临时方案_2024.py','上下文溢出.err','把按钮左移2px.issue',
+  '画13个鸡蛋_实测14个.png','雷霆大思考_3h_路径错.log','露豆脚_忘删末尾提示.md','Vibe债_重写整个模块.diff','429_难道要手写代码.err','输入法弹出三个AI.ui','又被截图了_注意保密.png','细说梁子小号.chat','首先我不是串子.txt','打游戏被拍_气晕.jpg'
+];
+const BOSS_TARGETS=[
+  'FINAL_v9_真最终版.md','PR_3000行_求LGTM.diff','周五17点热修.sh','CUDA_OOM_现场.dump','老板临时加的小需求.md','ANT_破发_$81.91.chart',
+  '黎曼猜想_1737万行.lean','Dario_两米长手机小作文.txt','GPT6.2_计费Bug_+40%.patch','13个鸡蛋_终极计数考.png','VibeCoding_五年技术债.git','梁文锋_380磅真照.raw'
+];
 const VENDOR_LABELS={chatgpt:'OpenAI',deepseek:'DeepSeek',claude:'Anthropic',gemini:'Google',qwen:'Qwen',doubao:'Doubao',glm:'Zhipu',grok:'xAI',kimi:'Moonshot',minimax:'MiniMax'};
+const VENDOR_SHORT={deepseek:'DS',chatgpt:'OA',claude:'CL',gemini:'GE',qwen:'QW',doubao:'DB',glm:'GL',grok:'GK',kimi:'KM',minimax:'MM'};
 const VENDOR_COLORS={chatgpt:'#cfbbe9',deepseek:'#6ec5ff',claude:'#e3a06a',gemini:'#bc9df8',qwen:'#8fabed',doubao:'#f2a7c3',glm:'#79d8c4',grok:'#d6d2c4',kimi:'#e9c17a',minimax:'#ff8a7a'};
 const VENDOR_TEXT={chatgpt:'#E2C8FF',deepseek:'#7FD3FF',claude:'#FFB57C',gemini:'#D6B8FF',qwen:'#A9BEFF',doubao:'#FFC6DD',glm:'#A5F0DF',grok:'#F1EDE2',kimi:'#FFD9A0',minimax:'#FFB0A4'};
 const esc=s=>String(s).replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
@@ -902,7 +971,7 @@ const HELP_PAGES=[
   '<p><b>这是什么。</b>Token War 是等待 Agent 时打发时间的小游戏：任务自动循环产出 Token，自动投资任务、招募模型、训练军团并推关。默认全自动，不需要持续操作；点数几下的手动介入也随时可以。</p><p><b>为什么收益和画面无关。</b>Token、关卡、事件与蒸馏只由存档状态和经过的时间决定，画面帧率只影响绘制。切走面板或把页面放到后台后，本插件会停止绘制与经济定时器；回来时按同一套规则补算离开期间的成长（一次最多结算 30 天）。</p>',
   '<p><b>暂停与结算。</b>「暂停」暂停的是游戏时间，不是画面：暂停期间不产出也不推关。暂停状态会存档，刷新或切回面板后保持。</p><p><b>蒸馏。</b>蒸馏重置本代 Token、任务等级、关卡与本代训练，永久保留已招募模型、任务解锁、累计权重和世代编号，下一代从更强起点开始。自动蒸馏会先用有界试算确认收益再决定重启；手动蒸馏需要二次确认。</p>',
   '<p><b>存档。</b>进度只写本机 localStorage，每 10 秒、隐藏页面和关键操作时保存；多窗口时只有一个窗口可写，其他窗口只读，关闭写者后自动接管。切换入口（独立 HTML / DSH 面板）时用「导出存档 / 导入存档」转移进度。</p><p><b>隐私。</b>纯本地运行：不读取会话或工作区，不调用模型或付费 API，不发送网络请求，也不设置遥测。</p>',
-  '<p><b>羁绊与连携。</b>同一厂商的同一系列模型凑齐 2 个以上会激活「羁绊」，提高该厂商算力并增加任务收益；不同厂商的指定系列各出一个，会激活「连携」，例如 Kimi 蒸馏 Claude、开源蒸馏链、Arena 互刷。效果实时生效，不额外占用操作；在「军团」面板顶部的技能条可查看当前激活项，点击查看说明。</p>'
+  '<p><b>羁绊、连携与图鉴。</b>同厂商同系列模型凑齐 2 个以上激活「羁绊」，跨厂商凑齐特定组合激活「连携」；可在底部的「羁绊」「连携」标签查看已激活加成与未解锁提示，在右上角「存档/设置 → 图鉴」查阅已目击和未目击的厂商事件。</p><p><b>头衔与战场互动。</b>在「蒸馏与传承」点击当前头衔标签可切换已解锁的成就头衔；点击战场上的人物可触发吐槽气泡，点击「模型军团」底部的厂商缩写条可快速跳转对应厂商。</p>'
 ];
 
 /** One mount owns all game work; dispose/visibility fully stop scheduling. No remote calls. */
@@ -911,10 +980,31 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
   const doc=root.ownerDocument,win=doc.defaultView;
   let local;try{local=win.localStorage;}catch{local={getItem(){throw Error('unavailable');},setItem(){throw Error('unavailable');}};}
   const store=createStore(local),owner=win.crypto?.randomUUID?.()||String(Math.random());
+  const loadPrefs=()=>{
+    try{
+      const raw=store.get(PREFS_KEY);
+      if(!raw)return {titleId:null,buyMult:1};
+      const p=JSON.parse(raw);
+      return {titleId:typeof p?.titleId==='string'?p.titleId:null,buyMult:(p?.buyMult===10||p?.buyMult==='max')?p.buyMult:1};
+    }catch{return {titleId:null,buyMult:1};}
+  };
+  const prefs=loadPrefs();
+  const savePrefs=()=>{try{store.put(PREFS_KEY,JSON.stringify(prefs));}catch{}};
   let s=createGame(),wall=Date.now(),held=false,disposed=false,acquiring=false,releaseWeb=null;
   let visible=true,intersecting=true,catching=false,epoch=0,tabW='distill',sideTab='distill',lastRenderedStage=1;
   let taskPage=0,taskRows=6,armyPage=0,armyRows=5;
-  let drawerOpen=false,drawerTab='save',logPage=0,helpPage=0,lastLogKey='';
+  let drawerOpen=false,drawerTab='save',logPage=0,helpPage=0,eventPage=0,lastLogKey='',lastBondsKey=null,lastCombosKey=null,lastEventCodexKey=null;
+  let chatter=null,nextChatterAt=performance.now()+9000;
+  const lastChatterIdx={};
+  let lastDrawnChars=[];
+  const pickChatter=v=>{
+    const quotes=CHATTER?.[v];
+    if(!quotes?.length)return '';
+    let idx=Math.floor(Math.random()*quotes.length);
+    if(quotes.length>1&&idx===lastChatterIdx[v])idx=(idx+1+Math.floor(Math.random()*(quotes.length-1)))%quotes.length;
+    lastChatterIdx[v]=idx;
+    return quotes[idx];
+  };
   let noticeMessage='',dismissedSession='';
   let layout={w:0,h:0,size:'wide',tall:true,battleH:0};
   let cssW=0,cssH=0,dprCur=1,halftonePattern=null;
@@ -926,6 +1016,7 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
   const renderStats={drawCount:0,logicCount:0,active:false,owner:false,catching:false,loadedAtlases:0,meanDrawMs:0,maxDrawMs:0};
   const taskRowsHtml=TASKS.map((q,i)=>`<div class="tw-task-row" data-task="${i}" data-testid="task-row" hidden><span class="tw-task-num">${String(i+1).padStart(2,'0')}</span><span class="tw-task-name" data-field="name" title="${esc(q.name)}">${esc(q.name)}</span><span class="tw-task-lv" data-field="level">待启动</span><span class="tw-task-bar" title="本周期进度"><i data-field="progress"></i></span><span class="tw-task-reward"><b data-field="reward">0</b><small>/${q.periodMs/1000}s</small></span><button class="tw-up" data-upgrade="${i}" title="升级"><span data-field="verb">启动</span><span data-field="cost">0</span></button></div>`).join('');
   const armyRowsHtml=ARMY_MODELS.map(m=>`<div class="tw-army-row" data-model="${m.id}" data-testid="army-row" hidden><span class="tw-vendor-badge" style="--vc:${VENDOR_COLORS[m.vendor]}">${m.vendor.slice(0,2).toUpperCase()}</span><span class="tw-army-name">${esc(m.name)}<small>${esc(m.tag)}</small></span><span class="tw-army-power" title="基础算力">${format(amount(m.power))}</span><button class="tw-army-btn" data-recruit="${m.id}">…</button></div>`).join('');
+  const vendorJumpHtml=ROSTER.enabledVendors.map(v=>`<button type="button" data-army-vendor="${v}" style="--vc:${VENDOR_COLORS[v]}" title="${esc(VENDOR_LABELS[v]||v)}">${VENDOR_SHORT[v]||v.slice(0,2).toUpperCase()}</button>`).join('');
   root.dataset.size='wide';root.dataset.h='tall';
   root.innerHTML=`
     <header class="tw-statusbar" data-testid="status-bar">
@@ -947,7 +1038,7 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
     <div class="tw-battlefield" data-testid="battlefield"><div class="tw-newsbar" data-testid="news-bar"><span class="tw-news-tag">要闻：</span><span class="tw-news-text" data-role="newsText">暂无厂商事件 · 军团正在自动推进</span></div><canvas class="tw-canvas" width="1024" height="300" aria-label="模型军团自动战斗画面"></canvas></div>
     <div class="tw-workspace" data-testid="workspace">
       <section class="tw-panel tw-tasks" data-testid="tasks-panel" data-role="tasksPanel">
-        <div class="tw-panel-head"><span class="tw-panel-title">任务生产</span><span class="tw-panel-summary" data-testid="tasks-summary" data-value="tasksSummary">运行 1/${TASKS.length} · +0/s</span><label class="tw-toggle"><input type="checkbox" data-control="auto" data-testid="auto-toggle" checked>自动经营</label></div>
+        <div class="tw-panel-head"><span class="tw-panel-title">任务生产</span><span class="tw-panel-summary" data-testid="tasks-summary" data-value="tasksSummary">运行 1/${TASKS.length} · +0/s</span><button type="button" class="small tw-mult-btn" data-action="buy-mult" data-testid="buy-mult" title="切换手动升级/训练单次购买档位">×1</button><label class="tw-toggle"><input type="checkbox" data-control="auto" data-testid="auto-toggle" checked>自动经营</label></div>
         <div class="tw-task-list" data-role="taskList">${taskRowsHtml}</div>
         <div class="tw-task-foot"><span class="tw-next" data-role="nextTask">下一项：…</span><div class="tw-pager"><button data-task-page="prev" data-testid="task-page-prev" title="上一页">‹</button><span class="tw-page-info" data-testid="task-page-info" data-value="taskPageInfo">1 / 1</span><button data-task-page="next" data-testid="task-page-next" title="下一页">›</button></div></div>
       </section>
@@ -958,13 +1049,13 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
           <div class="tw-panel-body" data-role="armyBody">
             <div class="tw-army-bar"><span data-value="armyTraining">本代训练 Lv.0</span><button class="small" data-action="train" data-testid="train-button" title="用 Token 提升全军训练等级">全军训练</button></div>
             <div class="tw-army-list" data-role="armyList"><img class="tw-army-logo" data-role="armyLogo" alt="" aria-hidden="true"><div class="tw-army-group" data-role="armyGroup" hidden><b data-role="armyGroupName"></b><span data-role="armyGroupMeta"></span></div>${armyRowsHtml}</div>
-            <div class="tw-task-foot"><span class="tw-next" data-role="armyFootText">同厂商共用角色 · 价格是游戏平衡值</span><div class="tw-pager"><button data-army-page="prev" data-testid="army-page-prev" title="上一页">‹</button><span class="tw-page-info" data-testid="army-page-info" data-value="armyPageInfo">1 / 1</span><button data-army-page="next" data-testid="army-page-next" title="下一页">›</button></div></div>
+            <div class="tw-task-foot"><div class="tw-vendor-jump" data-role="vendorJump" aria-label="厂商快捷跳转">${vendorJumpHtml}</div><div class="tw-pager"><button data-army-page="prev" data-testid="army-page-prev" title="上一页">‹</button><span class="tw-page-info" data-testid="army-page-info" data-value="armyPageInfo">1 / 1</span><button data-army-page="next" data-testid="army-page-next" title="下一页">›</button></div></div>
           </div>
         </section>
         <section class="tw-panel tw-distill" data-testid="distill-panel" data-role="distillPanel">
           <div class="tw-panel-head"><span class="tw-panel-title">蒸馏与传承</span><span class="tw-panel-summary" data-testid="distill-summary" data-value="distillSummary">第 1 代 · 自动开</span></div>
           <div class="tw-panel-body tw-distill-body" data-role="distillBody">
-            <div class="tw-gen-line"><span class="tw-gen" data-value="gen">GEN 001</span><span class="tw-chip" data-value="multiplier">×1</span><span class="tw-chip tw-rank" data-value="rank" data-role="rankChip">Prompt 实习生</span></div>
+            <div class="tw-gen-line"><span class="tw-gen" data-value="gen">GEN 001</span><span class="tw-chip" data-value="multiplier">×1</span><button type="button" class="tw-chip tw-rank" data-value="rank" data-role="rankChip" data-action="cycle-title">Prompt 实习生</button></div>
             <div class="tw-kv-row"><div class="tw-kv-cell"><span>累计权重</span><b data-value="weights">0</b></div><div class="tw-kv-cell"><span>本次可获</span><b data-value="gain">+0</b></div><div class="tw-kv-cell"><span>本代训练</span><b data-value="training">Lv.0</b></div></div>
             <div class="tw-kv-row"><div class="tw-kv-cell"><span>本代最高</span><b data-value="runMaxStage">0</b></div><div class="tw-kv-cell"><span>已蒸馏</span><b data-value="distillCount">0 次</b></div><div class="tw-kv-cell"><span>累计产出</span><b data-value="earned">0</b></div></div>
             <p class="tw-hint" data-value="distillHint">第 40 关起开放 · 本代至少运行 30 秒</p>
@@ -993,7 +1084,7 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
     <div class="tw-drawer-backdrop" data-role="drawerBackdrop" hidden>
       <div class="tw-drawer" data-testid="drawer" role="dialog" aria-modal="true" aria-label="存档、设置、帮助与记录">
         <div class="tw-drawer-head">
-          <nav class="tw-drawer-tabs" data-role="drawerTabs"><button data-drawer-tab="save" data-testid="tab-save">存档</button><button data-drawer-tab="settings" data-testid="tab-settings">设置</button><button data-drawer-tab="help" data-testid="tab-help">帮助</button><button data-drawer-tab="log" data-testid="tab-log">记录</button></nav>
+          <nav class="tw-drawer-tabs" data-role="drawerTabs"><button data-drawer-tab="save" data-testid="tab-save">存档</button><button data-drawer-tab="settings" data-testid="tab-settings">设置</button><button data-drawer-tab="help" data-testid="tab-help">帮助</button><button data-drawer-tab="log" data-testid="tab-log">记录</button><button data-drawer-tab="events" data-testid="tab-events">图鉴</button></nav>
           <button class="small" data-testid="drawer-close" data-action="close-drawer" title="关闭 (Esc)" aria-label="关闭">×</button>
         </div>
         <div class="tw-drawer-body">
@@ -1015,11 +1106,16 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
           </div>
           <div class="tw-drawer-pane" data-drawer-pane="help" hidden>
             <div class="tw-help-text" data-role="helpText"></div>
-            <div class="tw-pager tw-pager-right"><button data-help-page="prev" title="上一页">‹</button><span class="tw-page-info" data-value="helpPageInfo">1 / 3</span><button data-help-page="next" title="下一页">›</button></div>
+            <div class="tw-pager tw-pager-right"><button data-help-page="prev" title="上一页">‹</button><span class="tw-page-info" data-value="helpPageInfo">1 / 4</span><button data-help-page="next" title="下一页">›</button></div>
           </div>
           <div class="tw-drawer-pane" data-drawer-pane="log" hidden>
             <div class="tw-log-list" data-role="logList"></div>
             <div class="tw-pager tw-pager-right"><button data-log-page="prev" title="上一页">‹</button><span class="tw-page-info" data-value="logPageInfo">1 / 1</span><button data-log-page="next" title="下一页">›</button></div>
+          </div>
+          <div class="tw-drawer-pane" data-drawer-pane="events" hidden>
+            <div class="tw-codex-head"><span>厂商事件图鉴</span><b data-value="eventCodexCount">已目击 0 / ${EVENTS.length} 个事件</b></div>
+            <div class="tw-event-list" data-role="eventList"></div>
+            <div class="tw-pager tw-pager-right"><button data-event-page="prev" title="上一页">‹</button><span class="tw-page-info" data-value="eventPageInfo">1 / 1</span><button data-event-page="next" title="下一页">›</button></div>
           </div>
         </div>
       </div>
@@ -1036,10 +1132,10 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
     status:$('[data-role=status]'),statusText:$('[data-role=statusText]'),pauseBtn:$('[data-action=pause]'),
     session:$('[data-role=session]'),sessionText:$('[data-role=sessionText]'),notice:$('[data-role=notice]'),noticeText:$('[data-role=noticeText]'),eventLine:$('[data-role=eventLine]'),eventText:$('[data-role=eventText]'),
     battle:$('.tw-battlefield'),newsText:$('[data-role=newsText]'),tasksPanel:$('[data-role=tasksPanel]'),sideCol:$('[data-role=sideCol]'),sideTabs:$('[data-role=sideTabs]'),mobileTabs:$('[data-role=mobileTabs]'),bondsPanel:$('[data-role=bondsPanel]'),combosPanel:$('[data-role=combosPanel]'),bondsList:$('[data-role=bondsList]'),combosList:$('[data-role=combosList]'),bondsSummary:$('[data-role=bondsSummary]'),combosSummary:$('[data-role=combosSummary]'),
-    taskList:$('[data-role=taskList]'),nextTask:$('[data-role=nextTask]'),taskPrev:$('[data-testid=task-page-prev]'),taskNext:$('[data-testid=task-page-next]'),
-    armyPanel:$('[data-role=armyPanel]'),armySummary:$('[data-testid=army-summary]'),armyBody:$('[data-role=armyBody]'),armyList:$('[data-role=armyList]'),armyLogo:$('[data-role=armyLogo]'),armyGroup:$('[data-role=armyGroup]'),armyGroupName:$('[data-role=armyGroupName]'),armyGroupMeta:$('[data-role=armyGroupMeta]'),armyPrev:$('[data-testid=army-page-prev]'),armyNext:$('[data-testid=army-page-next]'),trainBtn:$('[data-action=train]'),
+    taskList:$('[data-role=taskList]'),nextTask:$('[data-role=nextTask]'),taskPrev:$('[data-testid=task-page-prev]'),taskNext:$('[data-testid=task-page-next]'),multBtn:$('[data-testid=buy-mult]'),
+    armyPanel:$('[data-role=armyPanel]'),armySummary:$('[data-testid=army-summary]'),armyBody:$('[data-role=armyBody]'),armyList:$('[data-role=armyList]'),armyLogo:$('[data-role=armyLogo]'),armyGroup:$('[data-role=armyGroup]'),armyGroupName:$('[data-role=armyGroupName]'),armyGroupMeta:$('[data-role=armyGroupMeta]'),vendorJump:$('[data-role=vendorJump]'),armyPrev:$('[data-testid=army-page-prev]'),armyNext:$('[data-testid=army-page-next]'),trainBtn:$('[data-action=train]'),
     distillPanel:$('[data-role=distillPanel]'),distillSummary:$('[data-testid=distill-summary]'),distillBody:$('[data-role=distillBody]'),distillBtn:$('[data-action=distill]'),rankChip:$('[data-role=rankChip]'),
-    backdrop:$('[data-role=drawerBackdrop]'),drawerTabs:$('[data-role=drawerTabs]'),helpText:$('[data-role=helpText]'),logList:$('[data-role=logList]'),logPrev:$('[data-log-page=prev]'),logNext:$('[data-log-page=next]'),
+    backdrop:$('[data-role=drawerBackdrop]'),drawerTabs:$('[data-role=drawerTabs]'),helpText:$('[data-role=helpText]'),logList:$('[data-role=logList]'),logPrev:$('[data-log-page=prev]'),logNext:$('[data-log-page=next]'),eventList:$('[data-role=eventList]'),eventPrev:$('[data-event-page=prev]'),eventNext:$('[data-event-page=next]'),
     confirm:$('[data-role=confirm]'),dialogTitle:$('#tw-dialog-title'),confirmText:$('[data-role=confirmText]'),
     catchup:$('[data-role=catchup]'),catchupText:$('[data-role=catchupText]'),takeover:$('[data-role=takeover]'),qualityBtn:$('[data-testid=quality-toggle]'),stageProgress:$('[data-field=stageProgress]')
   };
@@ -1113,8 +1209,16 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
     const byVendor=vendorPowers(s);
     const sortedOwned=[...owned].sort((a,b)=>compare(byVendor[b]||amount(0),byVendor[a]||amount(0)));
     const starterVendor=ROSTER.enabledVendors[0];
-    const pinned=sortedOwned.includes(starterVendor)?[starterVendor,...sortedOwned.filter(v=>v!==starterVendor)]:sortedOwned;
+    const eventVendors=ev?[ev.vendor!=='all'?ev.vendor:null,...Object.keys(ev.vendorPower||{}),...Object.keys(ev.vendorBubbles||{})].filter(v=>v&&owned.includes(v)):[];
+    const pinned=[...new Set([starterVendor,...eventVendors,...sortedOwned].filter(v=>owned.includes(v)))];
     const visibleOwned=pinned.slice(0,maxChars);
+    if(chatter&&now>=chatter.until)chatter=null;
+    if(held&&!s.paused&&!ev&&visibleOwned.length&&now>=nextChatterAt){
+      const cv=visibleOwned[Math.floor(Math.random()*visibleOwned.length)];
+      const qt=pickChatter(cv);
+      if(qt)chatter={vendor:cv,text:qt,until:now+4200};
+      nextChatterAt=now+12000+Math.random()*6000;
+    }
     // 角色占满整个战场宽度；敌人状态压缩为顶部一条窄状态条，给模型名留出空间
     const slot=Math.max(24,Math.min(150,(W-12)/Math.max(1,visibleOwned.length)));
     const charH=Math.max(40,Math.min(H*0.64,groundY-14));
@@ -1131,6 +1235,7 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
       return Math.max(min,size);
     };
     const chars=[];
+    lastDrawnChars=[];
     visibleOwned.forEach((id,i)=>{
       loadCharacter(id);
       const character=CATALOG.characters.find(c=>c.id===id),image=images.get(id),x=x0+i*slot;
@@ -1146,6 +1251,7 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
       const restricted=evMult<1;
       const accent=restricted?'#B0ACA0':(VENDOR_TEXT[id]||VENDOR_COLORS[id]);
       chars.push({id,x:charX,y:groundY,targetH,restricted});
+      lastDrawnChars.push({id,x0:Math.max(0,x-slot/2),x1:Math.min(W,x+slot/2),y0:Math.max(0,groundY-targetH-16),y1:Math.min(H,groundY+28)});
       ctx.fillStyle='#00000066';ctx.beginPath();ctx.ellipse(x,groundY-2,Math.max(8,charH*.20),Math.max(2,charH*.05),0,0,Math.PI*2);ctx.fill();
       if(image){
         const bounds=character.renderBounds||[0,0,192,192];
@@ -1165,7 +1271,7 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
       ctx.font=`700 ${vendorSize}px 'PingFang SC','Heiti SC',system-ui,sans-serif`;
       ctx.fillText(vendor,x,groundY+14);
       if(H>=112){
-        const latest=ROSTER.models.filter(m=>m.vendor===id&&s.models.includes(m.id)).at(-1);
+        const latest=ROSTER.models.filter(m=>m.vendor===id&&s.models.includes(m.id)).sort((a,b)=>(a.tier-b.tier)||(a.power-b.power)||(a.unlockStage-b.unlockStage)).at(-1);
         const modelName=latest?latest.name:'';
         const modelSize=fitFontSize(modelName,slot-6,'400',compactCanvas?9:10,6.2);
         ctx.globalAlpha=.86;ctx.font=`${modelSize}px 'PingFang SC','Heiti SC',system-ui,sans-serif`;
@@ -1173,19 +1279,39 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
         ctx.globalAlpha=1;
       }
       ctx.restore();
-      if(ev&&evMult!==1){
+      let bubbleText='',bubbleFill='',bubbleStroke='',bubbleColor='';
+      if(ev&&ev.vendorBubbles&&id in ev.vendorBubbles){
+        bubbleText=ev.vendorBubbles[id];
+        const neg=evMult<1;
+        bubbleFill=neg?'#2B1618':'#14212C';
+        bubbleStroke=neg?'#E74438':'#46E3D2';
+        bubbleColor=neg?'#FF8A7A':'#8FF5E8';
+      }else if(ev&&evMult!==1){
         const isPrimary=ev.vendor===id||ev.vendor==='all';
-        const tag=evMult<1?(isPrimary?(ev.bubble||'暂时受限'):'受波及'):(isPrimary?(ev.bubble||'算力提升'):(ev.otherBubble||'算力提升'));
+        bubbleText=evMult<1?(isPrimary?(ev.bubble||'暂时受限'):'受波及'):(isPrimary?(ev.bubble||'算力提升'):(ev.otherBubble||'算力提升'));
+        const neg=evMult<1;
+        bubbleFill=neg?'#2B1618':'#14212C';
+        bubbleStroke=neg?'#E74438':'#46E3D2';
+        bubbleColor=neg?'#FF8A7A':'#8FF5E8';
+      }else if(chatter&&chatter.vendor===id&&now<chatter.until){
+        bubbleText=chatter.text;
+        bubbleFill='#1A1B22';
+        bubbleStroke='#E9C17A';
+        bubbleColor='#F5E6C4';
+      }
+      if(bubbleText){
         ctx.save();ctx.textAlign='center';
-        const tagSize=fitFontSize(tag,Math.max(46,slot-4),'700',compactCanvas?8.5:9.5,6.5);
+        const maxBubbleW=Math.min(W-8,Math.max(76,slot+28));
+        const tagSize=fitFontSize(bubbleText,maxBubbleW-8,'700',compactCanvas?8.5:9.5,6.5);
         ctx.font=`700 ${tagSize}px 'PingFang SC','Heiti SC',system-ui,sans-serif`;
-        const tw=ctx.measureText(tag).width+8,th=14,ty=Math.max(46,groundY-targetH-8);
-        ctx.fillStyle=evMult<1?'#2B1618':'#14212C';
-        ctx.fillRect(x-tw/2,ty-10,tw,th);
-        ctx.strokeStyle=evMult<1?'#E74438':'#46E3D2';
-        ctx.lineWidth=1;ctx.strokeRect(x-tw/2+.5,ty-9.5,tw-1,th-1);
-        ctx.fillStyle=evMult<1?'#FF8A7A':'#8FF5E8';
-        ctx.fillText(tag,x,ty+1);
+        const tw=Math.min(W-8,ctx.measureText(bubbleText).width+8),th=14,ty=Math.max(46,groundY-targetH-8);
+        const bx=Math.max(4,Math.min(W-tw-4,x-tw/2));
+        ctx.fillStyle=bubbleFill;
+        ctx.fillRect(bx,ty-10,tw,th);
+        ctx.strokeStyle=bubbleStroke;
+        ctx.lineWidth=1;ctx.strokeRect(bx+.5,ty-9.5,tw-1,th-1);
+        ctx.fillStyle=bubbleColor;
+        ctx.fillText(fitText(bubbleText,tw-6),bx+tw/2,ty+1);
         ctx.restore();
       }
     });
@@ -1263,6 +1389,9 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
     set('saveHint',!held?'只读页面：另一个页面正在运行，关闭后会自动接管。':storageWarning||'自动保存到本机浏览器；切换入口请用导出 / 导入。');
     if(UI.takeover)UI.takeover.hidden=held;
     // 任务生产：全部 20 行参与分页（未解锁行置灰、不可点），只改可见行、不改变面板高度
+    const multLabel=prefs.buyMult==='max'?'MAX':'×'+prefs.buyMult;
+    const multStepLabel=prefs.buyMult==='max'?'最大':'+'+prefs.buyMult+' 级';
+    if(UI.multBtn){if(UI.multBtn.textContent!==multLabel)UI.multBtn.textContent=multLabel;UI.multBtn.dataset.mult=String(prefs.buyMult);}
     const taskPages=Math.max(1,Math.ceil(TASKS.length/taskRows));
     if(taskPage>=taskPages)taskPage=taskPages-1;
     const tStart=taskPage*taskRows,tEnd=tStart+taskRows;
@@ -1292,45 +1421,77 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
       n.progress.style.width=(q.level?Math.min(100,q.phase/TASKS[i].periodMs*100):0)+'%';
       n.progress.parentElement.title=`本周期进度 ${(q.level?Math.min(100,q.phase/TASKS[i].periodMs*100):0).toFixed(0)}%`;
       n.button.disabled=!held||compare(s.coins,cost)<0;
-      n.button.title=`${q.level?'升级':'启动'}「${TASKS[i].name}」· 花费 ${format(cost)}（完整值）`;
+      n.button.title=`${q.level?'升级':'启动'}「${TASKS[i].name}」(${multStepLabel}) · 下一级花费 ${format(cost)}（完整值）`;
     });
     const nextIndex=TASKS.findIndex((q,i)=>!s.tasks[i].unlocked);
     const nextText=nextIndex<0?`全部 ${TASKS.length} 项任务已解锁`:s.maxStage>=TASKS[nextIndex].unlockStage?`正在安排新任务：${TASKS[nextIndex].name}`:`下一项：${TASKS[nextIndex].name}　/　最高关卡 ${TASKS[nextIndex].unlockStage}`;
     if(UI.nextTask.textContent!==nextText){UI.nextTask.textContent=nextText;UI.nextTask.title=nextText;}
     // 模型军团：每页一家厂商，型号按厂商分组展示
+    const skills=activeSkills(s);
     const armyVendors=ROSTER.enabledVendors;
     const armyPages=armyVendors.length;
     if(armyPage>=armyPages)armyPage=armyPages-1;
     const groupVendor=armyVendors[armyPage];
     const groupModels=ARMY_MODELS.filter(m=>m.vendor===groupVendor);
     const groupOwned=groupModels.filter(m=>s.models.includes(m.id)).length;
+    const vendorTotalBonds=SKILLS.bonds.filter(b=>b.vendor===groupVendor).length;
+    const vendorActiveBonds=skills.bonds.filter(b=>b.vendor===groupVendor).length;
     UI.armyGroup.hidden=false;
     UI.armyLogo.src=VENDOR_LOGOS[groupVendor]||'';
     UI.armyLogo.hidden=!UI.armyLogo.src;
     UI.armyGroupName.textContent=VENDOR_LABELS[groupVendor]||groupVendor;
-    UI.armyGroupMeta.textContent=`${groupModels.length} 个型号 · ${groupOwned}/${groupModels.length} 已加入`;
+    UI.armyGroupMeta.textContent=`${groupModels.length} 个型号 · ${groupOwned}/${groupModels.length} 已加入 · 羁绊 ${vendorActiveBonds}/${vendorTotalBonds}`;
+    if(UI.vendorJump){
+      for(const btn of UI.vendorJump.querySelectorAll('[data-army-vendor]')){
+        const v=btn.dataset.armyVendor;
+        btn.classList.toggle('active',v===groupVendor);
+        const vTotal=ROSTER.models.filter(m=>m.vendor===v).length;
+        const vOwned=ROSTER.models.filter(m=>m.vendor===v&&s.models.includes(m.id)).length;
+        btn.title=`${VENDOR_LABELS[v]||v} · ${vOwned}/${vTotal} 已加入`;
+      }
+    }
     const armySummaryText=`${s.models.length}/${ROSTER.models.length} · 算力 ${compact(powerValue)}`;
     if(UI.armySummary.textContent!==armySummaryText)UI.armySummary.textContent=armySummaryText;
     UI.armySummary.title=`军团：已招募 ${s.models.length}/${ROSTER.models.length} · 总算力（含训练/权重/事件/羁绊加成）${format(powerValue)}（完整值）`;
-    const skills=activeSkills(s);
-    UI.bondsSummary.textContent=`${skills.bonds.length} 组`;
-    UI.combosSummary.textContent=`${skills.combos.length} 组`;
+    UI.bondsSummary.textContent=`${skills.bonds.length}/${SKILLS.bonds.length} 组`;
+    UI.combosSummary.textContent=`${skills.combos.length}/${SKILLS.combos.length} 组`;
     const vendorName=v=>VENDOR_LABELS[v]||v;
     const card=(kind,name,effect,desc,issuer,negative)=>`<div class="tw-skill-card" data-kind="${kind}"${negative?' data-negative="true"':''}><div class="tw-skill-card-head"><b>${esc(name)}</b><span>${esc(effect)}</span></div><p>${esc(desc)}</p><small>发出者：${esc(issuer)}</small></div>`;
-    const bondCards=skills.bonds.map(b=>card('bond',b.name,b.debuff?`速度×${b.tier.power} · 收益×${b.tier.income}`:`算力×${b.tier.power} · 收益×${b.tier.income}`,b.desc,vendorName(b.vendor),b.debuff));
-    const comboCards=skills.combos.map(c=>{
-      const per=c.vendorPower?Object.entries(c.vendorPower).map(([v,x])=>(VENDOR_LABELS[v]||v)+'×'+x).join(' · '):((c.power??1)!==1?`算力×${c.power}`:'');
-      const parts=[per,(c.income??1)!==1?`收益×${c.income}`:''].filter(Boolean);
-      const issuer=c.issuer||(c.requires||[]).map(r=>vendorName(r.vendor)).join(' × ');
-      return card('combo',c.name,parts.join(' · ')||'—',c.desc,issuer,c.debuff);
-    });
-    UI.bondsList.innerHTML=bondCards.length?bondCards.join(''):'<p class="tw-skills-empty">还没有激活的羁绊。</p>';
-    UI.combosList.innerHTML=comboCards.length?comboCards.join(''):'<p class="tw-skills-empty">还没有激活的连携。</p>';
+    const lockedCard=(kind,name,hint)=>`<div class="tw-skill-card tw-skill-locked" data-kind="${kind}"><div class="tw-skill-card-head"><b>${esc(name)}</b><span>未激活</span></div><p>${esc(hint)}</p></div>`;
+    const bondsKey=skills.bonds.map(b=>b.id+':'+b.count+':'+b.tier.count).join('|');
+    if(bondsKey!==lastBondsKey){
+      lastBondsKey=bondsKey;
+      const activeBondIds=new Set(skills.bonds.map(b=>b.id));
+      const bondCards=skills.bonds.map(b=>{
+        const maxCount=b.tiers[b.tiers.length-1].count;
+        const tierLabel=b.count>=maxCount?'满档':`${b.count}/${maxCount}`;
+        const eff=(b.debuff?`速度×${b.tier.power} · 收益×${b.tier.income}`:`算力×${b.tier.power} · 收益×${b.tier.income}`)+` · ${tierLabel}`;
+        return card('bond',b.name,eff,b.desc,vendorName(b.vendor),b.debuff);
+      });
+      const lockedBonds=SKILLS.bonds.filter(b=>!activeBondIds.has(b.id)).map(b=>lockedCard('bond',b.name,`未激活 · 需 ${vendorName(b.vendor)} 同系列 ${b.tiers[0].count} 个`));
+      UI.bondsList.innerHTML=[...bondCards,...lockedBonds].join('');
+    }
+    const combosKey=skills.combos.map(c=>c.id).join('|');
+    if(combosKey!==lastCombosKey){
+      lastCombosKey=combosKey;
+      const activeComboIds=new Set(skills.combos.map(c=>c.id));
+      const comboCards=skills.combos.map(c=>{
+        const per=c.vendorPower?Object.entries(c.vendorPower).map(([v,x])=>(VENDOR_LABELS[v]||v)+'×'+x).join(' · '):((c.power??1)!==1?`算力×${c.power}`:'');
+        const parts=[per,(c.income??1)!==1?`收益×${c.income}`:''].filter(Boolean);
+        const issuer=c.issuer||(c.requires||[]).map(r=>vendorName(r.vendor)).join(' × ');
+        return card('combo',c.name,parts.join(' · ')||'—',c.desc,issuer,c.debuff);
+      });
+      const lockedCombos=SKILLS.combos.filter(c=>!activeComboIds.has(c.id)).map(c=>{
+        const hint=c.vendors?`未激活 · ${c.issuer||c.vendors.map(vendorName).join('/')}满 ${c.minModels||1} 个`:`未激活 · 需 ${(c.requires||[]).map(r=>vendorName(r.vendor)).join(' × ')}`;
+        return lockedCard('combo',c.name,hint);
+      });
+      UI.combosList.innerHTML=[...comboCards,...lockedCombos].join('');
+    }
     set('armyTraining',`本代训练 Lv.${s.training}`);
     set('armyPageInfo',`${armyPage+1} / ${armyPages}`);
     UI.armyPrev.disabled=armyPage<=0;UI.armyNext.disabled=armyPage>=armyPages-1;
     UI.trainBtn.textContent='全军训练 '+compact(trainingCost(s));
-    UI.trainBtn.title=`全会训练 +1 级 · 花费 ${format(trainingCost(s))}（完整值）`;
+    UI.trainBtn.title=`全军训练 ${multStepLabel} · 单级花费 ${format(trainingCost(s))}（完整值）`;
     UI.trainBtn.disabled=!held||compare(s.coins,trainingCost(s))<0;
     armyNodes.forEach((n,j)=>{
       const m=ARMY_MODELS[j],own=s.models.includes(m.id),locked=s.maxStage<m.unlockStage;
@@ -1347,9 +1508,10 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
     });
     // 蒸馏与传承
     const genText='GEN '+String(s.generation).padStart(3,'0'),multText='×'+format(weightMultiplier(s)),gainText='+'+compact(distillGain(s));
-    const rank=playerTitle(s);
+    const titles=unlockedTitles(s);
+    const rank=playerTitle(s,prefs.titleId);
     set('gen',genText);set('multiplier',multText);set('rank',rank.name);set('gain',gainText);set('weights',format(s.weights));set('training','Lv.'+s.training);
-    if(UI.rankChip)UI.rankChip.title=`当前头衔：${rank.name}（${rank.reason}）`;
+    if(UI.rankChip)UI.rankChip.title=`当前头衔：${rank.name}（${rank.reason}）· 已解锁 ${titles.length}/${TITLE_COUNT}，点击切换`;
     set('runMaxStage',String(s.runMaxStage));set('distillCount',s.distillCount+' 次');set('earned',format(s.earned));
     const distillSummaryText=`第 ${s.generation} 代 · 自动${s.autoDistill?'开':'关'}`;
     if(UI.distillSummary.textContent!==distillSummaryText)UI.distillSummary.textContent=distillSummaryText;
@@ -1376,7 +1538,7 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
     }
     if(UI.newsText&&UI.newsText.textContent!==newsText)UI.newsText.textContent=newsText;
     if(UI.newsText)UI.newsText.title=ev?.desc||newsText;
-    const railText=!held?'只读页面 · 另一页面正在运行':s.paused?'已暂停 · 游戏计时冻结':`自动运行中 · 收益 +${format(incomeValue)}/s · 军团正在自动推进`;
+    const railText=!held?'只读页面 · 另一页面正在运行':s.paused?'已暂停 · 游戏计时冻结':s.lastAction?`自动运行中 · ${s.lastAction}`:`自动运行中 · 收益 +${format(incomeValue)}/s · 军团正在自动推进`;
     if(UI.eventText.textContent!==railText)UI.eventText.textContent=railText;
     const nextEventSec=Math.max(0,Math.ceil((s.nextEventAt-s.time)/1000));
     set('runDuration',timeLabel(Math.max(0,s.time-s.runStart)));
@@ -1384,6 +1546,7 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
     const lastLog=s.logs[s.logs.length-1];
     set('lastLog',lastLog?`${clockLabel(lastLog.at)} · ${lastLog.text}`:'—');
     if(drawerOpen&&drawerTab==='log')renderLog();
+    if(drawerOpen&&drawerTab==='events')renderEventCodex();
     renderStats.owner=held;renderStats.active=visible&&held;renderStats.catching=catching;renderStats.logicCount=logicCounter;
   }
   function renderPanels(){
@@ -1456,6 +1619,29 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
     set('logPageInfo',`${logPage+1} / ${pages}`);
     UI.logPrev.disabled=logPage<=0;UI.logNext.disabled=logPage>=pages-1;
   }
+  function getEventPageSize(){return (layout.w<500||layout.h<560)?5:7;}
+  function renderEventCodex(){
+    const pageSize=getEventPageSize();
+    const seen=new Set(s.seenEvents||[]);
+    const pages=Math.max(1,Math.ceil(EVENTS.length/pageSize));
+    if(eventPage>=pages)eventPage=pages-1;
+    const slice=EVENTS.slice(eventPage*pageSize,eventPage*pageSize+pageSize);
+    const key=`${eventPage}:${pageSize}:${seen.size}:${[...seen].join(',')}`;
+    if(key!==lastEventCodexKey&&UI.eventList){
+      lastEventCodexKey=key;
+      UI.eventList.innerHTML=slice.map(ev=>{
+        const vLabel=ev.vendor==='all'?'全网':(VENDOR_LABELS[ev.vendor]||ev.vendor);
+        const vc=ev.vendor==='all'?'var(--primary)':(VENDOR_COLORS[ev.vendor]||'var(--edge)');
+        if(!seen.has(ev.id))return `<div class="tw-event-row tw-event-locked"><span class="tw-event-badge" style="--vc:${vc}">${esc(vLabel)}</span><span class="tw-event-locked-text">尚未目击 · ${esc(vLabel)} 事件</span></div>`;
+        const eff=(ev.effects&&ev.effects.length)?ev.effects.join(' · '):`算力 ×${ev.powerMultiplier??1} · 收益 ×${ev.incomeMultiplier??1}`;
+        return `<div class="tw-event-row"><div class="tw-event-row-head"><span class="tw-event-badge" style="--vc:${vc}">${esc(vLabel)}</span><b>${esc(ev.name)}</b><span class="tw-event-eff">${esc(eff)}</span></div>${ev.desc?`<p>${esc(ev.desc)}</p>`:''}</div>`;
+      }).join('');
+    }
+    set('eventCodexCount',`已目击 ${seen.size} / ${EVENTS.length} 个事件`);
+    set('eventPageInfo',`${eventPage+1} / ${pages}`);
+    if(UI.eventPrev)UI.eventPrev.disabled=eventPage<=0;
+    if(UI.eventNext)UI.eventNext.disabled=eventPage>=pages-1;
+  }
   function renderDrawer(){
     UI.backdrop.hidden=!drawerOpen;
     if(!drawerOpen)return;
@@ -1463,6 +1649,7 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
     for(const pane of UI.backdrop.querySelectorAll('[data-drawer-pane]'))pane.hidden=pane.dataset.drawerPane!==drawerTab;
     if(drawerTab==='help')renderHelp();
     if(drawerTab==='log')renderLog();
+    if(drawerTab==='events')renderEventCodex();
   }
   function openDrawer(tab){drawerOpen=true;drawerTab=tab||'save';updateUI();renderDrawer();}
   function closeDrawer(){drawerOpen=false;UI.backdrop.hidden=true;}
@@ -1548,6 +1735,24 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
     if(!held&&visible&&(e.key===SIGNAL_KEY||(e.key===LOCK_KEY&&!e.newValue)))claim();
   }
   function onClick(e){
+    if(e.target===canvas){
+      if(!held||s.paused)return;
+      const rect=canvas.getBoundingClientRect();
+      if(!rect.width||!rect.height)return;
+      const cx=(e.clientX-rect.left)*(cssW/rect.width);
+      const cy=(e.clientY-rect.top)*(cssH/rect.height);
+      const hit=lastDrawnChars.find(c=>cx>=c.x0&&cx<=c.x1&&cy>=c.y0&&cy<=c.y1);
+      if(hit){
+        const text=pickChatter(hit.id);
+        if(text){
+          const now=performance.now();
+          chatter={vendor:hit.id,text,until:now+4200};
+          nextChatterAt=now+12000+Math.random()*6000;
+          draw(now);
+        }
+      }
+      return;
+    }
     const chip=e.target.closest?.('.tw-skill-chip');
     if(chip&&root.contains(chip)){showNotice(chip.dataset.tip||chip.textContent||'');return;}
     const t=e.target.closest('button');if(!t||!root.contains(t))return;
@@ -1556,13 +1761,28 @@ function mountGame(root,{assetData={},hostNotice=null}={}) {
     if(t.dataset.drawerTab){drawerTab=t.dataset.drawerTab;renderDrawer();return;}
     if(t.dataset.taskPage){const dir=t.dataset.taskPage==='next'?1:-1;const pages=Math.max(1,Math.ceil(TASKS.length/taskRows));taskPage=Math.max(0,Math.min(pages-1,taskPage+dir));updateUI();return;}
     if(t.dataset.armyPage){const dir=t.dataset.armyPage==='next'?1:-1;const pages=ROSTER.enabledVendors.length;armyPage=Math.max(0,Math.min(pages-1,armyPage+dir));updateUI();return;}
+    if(t.dataset.armyVendor){const idx=ROSTER.enabledVendors.indexOf(t.dataset.armyVendor);if(idx>=0){armyPage=idx;updateUI();}return;}
     if(t.dataset.helpPage){helpPage=Math.max(0,Math.min(HELP_PAGES.length-1,helpPage+(t.dataset.helpPage==='next'?1:-1)));renderHelp();return;}
     if(t.dataset.logPage){const pages=Math.max(1,Math.ceil(s.logs.length/LOG_PAGE_SIZE));logPage=Math.max(0,Math.min(pages-1,logPage+(t.dataset.logPage==='next'?1:-1)));renderLog();return;}
-    if(t.dataset.upgrade!==undefined)return applyControl(()=>buyTask(s,Number(t.dataset.upgrade),s.coins,1));
+    if(t.dataset.eventPage){const pages=Math.max(1,Math.ceil(EVENTS.length/getEventPageSize()));eventPage=Math.max(0,Math.min(pages-1,eventPage+(t.dataset.eventPage==='next'?1:-1)));renderEventCodex();return;}
+    const maxBuy=prefs.buyMult==='max'?10000:prefs.buyMult;
+    if(t.dataset.upgrade!==undefined)return applyControl(()=>buyTask(s,Number(t.dataset.upgrade),s.coins,maxBuy));
     if(t.dataset.recruit)return applyControl(()=>buyModel(s,t.dataset.recruit));
     const action=t.dataset.action;
     if(action==='pause')return applyControl(()=>{s.paused=!s.paused;wall=Math.max(wall,Date.now());clearSchedules();scheduleDraw();scheduleLogic();});
-    if(action==='train')return applyControl(()=>buyTraining(s));
+    if(action==='train')return applyControl(()=>buyTraining(s,s.coins,maxBuy));
+    if(action==='buy-mult'){prefs.buyMult=prefs.buyMult===1?10:prefs.buyMult===10?'max':1;savePrefs();updateUI();return;}
+    if(action==='cycle-title'){
+      const titles=unlockedTitles(s);
+      if(titles.length){
+        const cur=playerTitle(s,prefs.titleId);
+        const idx=titles.findIndex(item=>item.id===cur.id);
+        prefs.titleId=titles[(idx+1)%titles.length].id;
+        savePrefs();
+        updateUI();
+      }
+      return;
+    }
     if(action==='distill')return showConfirm('蒸馏到下一代？','Token、任务等级、关卡与本代训练将重置；模型、任务解锁与权重永久保留。',()=>applyControl(()=>distill(s)));
     if(action==='drawer'){openDrawer(t.dataset.drawer);return;}
     if(action==='close-drawer'){closeDrawer();return;}

@@ -41,19 +41,19 @@ HTML 文件、`localhost`、DSH 面板是不同存储来源，进度互通请用
 
 - **任务**：20 个循环任务自动并行生产 Token，升级提高单周期收益；未解锁任务会显示解锁关卡。
 - **军团**：10 家厂商、60 个真实模型型号（每家完整 6 档），按关卡解锁；同厂商共享一个角色，战力按厂商汇总。首发免费 DeepSeek-V4.1-Flash。
-- **羁绊 / 连携**：全部 10 家厂商均有专属「羁绊」（共 11 组），跨厂商与阵营组合触发「连携」（共 18 组）；加成直接作用于军团算力与任务收益，在侧栏的「羁绊」「连携」Tab 查看。
-- **模型 Tab**：按厂商分页，每页一家厂商，页头显示该厂商型号数与已加入数量；同厂商共用一个角色。
+- **羁绊 / 连携**：全部 10 家厂商均有专属「羁绊」（共 13 组），跨厂商与阵营组合触发「连携」（共 26 组）；加成直接作用于军团算力与任务收益，在侧栏的「羁绊」「连携」Tab 查看。
+- **模型 Tab**：按厂商分页，顶部支持 10 家厂商快捷跳转，每页展示一家厂商的 6 档型号与已加入数量；同厂商共用一个角色。
 
 ![模型 Tab · 厂商背景 Logo](https://raw.githubusercontent.com/JJJACKsong/dsh-plugin-token-war/main/docs/screenshots/10-models.png)
-- **战斗**：军团自动推进关卡，关卡目标与每 10 关 Boss 按 AI/程序员梗名轮换；战场有呼吸浮动、攻击火花、飞向状态条的弹道和顶部工作量条，没有最终 Boss。
-- 厂商遭遇事件时，角色头顶会弹出像素风短梗气泡；受限角色自动变灰，事件结束后恢复。
-- **事件池 33 个**（纯本地静态戏仿，同时最多一个）：覆盖全部 10 家厂商与全网行业大事件，含「普天同庆：Anthropic 破发！」「a畜日常：5 小时限额已用尽」「z畜名场面：顺手上传了 repo」「元素周期表又添新元素」「最近在工位玩游戏的太多了」「黄仁勋皮衣发布会」「周五下午五点紧急上线」等。
+- **战斗**：军团自动推进关卡，18 个关卡目标与 12 个每 10 关 Boss 按 AI/程序员梗名轮换；战场有呼吸浮动、攻击火花、飞向状态条的弹道和顶部工作量条，没有最终 Boss。
+- 厂商遭遇事件时，角色头顶会弹出像素风短梗气泡（支持双厂隔空对线气泡）；受限角色自动变灰，窄屏自动将事件当事人置顶，事件结束后恢复。平时无事件时，战场角色也会随机冒出日常吐槽，点击角色可直接触发人设吐槽气泡（全 10 厂商 60 句热梗，含 12 句 DeepSeek 员工群串子语录）。
+- **事件池 53 个**（纯本地静态戏仿，同时最多一个）：覆盖全部 10 家厂商与全网行业大事件，含「我一直是达里奥粉丝」「唐老师攻破 Astra 了吗？要不要来 DS 进修」「重置哥换人了：谢谢反重力」「Dario 连夜千字小作文，马斯克只回 Interesting」「普天同庆：Anthropic 破发！」「最近在工位玩游戏的太多了」「黄仁勋皮衣发布会」等；抽屉内置「事件图鉴」记录已见证事件。
 
 ![厂商事件 · 暂时受限](https://raw.githubusercontent.com/JJJACKsong/dsh-plugin-token-war/main/docs/screenshots/11-restricted.png)
-- **蒸馏**：重置本代 Token / 任务等级 / 关卡 / 本代训练，保留模型、任务解锁、累计权重与世代编号，并按当前进度与梗组合实时显示只读算力头衔；自动蒸馏先用有界试算确认收益。
+- **蒸馏**：重置本代 Token / 任务等级 / 关卡 / 本代训练，保留模型、任务解锁、已见证事件图鉴、累计权重与世代编号，并可在 15 个梗头衔中点击切换当前展示头衔；自动蒸馏先用有界试算确认收益。
 - **离线成长**：切走面板、隐藏页面或关掉再回来，按同一套规则补算（单次最多 30 天）。
 
-所有手动操作都是可选的：升级、训练、招募、暂停、手动蒸馏。默认全自动。
+所有手动操作都是可选的：升级、训练（均支持 `×1 / ×10 / MAX`）、招募、暂停、手动蒸馏。默认全自动，顶部通知行会实时显示最近一次自动动作。
 
 ![窄窗口 / 紧凑布局](https://raw.githubusercontent.com/JJJACKsong/dsh-plugin-token-war/main/docs/screenshots/05-compact-620x480.png)
 
@@ -71,20 +71,20 @@ Agent 完成或等待批准时，顶部会切换为高亮提醒并显示「返�
 
 ## 模型名单
 
-按 2026-11 各厂商公开模型页整理（来源记录在 `data/roster.json` 的 `modelSnapshot.sources`）；只作为游戏戏仿，不是 API 报价。
+按 2026-11-28 各厂商公开模型页整理（来源记录在 `data/roster.json` 的 `modelSnapshot.sources`）；只作为游戏戏仿，不是 API 报价。
 
-| 厂商 | 当前阵容 |
+| 厂商 | 当前阵容（Tier 1 → Tier 6） |
 | --- | --- |
-| DeepSeek | DeepSeek-V4.1-Flash（首发）· V4-Flash · V4-Flash-GA · V4-Pro · V4-Pro-GA · V4.1-Flash-Economy |
-| OpenAI | GPT-5.6 Luna · Terra · Sol · Sol Pro · GPT-6 Sol · GPT-6 Astra |
-| Anthropic | Claude Haiku 5.5 · Sonnet 5.5 · Opus 5.5 · Fable 5.1 · Sonnet 4.6 · Opus 4.6 |
-| Google | Gemini 3.8 Flash · Gemini 4 Flash-Lite · 4 Flash · 4 Pro · 4 Argon · 4 Neon |
-| Qwen | Qwen3.8-Flash · Qwen3.8-Max · Max-0902 · 2.4T-A95B · 27B · Qwen3-Coder-Next |
-| ByteDance | Doubao-Seed-2.1-Pro · 2.1-Lite · 2.1-Turbo · 2.0-Lite · 2.0-Mini · Seed-Evolving |
-| Zhipu | GLM-5 · 5.1 · 5.2 · 5.3 · 5.3-Flash · 5.3-FlashX |
-| xAI | Grok 4.7 · 4.6 · 4.5 · 4.3 · 4.20 · Grok Build 0.1 |
-| Moonshot | Kimi K3.1 Pro · K3.1 Pro Highspeed · K3 · K2.7 Code · K2.6 · K2.5 |
-| MiniMax | MiniMax-M3 · M3.1-Flash · M2.7 · M2.5 · M2.1 · M2 |
+| DeepSeek | DeepSeek-V4.1-Flash（首发）· DeepSeek-V4-Flash · DeepSeek-V4-Flash-GA · DeepSeek-V4-Pro · DeepSeek-V4.1-Flash-Economy · DeepSeek-V4-Pro-GA |
+| OpenAI | GPT-6 Luna · GPT-6.1 Terra · GPT-6.1 Sol · GPT-6 Astra · GPT-6.2 Sol · GPT-6.2 Astra |
+| Anthropic | Claude Haiku 5.5 · Claude Sonnet 4.6 · Claude Sonnet 5.5 · Claude Opus 4.6 · Claude Opus 5.5 · Claude Fable 5.2 |
+| Google | Gemini 3.8 Flash · Gemini 4 Hydrogen · Gemini 4 Flash · Gemini 4 Carbon · Gemini 4 Argon · Gemini 4 Neon |
+| Qwen | Qwen3.8-Flash · Qwen3.8-27B · Qwen3-Coder-Next · Qwen3.8-Max · Qwen3.8-2.4T-A95B · Qwen4-Max |
+| ByteDance | Doubao-Seed-2.0-Mini · Doubao-Seed-2.0-Lite · Doubao-Seed-2.1-Lite · Doubao-Seed-2.1-Turbo · Doubao-Seed-2.1-Pro · Doubao-Seed-Evolving |
+| Zhipu | GLM-5 · GLM-5.1 · GLM-5.2 · GLM-5.3-Flash · GLM-5.3 · GLM-5.4 |
+| xAI | Grok 4.3 · Grok 4.5 · Grok 4.6 · Grok 4.20 · Grok Build 0.1 · Grok 4.7 |
+| Moonshot | Kimi K2.5 · Kimi K2.6 · Kimi K2.7 Code · Kimi K3 · Kimi K3.1 Pro Prime · Kimi K3.1 Pro |
+| MiniMax | MiniMax-M2 · MiniMax-M2.1 · MiniMax-M2.5 · MiniMax-M2.7 · MiniMax-M3.1-Flash · MiniMax-M3 |
 
 ## 模型数值
 
@@ -105,11 +105,19 @@ Agent 完成或等待批准时，顶部会切换为高亮提醒并显示「返�
 
 ## 羁绊与连携
 
-- **同系列羁绊**（11 组，覆盖全部 10 家厂商）：DeepSeek「380 磅大只佬」「串子嘉豪培养体系」、Claude「a畜的自我修养」、智谱「z畜祖传手艺」、Google「元素周期表集邮」、OpenAI「In the coming weeks」、豆包「厘时代价格战」、Grok「Colossus 十万卡」、Kimi「K3 出分」、Qwen「按天迭代」、MiniMax「刷分怪：速度↑ 收益↓」。
+- **同系列羁绊**（13 组，覆盖全部 10 家厂商）：DeepSeek「380 磅大只佬」「串子嘉豪培养体系」「梁文锋的企业精神」「注意保密 · 又被截图了」、Claude「a畜的自我修养」、智谱「z畜祖传手艺」、Google「元素周期表集邮」、OpenAI「In the coming weeks」、豆包「厘时代价格战」、Grok「Colossus 十万卡」、Kimi「K3 出分」、Qwen「按天迭代」、MiniMax「刷分怪：速度↑ 收益↓」。
 - **MiniMax 刷分负面羁绊**：凑齐 2 个 MiniMax M3 系列后，算力/推关速度 ×1.12，但任务收益 ×0.82。
-- **跨系列与阵营连携**（18 组）：
+- **跨系列与阵营连携**（26 组）：
   - **普天同庆：Anthropic 破发**（Claude + DeepSeek + GPT-6：Claude ×0.85、友商加攻、全网收益 ×1.18）
   - **a畜 × z畜：双向奔赴**（Claude + GLM-5：Claude ×0.92、GLM ×1.15、收益 ×1.12）
+  - **我一直是达里奥粉丝**（DeepSeek V4 + Claude 5：DeepSeek ×1.06、Claude ×1.05、收益 ×1.06）
+  - **「不如k3.1」：首先我不是串子**（DeepSeek V4 + Kimi K3：DeepSeek ×0.95、Kimi ×1.10、收益 ×1.07）
+  - **唐老师攻破 Astra 了吗？来 DS 进修**（DeepSeek V4 + GPT-6 + GLM-5：DeepSeek ×1.10、OpenAI ×0.95、Zhipu ×0.93、收益 ×1.08）
+  - **重置哥换人了：谢谢反重力**（GPT-6 + Gemini 4：OpenAI ×0.93、Google ×1.12、收益 ×1.07）
+  - **北美大豆包 × 正宗大豆包**（Gemini 4 + Doubao Seed 2.1：算力 ×0.97、收益 ×1.12）
+  - **雷霆大思考 × 12h 吞光额度**（GLM-5 + Kimi K3：算力 ×1.12、收益 ×0.94）
+  - **千字小作文 vs Interesting**（Claude 5 + Grok 4：Claude ×0.95、Grok ×1.12、收益 ×1.07）
+  - **证得了黎曼猜想，画不出 13 个鸡蛋**（Claude 5 + Gemini 4 + GPT-6：算力 ×1.08、收益 ×0.96）
   - **Kimi 蒸馏了 Claude**（Kimi K3 + Claude 5.5）
   - **被 Kimi 当🐶踹飞**（Kimi K3 + DeepSeek V4，DeepSeek 算力 ×0.68，**负面连携**）
   - **问 GLM 你是谁：我是 Claude**（GLM-5 + Claude 5.5）
